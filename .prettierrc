@@ -1,0 +1,55 @@
+{
+  "bracketSameLine": false,
+  "semi": true,
+  "printWidth": 80,
+  "singleQuote": true,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "cursorOffset": -1,
+  "insertPragma": false,
+  "proseWrap": "preserve",
+  "rangeStart": 0,
+  "requirePragma": false,
+  "tabWidth": 2,
+  "useTabs": false,
+  "endOfLine": "lf",
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "*.css",
+      "options": {
+        "parser": "css"
+      }
+    },
+    {
+      "files": ["*.mjs", "*.cjs", "*.js", "*.jsx"],
+      "options": {
+        "parser": "babel"
+      }
+    },
+    {
+      "files": ["*.json", "*.jsonc", "*.json5", ".prettierrc"],
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": ["*.mts", "*.cts", "*.ts", "*.tsx"],
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "options": {
+        "parser": "html"
+      }
+    },
+    {
+      "files": ["*.md", "*.mdx"],
+      "options": {
+        "parser": "mdx"
+      }
+    }
+  ]
+}
