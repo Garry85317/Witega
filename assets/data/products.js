@@ -257,6 +257,274 @@ const productsData = {
           "url": "product/animalLabels/squareEarTag.html"
         }
       ]
+    },
+    {
+      "id": "injection",
+      "name": "注射防疫",
+      "products": [
+        {
+          "id": "animalScalpNeedle",
+          "name": "獸用頭皮針",
+          "img": "assets/img/products/injection/animalScalpNeedle.jpg",
+          "url": "product/injection/animalScalpNeedle.html"
+        },
+        {
+          "id": "butterflyBloodNeedle",
+          "name": "一次性靜脈采血針（蝶式）",
+          "img": "assets/img/products/injection/butterflyBloodNeedle.jpg",
+          "url": "product/injection/butterflyBloodNeedle.html"
+        },
+        {
+          "id": "disinfectionNeedleBox",
+          "name": "消毒針頭盒",
+          "img": "assets/img/products/injection/disinfectionNeedleBox.jpg",
+          "url": "product/injection/disinfectionNeedleBox.html"
+        },
+        {
+          "id": "disposableBloodCollectionAndStorage",
+          "name": "一次性採血盛血器",
+          "img": "assets/img/products/injection/disposableBloodCollectionAndStorage.jpg",
+          "url": "product/injection/disposableBloodCollectionAndStorage.html"
+        },
+        {
+          "id": "disposableSyringe",
+          "name": "一次性注射器",
+          "img": "assets/img/products/injection/disposableSyringe.jpg",
+          "url": "product/injection/disposableSyringe.html"
+        },
+        {
+          "id": "disposableTraceBloodCollectionVessel",
+          "name": "一次性微量採血管",
+          "img": "assets/img/products/injection/disposableTraceBloodCollectionVessel.jpg",
+          "url": "product/injection/disposableTraceBloodCollectionVessel.html"
+        },
+        {
+          "id": "disposableVacuumBloodCollectionVessel",
+          "name": "一次性真空採血管",
+          "img": "assets/img/products/injection/disposableVacuumBloodCollectionVessel.jpg",
+          "url": "product/injection/disposableVacuumBloodCollectionVessel.html"
+        },
+        {
+          "id": "needleHolders",
+          "name": "持針器",
+          "img": "assets/img/products/injection/needleHolders.jpg",
+          "url": "product/injection/needleHolders.html"
+        },
+        {
+          "id": "straightBloodNeedle",
+          "name": "一次性靜脈采血針（直式）",
+          "img": "assets/img/products/injection/straightBloodNeedle.jpg",
+          "url": "product/injection/straightBloodNeedle.html"
+        }
+      ]
+    },
+    {
+      "id": "temperature",
+      "name": "環溫控制",
+      "products": [
+        {
+          "id": "DHFuelHotFan",
+          "name": "DH燃油熱風機",
+          "img": "assets/img/products/temperature/DHFuelHotFan.jpg",
+          "url": "product/temperature/DHFuelHotFan.html"
+        },
+        {
+          "id": "DHCFuelHotFan",
+          "name": "DHC燃油熱風機（靜音款）",
+          "img": "assets/img/products/temperature/DHCFuelHotFan.jpg",
+          "url": "product/temperature/DHCFuelHotFan.html"
+        },
+        {
+          "id": "electricHeatingFanElite",
+          "name": "電熱風機-ELITE",
+          "img": "assets/img/products/temperature/electricHeatingFanElite.jpg",
+          "url": "product/temperature/electricHeatingFanElite.html"
+        },
+        {
+          "id": "pigHeatBoard",
+          "name": "仔豬加熱板",
+          "img": "assets/img/products/temperature/pigHeatBoard.jpg",
+          "url": "product/temperature/pigHeatBoard.html"
+        },
+        {
+          "id": "roughInfraredHeatLamp",
+          "name": "保溫燈麻面",
+          "img": "assets/img/products/temperature/roughInfraredHeatLamp.jpg",
+          "url": "product/temperature/roughInfraredHeatLamp.html"
+        },
+        {
+          "id": "smoothInfraredHeatLamp",
+          "name": "保溫燈光面",
+          "img": "assets/img/products/temperature/smoothInfraredHeatLamp.jpg",
+          "url": "product/temperature/smoothInfraredHeatLamp.html"
+        },
+        {
+          "id": "heatingLampHolder",
+          "name": "保溫燈罩",
+          "img": "assets/img/products/temperature/heatingLampHolder.jpg",
+          "url": "product/temperature/heatingLampHolder.html"
+        }
+      ]
+    },
+    {
+      "id": "disinfection",
+      "name": "清洗消毒",
+      "products": [
+        {
+          "id": "atomizedFumigationAndDisinfectionSystem",
+          "name": "霧化薰蒸消毒系統",
+          "img": "assets/img/products/disinfection/atomizedFumigationAndDisinfectionSystem.jpg",
+          "url": "product/disinfection/atomizedFumigationAndDisinfectionSystem.html"
+        },
+        {
+          "id": "flameDisinfectionGun",
+          "name": "火焰消毒槍",
+          "img": "assets/img/products/disinfection/flameDisinfectionGun.jpg",
+          "url": "product/disinfection/flameDisinfectionGun.html"
+        },
+        {
+          "id": "intelligentAtomizingDisinfector",
+          "name": "智能霧化消毒機",
+          "img": "assets/img/products/disinfection/intelligentAtomizingDisinfector.jpg",
+          "url": "product/disinfection/intelligentAtomizingDisinfector.html"
+        },
+        {
+          "id": "mistDisinfectionMachine",
+          "name": "霧化消毒機",
+          "img": "assets/img/products/disinfection/mistDisinfectionMachine.jpg",
+          "url": "product/disinfection/mistDisinfectionMachine.html"
+        },
+        {
+          "id": "mobileOzoneGenerator",
+          "name": "移動式臭氧消毒機",
+          "img": "assets/img/products/disinfection/mobileOzoneGenerator.jpg",
+          "url": "product/disinfection/mobileOzoneGenerator.html"
+        },
+        {
+          "id": "portableOzoneGenerator",
+          "name": "手提式臭氧消毒機",
+          "img": "assets/img/products/disinfection/portableOzoneGenerator.jpg",
+          "url": "product/disinfection/portableOzoneGenerator.html"
+        },
+        {
+          "id": "wallMountedOzoneGenerator",
+          "name": "壁掛式臭氧消毒機",
+          "img": "assets/img/products/disinfection/wallMountedOzoneGenerator.jpg",
+          "url": "product/disinfection/wallMountedOzoneGenerator.html"
+        },
+        {
+          "id": "smartVehicleDisinfectionTunnel",
+          "name": "智能車輛消毒隧道",
+          "img": "assets/img/products/disinfection/smartVehicleDisinfectionTunnel.jpg",
+          "url": "product/disinfection/smartVehicleDisinfectionTunnel.html"
+        },
+        {
+          "id": "disinfectionWetWipes",
+          "name": "消毒濕巾",
+          "img": "assets/img/products/disinfection/disinfectionWetWipes.jpg",
+          "url": "product/disinfection/disinfectionWetWipes.html"
+        },
+        {
+          "id": "disposableElasticBootCover",
+          "name": "消毒噴壺",
+          "img": "assets/img/products/disinfection/disposableElasticBootCover.jpg",
+          "url": "product/disinfection/disposableElasticBootCover.html"
+        }, {
+          "id": "vehicleChassisCleaner",
+          "name": "車輛底盤清洗機",
+          "img": "assets/img/products/disinfection/vehicleChassisCleaner.jpg",
+          "url": "product/disinfection/vehicleChassisCleaner.html"
+        },
+        {
+          "id": "epidemicPreventionMistCannonTruck",
+          "name": "防疫霧炮灑水車",
+          "img": "assets/img/products/disinfection/epidemicPreventionMistCannonTruck.jpg",
+          "url": "product/disinfection/epidemicPreventionMistCannonTruck.html"
+        },
+        {
+          "id": "bootCleaner",
+          "name": "雨靴消毒清洗機",
+          "img": "assets/img/products/disinfection/bootCleaner.jpg",
+          "url": "product/disinfection/bootCleaner.html"
+        },{
+          "id": "handPushDisinfectionMachine",
+          "name": "手推式消毒機",
+          "img": "assets/img/products/disinfection/handPushDisinfectionMachine.jpg",
+          "url": "product/disinfection/handPushDisinfectionMachine.html"
+        },
+      ]
+    },
+    {
+      "id": "epidemicPrevention",
+      "name": "豬場防疫",
+      "products": [
+  {
+    "id": "disposableCoverall",
+    "name": "一次性防護服",
+    "img": "assets/img/products/epidemicPrevention/disposableCoverall.jpg",
+    "url": "product/epidemicPrevention/disposableCoverall.html"
+  },
+  {
+    "id": "disposableElasticBootCover",
+    "name": "一次性高筒鬆緊鞋套",
+    "img": "assets/img/products/epidemicPrevention/disposableElasticBootCover.jpg",
+    "url": "product/epidemicPrevention/disposableElasticBootCover.html"
+  },
+  {
+    "id": "disposableUnderwear",
+    "name": "一次性內褲",
+    "img": "assets/img/products/epidemicPrevention/disposableUnderwear.jpg",
+    "url": "product/epidemicPrevention/disposableUnderwear.html"
+  },
+  {
+    "id": "disinfectionBoot",
+    "name": "平底雨靴",
+    "img": "assets/img/products/epidemicPrevention/disinfectionBoot.jpg",
+    "url": "product/epidemicPrevention/disinfectionBoot.html"
+  },
+  {
+    "id": "disinfectionSafetyBoot",
+    "name": "鋼頭雨靴",
+    "img": "assets/img/products/epidemicPrevention/disinfectionSafetyBoot.jpg",
+    "url": "product/epidemicPrevention/disinfectionSafetyBoot.html"
+  },
+  {
+    "id": "goggles",
+    "name": "護目鏡",
+    "img": "assets/img/products/epidemicPrevention/goggles.jpg",
+    "url": "product/epidemicPrevention/goggles.html"
+  },
+  {
+    "id": "disposableLatexGloves",
+    "name": "一次性乳膠手套",
+    "img": "assets/img/products/epidemicPrevention/disposableLatexGloves.jpg",
+    "url": "product/epidemicPrevention/disposableLatexGloves.html"
+  },
+  {
+    "id": "disposablePvcGloves",
+    "name": "一次性PVC手套",
+    "img": "assets/img/products/epidemicPrevention/disposablePvcGloves.jpg",
+    "url": "product/epidemicPrevention/disposablePvcGloves.html"
+  },
+  {
+    "id": "disposablePeGloves",
+    "name": "一次性PE手套",
+    "img": "assets/img/products/epidemicPrevention/disposablePeGloves.jpg",
+    "url": "product/epidemicPrevention/disposablePeGloves.html"
+  },
+  {
+    "id": "disposableNitrileGloves",
+    "name": "一次性丁腈手套",
+    "img": "assets/img/products/epidemicPrevention/disposableNitrileGloves.jpg",
+    "url": "product/epidemicPrevention/disposableNitrileGloves.html"
+  },
+  {
+    "id": "disposableLongGloves",
+    "name": "一次性長臂手套",
+    "img": "assets/img/products/epidemicPrevention/disposableLongGloves.jpg",
+    "url": "product/epidemicPrevention/disposableLongGloves.html"
+  }
+]
     }
   ]
 }; 
