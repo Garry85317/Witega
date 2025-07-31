@@ -441,12 +441,13 @@ const productsData = {
           "img": "assets/img/products/disinfection/epidemicPreventionMistCannonTruck.jpg",
           "url": "product/disinfection/epidemicPreventionMistCannonTruck.html"
         },
+        // {
+        //   "id": "bootCleaner",
+        //   "name": "雨靴消毒清洗機",
+        //   "img": "assets/img/products/disinfection/bootCleaner.jpg",
+        //   "url": "product/disinfection/bootCleaner.html"
+        // },
         {
-          "id": "bootCleaner",
-          "name": "雨靴消毒清洗機",
-          "img": "assets/img/products/disinfection/bootCleaner.jpg",
-          "url": "product/disinfection/bootCleaner.html"
-        }, {
           "id": "handPushDisinfectionMachine",
           "name": "手推式消毒機",
           "img": "assets/img/products/disinfection/handPushDisinfectionMachine.jpg",
@@ -794,12 +795,12 @@ const productsData = {
           "img": "assets/img/products/equipment/smartFeeder.jpg",
           "url": "product/equipment/smartFeeder.html"
         },
-        {
-          "id": "pigletWeighbridge",
-          "name": "仔豬地磅",
-          "img": "assets/img/products/equipment/pigletWeighbridge.jpg",
-          "url": "product/equipment/pigletWeighbridge.html"
-        },
+        // {
+        //   "id": "pigletWeighbridge",
+        //   "name": "仔豬地磅",
+        //   "img": "assets/img/products/equipment/pigletWeighbridge.jpg",
+        //   "url": "product/equipment/pigletWeighbridge.html"
+        // },
         {
           "id": "animalTrap",
           "name": "動物捕殺器",
