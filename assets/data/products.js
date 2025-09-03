@@ -96,7 +96,7 @@ const productsData = {
         },
         {
           "id": "digitalThermo",
-          "name": "電子溫度計",
+          "name": "獸用電子體溫計",
           "img": "assets/img/products/smartDetection/digitalThermo.jpg",
           "url": "product/smartDetection/digitalThermo.html"
         },
@@ -324,13 +324,13 @@ const productsData = {
       "products": [
         {
           "id": "DHFuelHotFan",
-          "name": "DH燃油熱風機",
+          "name": "WH06智能柴油暖風機",
           "img": "assets/img/products/temperature/DHFuelHotFan.jpg",
           "url": "product/temperature/DHFuelHotFan.html"
         },
         {
           "id": "DHCFuelHotFan",
-          "name": "DHC燃油熱風機（靜音款）",
+          "name": "WHC04智能柴油暖風機",
           "img": "assets/img/products/temperature/DHCFuelHotFan.jpg",
           "url": "product/temperature/DHCFuelHotFan.html"
         },
@@ -629,7 +629,7 @@ const productsData = {
         },
         {
           "id": "animalVibrator",
-          "name": "動物震動器",
+          "name": "動物震動棒",
           "img": "assets/img/products/equipment/animalVibrator.jpg",
           "url": "product/equipment/animalVibrator.html"
         },
@@ -755,13 +755,13 @@ const productsData = {
         },
         {
           "id": "backfatCaliper",
-          "name": "背膘卡尺",
+          "name": "背脂體態卡尺",
           "img": "assets/img/products/equipment/backfatCaliper.jpg",
           "url": "product/equipment/backfatCaliper.html"
         },
         {
           "id": "americanVersionOfTheBackCaliper",
-          "name": "美版背膘卡尺",
+          "name": "美國版背脂體態卡尺",
           "img": "assets/img/products/equipment/americanVersionOfTheBackCaliper.jpg",
           "url": "product/equipment/americanVersionOfTheBackCaliper.html"
         },
