@@ -1,9 +1,10 @@
 // GitHub 配置
-// 請填入你的 GitHub Token 和 Repository
-// 此檔案已加入 .gitignore，不會被提交到 Git
+// ⚠️ 注意：此文件需要提交到 GitHub 才能在正式環境使用
 
 const GITHUB_CONFIG = {
-  token: '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',  // 填入你的 GitHub Personal Access Token
+  // GAS URL（用於獲取 Token，Token 存儲在 GAS 中）
+  gasUrl: 'https://script.google.com/macros/s/AKfycbzmSqgl0nNy1myuIkEdFYjeDZTov6rX5ScRYEZVZSQsghHZ2nLyugoauyJycFfEAhfh/exec',
+  
   repo: 'Garry85317/Witega',   // 填入你的 Repository（格式：username/repo）
 };
 

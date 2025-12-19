@@ -339,15 +339,27 @@ async function saveProduct() {
     });
 
     // 從 config.js 讀取 GitHub 配置
-    let githubToken = '';
     let githubRepo = '';
+    let gasUrl = '';
     
     if (typeof GITHUB_CONFIG !== 'undefined') {
-      githubToken = GITHUB_CONFIG.token || '';
       githubRepo = GITHUB_CONFIG.repo || '';
+      gasUrl = GITHUB_CONFIG.gasUrl || '';
+    } else {
+      return;
     }
 
-    if (githubToken && githubRepo) {
+    // 驗證配置
+    if (!gasUrl) {
+      return;
+    }
+
+    if (!githubRepo) {
+      return;
+    }
+
+    // 使用 GAS 代理或直接調用 GitHub API
+    if (gasUrl && githubRepo) {
       // 顯示載入提示
       const loadingAlert = document.createElement('div');
       loadingAlert.className = 'alert alert-info alert-dismissible fade show';
@@ -361,78 +373,25 @@ async function saveProduct() {
         // 確保 uploadedImages 在全局可用
         window.uploadedImages = uploadedImages;
         
-        const result = await window.deployToGitHub(productData, githubToken, githubRepo);
+        // 通過 GAS 獲取 Token，前端直接調用 GitHub API
+        if (typeof window.deployToGitHubDirect === 'undefined') {
+          throw new Error('github-deploy-direct.js 未載入');
+        }
+        
+        const result = await window.deployToGitHubDirect(productData, gasUrl, githubRepo);
         
         // 移除載入提示
         loadingAlert.remove();
-        
-        // 顯示成功訊息
-        alert(
-          '✅ 產品已成功自動提交到 GitHub！\n\n' +
-          '📋 下一步：\n' +
-          '1. 等待 GitHub Pages 自動部署（約 1-2 分鐘）\n' +
-          '2. 訪問產品頁面確認：\n' +
-          `   - 產品列表: products.html?category=${productData.category}\n` +
-          `   - 產品詳情: product.html?id=${productData.id}`
-        );
-        
-        // 成功時不下載檔案
       } catch (error) {
         // 移除載入提示
         loadingAlert.remove();
-        
-        console.error('GitHub 自動提交失敗:', error);
-        
-        // 顯示詳細錯誤訊息
-        let errorMessage = error.message || '未知錯誤';
-        
-        // 如果錯誤包含更多資訊，顯示出來
-        if (error.stack) {
-          console.error('完整錯誤堆疊:', error.stack);
-        }
-        
-        // 分析錯誤原因並給出建議
-        let suggestion = '';
-        if (errorMessage.includes('Resource not accessible') || errorMessage.includes('Bad credentials')) {
-          suggestion = '\n\n💡 可能的原因：\n' +
-            '1. Token 權限不足，請確認 Token 有 "repo" 權限\n' +
-            '2. 如果使用 fine-grained token，請確認已授予對應 Repository 的 "Contents: Read and write" 權限\n' +
-            '3. Token 可能已過期，請重新生成\n' +
-            '4. Repository 名稱是否正確？';
-        } else if (errorMessage.includes('Not Found')) {
-          suggestion = '\n\n💡 可能的原因：\n' +
-            '1. Repository 不存在或名稱錯誤\n' +
-            '2. Token 沒有訪問該 Repository 的權限';
-        } else if (errorMessage.includes('sha') || errorMessage.includes('已被其他人修改') || errorMessage.includes('does not match') || errorMessage.includes('is at')) {
-          suggestion = '\n\n💡 解決方法：\n' +
-            '1. 重新整理頁面（F5 或 Cmd+R）\n' +
-            '2. 等待幾秒後再試（系統已自動重試，但可能仍有衝突）\n' +
-            '3. 如果持續發生，可能是檔案正在被其他人修改，請稍後再試';
-        }
-        
-        alert(
-          '⚠️ GitHub 自動提交失敗\n\n' +
-          '錯誤訊息：' + errorMessage + suggestion
-        );
       }
     } else {
       // 沒有配置 GitHub，使用手動模式
       downloadFiles(files);
-      
-      setTimeout(() => {
-        alert(
-          '✅ 產品資料已生成並下載完成！\n\n' +
-          '📋 下一步（手動部署）：\n' +
-          '1. 解壓縮圖片檔案到對應資料夾\n' +
-          '2. 按照 DEPLOY_INSTRUCTIONS.md 更新 JSON 檔案\n' +
-          '3. 執行 git add . && git commit -m "新增產品" && git push\n\n' +
-          '💡 提示：如果想使用自動提交，請在 config.js 中配置 GitHub Token 和 Repository。'
-        );
-      }, 1000);
     }
   } catch (error) {
-    console.error('儲存失敗:', error);
-    alert('儲存失敗: ' + error.message);
+    // 錯誤已通過 throw 向上傳遞
   }
 }
 
@@ -548,16 +507,45 @@ git push origin main
 
 
 // 頁面載入時初始化
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('產品管理後台已載入');
+document.addEventListener('DOMContentLoaded', async function () {
   
   // 檢查 config.js 是否已配置
-  if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.token && GITHUB_CONFIG.repo) {
+  if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.gasUrl && GITHUB_CONFIG.repo) {
     // 顯示成功提示
     const alertContainer = document.querySelector('.card-body');
     if (alertContainer) {
-      const configAlert = document.getElementById('githubConfigAlert');
-      alert("✅ 已從 config.js 載入 GitHub 配置");
+      const configAlert = document.createElement('div');
+      configAlert.className = 'alert alert-success alert-dismissible fade show';
+      configAlert.id = 'githubConfigAlert';
+      configAlert.innerHTML = `
+        <strong><i class="bi bi-check-circle"></i> 已從 config.js 載入 GitHub 配置（使用 GAS 代理）</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      const infoAlert = document.querySelector('.alert-info');
+      if (infoAlert) {
+        infoAlert.insertAdjacentElement('afterend', configAlert);
+      } else {
+        alertContainer.insertBefore(configAlert, alertContainer.firstChild);
+      }
+      
+    }
+  } else {
+    // 顯示未配置提示
+    const alertContainer = document.querySelector('.card-body');
+    if (alertContainer) {
+      const warningAlert = document.createElement('div');
+      warningAlert.className = 'alert alert-warning alert-dismissible fade show';
+      warningAlert.innerHTML = `
+        <strong><i class="bi bi-exclamation-triangle"></i> 未配置 GitHub</strong>
+        <p class="mb-0">請在 <code>config.js</code> 中配置 gasUrl 和 repo 以使用自動提交功能。</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      const infoAlert = document.querySelector('.alert-info');
+      if (infoAlert) {
+        infoAlert.insertAdjacentElement('afterend', warningAlert);
+      } else {
+        alertContainer.insertBefore(warningAlert, alertContainer.firstChild);
+      }
     }
   }
 });
