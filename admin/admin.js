@@ -247,19 +247,6 @@ function generateProductsJsItem(productData) {
         }`;
 }
 
-// 下載檔案
-function downloadFile(content, filename, mimeType) {
-  const blob = new Blob([content], { type: mimeType });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
-
 // 儲存產品
 async function saveProduct() {
   // 驗證表單
@@ -272,17 +259,16 @@ async function saveProduct() {
   const productData = collectFormData();
 
   // 驗證必填欄位
-  if (!productData.id || !productData.name || !productData.category) {
-    alert('請填寫所有必填欄位');
-    return;
-  }
+//   if (!productData.id || !productData.name || !productData.category) {
+//     alert('請填寫所有必填欄位');
+//     return;
+//   }
 
-  if (productData.images.length === 0) {
-    alert('請至少上傳一張產品圖片');
-    return;
-  }
+//   if (productData.images.length === 0) {
+//     alert('請至少上傳一張產品圖片');
+//     return;
+//   }
 
-  try {
     // 生成檔案
     const files = [];
 
@@ -359,7 +345,6 @@ async function saveProduct() {
     }
 
     // 使用 GAS 代理或直接調用 GitHub API
-    if (gasUrl && githubRepo) {
       // 顯示載入提示
       const loadingAlert = document.createElement('div');
       loadingAlert.className = 'alert alert-info alert-dismissible fade show';
@@ -382,49 +367,40 @@ async function saveProduct() {
         
         // 移除載入提示
         loadingAlert.remove();
+        
+        // 顯示成功訊息
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-success alert-dismissible fade show';
+        const commitShaShort = result.commitSha ? result.commitSha.substring(0, 7) : 'N/A';
+        successAlert.innerHTML = `
+          <strong><i class="bi bi-check-circle"></i> 產品已成功提交到 GitHub！</strong>
+          <br>
+          <small>Commit: <code>${commitShaShort}</code> | 等待 GitHub Pages 自動部署（約 1-2 分鐘）</small>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        document.querySelector('.card-body').insertBefore(successAlert, document.querySelector('form'));
+        
+        // 10 秒後自動關閉
+        setTimeout(() => {
+          if (successAlert.parentNode) {
+            successAlert.remove();
+          }
+        }, 10000);
       } catch (error) {
         // 移除載入提示
         loadingAlert.remove();
+        
+        // 顯示錯誤訊息
+        const errorAlert = document.createElement('div');
+        errorAlert.className = 'alert alert-danger alert-dismissible fade show';
+        errorAlert.innerHTML = `
+          <strong><i class="bi bi-exclamation-triangle"></i> GitHub 提交失敗</strong>
+          <br>
+          <small>${error.message || '未知錯誤'}</small>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        document.querySelector('.card-body').insertBefore(errorAlert, document.querySelector('form'));
       }
-    } else {
-      // 沒有配置 GitHub，使用手動模式
-      downloadFiles(files);
-    }
-  } catch (error) {
-    // 錯誤已通過 throw 向上傳遞
-  }
-}
-
-// 下載檔案函數
-function downloadFiles(files) {
-  // 逐一下載檔案（避免瀏覽器阻止多個下載）
-  let downloadIndex = 0;
-  function downloadNext() {
-    if (downloadIndex >= files.length) {
-      return;
-    }
-
-    const file = files[downloadIndex];
-    setTimeout(() => {
-      if (file.blob) {
-        // 下載 ZIP 檔案
-        const url = URL.createObjectURL(file.blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = file.name;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      } else {
-        // 下載文字檔案
-        downloadFile(file.content, file.name, 'text/plain');
-      }
-      downloadIndex++;
-      downloadNext();
-    }, 500); // 延遲 500ms 避免瀏覽器阻止
-  }
-  downloadNext();
 }
 
 // 生成部署說明

@@ -34,6 +34,7 @@ async function getTokenFromGAS(gasUrl) {
 }
 
 // 直接通过 GitHub API 提交多个文件（单个 commit）
+// 使用与 github-deploy.js 相同的逻辑，但从 GAS 获取 token
 window.deployToGitHubDirect = async function(productData, gasUrl, repo) {
   try {
     // 1. 从 GAS 获取 token
@@ -44,232 +45,98 @@ window.deployToGitHubDirect = async function(productData, gasUrl, repo) {
       throw new Error('Repository 格式錯誤，應為 username/repo');
     }
 
-    const baseUrl = `https://api.github.com/repos/${owner}/${repoName}`;
+    // 統一的 commit message
     const commitMessage = `新增產品: ${productData.name}`;
     
-    // 2. 檢測分支名稱（main 或 master）
-    let branch = 'main';
-    let refUrl = `${baseUrl}/git/ref/heads/${branch}`;
-    let refRes = await fetch(refUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/vnd.github+json'
-      }
-    });
-    
-    if (refRes.status === 404) {
-      branch = 'master';
-    }
-    
-    // 3. 準備所有要更新的檔案
+    // 準備所有要更新的檔案
     const filesToUpdate = [];
 
-    // 3.1 準備 product-details.js 更新
+    // 1. 準備 product-details.js 更新
     const productDetailsContent = await window.prepareFileContentForGitHub(
-      baseUrl,
       token,
+      owner,
+      repoName,
       'assets/data/product-details.js',
       productData,
-      'product-details',
-      branch
+      'product-details'
     );
     filesToUpdate.push({
       path: 'assets/data/product-details.js',
       content: productDetailsContent.content,
-      sha: productDetailsContent.sha
+      sha: productDetailsContent.sha,
+      isText: true
     });
 
-    // 3.2 準備 products.js 更新
+    // 2. 準備 products.js 更新
     const productsContent = await window.prepareFileContentForGitHub(
-      baseUrl,
       token,
+      owner,
+      repoName,
       'assets/data/products.js',
       productData,
-      'products',
-      branch
+      'products'
     );
     filesToUpdate.push({
       path: 'assets/data/products.js',
       content: productsContent.content,
-      sha: productsContent.sha
+      sha: productsContent.sha,
+      isText: true
     });
 
-    // 2.3 準備圖片上傳
+    // 3. 準備圖片上傳
     if (window.uploadedImages && window.uploadedImages.length > 0) {
       for (let i = 0; i < window.uploadedImages.length; i++) {
         const img = window.uploadedImages[i];
         const ext = img.name.split('.').pop().toLowerCase();
         const path = `assets/img/products/${productData.id}/${productData.id}-${i + 1}.${ext}`;
         
-        // 將 base64 轉換為 binary
-        const base64Data = img.data.split(',')[1];
-        const binaryData = atob(base64Data);
-        const bytes = new Uint8Array(binaryData.length);
-        for (let j = 0; j < binaryData.length; j++) {
-          bytes[j] = binaryData.charCodeAt(j);
+        // 直接使用 base64 數據（img.data 格式為 "data:image/...;base64,xxxxx"）
+        // 提取 base64 部分
+        let base64Content;
+        if (img.data.includes(',')) {
+          base64Content = img.data.split(',')[1];
+        } else {
+          // 如果已經是純 base64，直接使用
+          base64Content = img.data;
         }
-
-        // 轉換為 base64
-        const binString = Array.from(bytes, (byte) =>
-          String.fromCodePoint(byte)
-        ).join('');
-        const base64Content = btoa(binString);
 
         filesToUpdate.push({
           path: path,
           content: base64Content,
-          sha: null // 新檔案沒有 sha
+          sha: null, // 新檔案沒有 sha
+          isText: false // 圖片是二進制檔案
         });
       }
     }
 
-    // 4. 直接調用 GitHub API 提交所有檔案（單一 commit）
-    // 4.1 獲取當前分支的 ref（使用已檢測的分支名稱）
-    refUrl = `${baseUrl}/git/ref/heads/${branch}`;
-    refRes = await fetch(refUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/vnd.github+json'
-      }
-    });
+    // 4. 使用 Git Data API 在單一 commit 中提交所有檔案
+    const result = await window.commitMultipleFilesForGitHub(
+      token,
+      owner,
+      repoName,
+      filesToUpdate,
+      commitMessage
+    );
 
-    if (refRes.status !== 200) {
-      const errorData = await refRes.json();
-      throw new Error(`無法獲取分支 ref: ${errorData.message || `HTTP ${refRes.status}`}`);
-    }
-
-    const refData = await refRes.json();
-    const latestCommitSha = refData.object.sha;
-
-    const commitUrl = `${baseUrl}/git/commits/${latestCommitSha}`;
-    const commitRes = await fetch(commitUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/vnd.github+json'
-      }
-    });
-
-    if (commitRes.status !== 200) {
-      const errorData = await commitRes.json();
-      throw new Error(`無法獲取 commit: ${errorData.message || `HTTP ${commitRes.status}`}`);
-    }
-
-    const commitData = await commitRes.json();
-    const baseTreeSha = commitData.tree.sha;
-
-    // 4.3 創建所有文件的 blob
-    const treeItems = [];
-    for (let i = 0; i < filesToUpdate.length; i++) {
-      const file = filesToUpdate[i];
-      const blobUrl = `${baseUrl}/git/blobs`;
-      const blobRes = await fetch(blobUrl, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: 'application/vnd.github+json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          content: file.content,
-          encoding: 'base64'
-        })
-      });
-
-      if (blobRes.status !== 201) {
-        const errorData = await blobRes.json();
-        throw new Error(`無法創建 blob for ${file.path}: ${errorData.message || `HTTP ${blobRes.status}`}`);
-      }
-
-      const blobData = await blobRes.json();
-      treeItems.push({
-        path: file.path,
-        mode: '100644',
-        type: 'blob',
-        sha: blobData.sha
-      });
-    }
-
-    // 4.4 創建新的 tree
-    const treeUrl = `${baseUrl}/git/trees`;
-    const treeRes = await fetch(treeUrl, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/vnd.github+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        base_tree: baseTreeSha,
-        tree: treeItems
-      })
-    });
-
-    if (treeRes.status !== 201) {
-      const errorData = await treeRes.json();
-      throw new Error(`無法創建 tree: ${errorData.message || `HTTP ${treeRes.status}`}`);
-    }
-
-    const treeData = await treeRes.json();
-    const newTreeSha = treeData.sha;
-
-    // 4.5 創建新的 commit
-    const newCommitUrl = `${baseUrl}/git/commits`;
-    const newCommitRes = await fetch(newCommitUrl, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/vnd.github+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: commitMessage,
-        tree: newTreeSha,
-        parents: [latestCommitSha]
-      })
-    });
-
-    if (newCommitRes.status !== 201) {
-      const errorData = await newCommitRes.json();
-      throw new Error(`無法創建 commit: ${errorData.message || `HTTP ${newCommitRes.status}`}`);
-    }
-
-    const newCommitData = await newCommitRes.json();
-    const newCommitSha = newCommitData.sha;
-
-    // 4.6 更新分支 ref（使用檢測到的分支名稱，這會自動 push 到 GitHub）
-    const updateRefUrl = `${baseUrl}/git/refs/heads/${branch}`;
-    const updateRefRes = await fetch(updateRefUrl, {
-      method: 'PATCH',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/vnd.github+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        sha: newCommitSha
-      })
-    });
-
-    if (updateRefRes.status !== 200) {
-      const errorData = await updateRefRes.json();
-      throw new Error(`無法更新 ref: ${errorData.message || `HTTP ${updateRefRes.status}`}`);
-    }
-
-    return { success: true, message: '產品已成功提交到 GitHub！' };
+    return { 
+      success: true, 
+      message: '產品已成功提交到 GitHub！',
+      commitSha: result.commitSha
+    };
   } catch (error) {
     throw error;
   }
 };
 
-// 通過 GitHub API 獲取檔案內容
-window.prepareFileContentForGitHub = async function(baseUrl, token, path, productData, type, branch = 'main') {
-  // 先通過 GitHub API 獲取現有檔案內容
-  const getUrl = `${baseUrl}/contents/${encodeURIComponent(path)}?ref=${branch}`;
-  const getResponse = await fetch(getUrl, {
+// 準備檔案內容（與 github-deploy.js 相同的邏輯）
+window.prepareFileContentForGitHub = async function(token, owner, repo, path, productData, type) {
+  // 先獲取現有檔案內容
+  const getFileUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+  const getResponse = await fetch(getFileUrl, {
     headers: {
       Authorization: `Bearer ${token}`,
-      Accept: 'application/vnd.github+json'
-    }
+      Accept: 'application/vnd.github.v3+json',
+    },
   });
 
   let sha = null;
@@ -278,37 +145,57 @@ window.prepareFileContentForGitHub = async function(baseUrl, token, path, produc
   if (getResponse.ok) {
     const fileData = await getResponse.json();
     sha = fileData.sha;
-    // 解碼 base64 內容
-    currentContent = atob(fileData.content.replace(/\s/g, ''));
-  } else if (getResponse.status !== 404) {
-    const errorData = await getResponse.json();
-    throw new Error(errorData.message || `無法讀取檔案 (HTTP ${getResponse.status})`);
+    // 正確解碼 base64 內容（GitHub API 返回的 content 是 base64 編碼的）
+    try {
+      currentContent = atob(fileData.content.replace(/\s/g, ''));
+    } catch (e) {
+      // 如果解碼失敗，嘗試直接使用
+      currentContent = fileData.content || '';
+    }
+  } else if (getResponse.status === 404) {
+    // 檔案不存在，創建新檔案
+    currentContent = '';
+  } else {
+    let errorMessage = `無法讀取檔案 (HTTP ${getResponse.status})`;
+    try {
+      const errorData = await getResponse.json();
+      errorMessage = errorData.message || errorData.error || errorMessage;
+    } catch (e) {
+      errorMessage = `${errorMessage}: ${await getResponse.text()}`;
+    }
+    throw new Error(errorMessage);
   }
 
-  // 生成新內容（與原來的邏輯相同）
+  // 生成新內容
   let newContent = '';
   if (type === 'product-details') {
+    // 在 productDetails 物件中添加新產品
     const productItem = `  "${productData.id}": ${JSON.stringify(productData, null, 4)}`;
     
     if (currentContent.includes('const productDetails = {')) {
+      // 找到最後一個產品項目的位置（更精確的匹配）
       const lastProductRegex = /("[\w-]+":\s*\{[^}]*\}),?\s*(\n\s*\};\s*)$/s;
       const match = currentContent.match(lastProductRegex);
       
       if (match) {
+        // 在最後一個產品後添加新產品
         newContent = currentContent.replace(
           lastProductRegex,
           `$1,\n${productItem}$2`
         );
       } else {
+        // 在 productDetails 物件中添加
         newContent = currentContent.replace(
           'const productDetails = {',
           `const productDetails = {\n${productItem},`
         );
       }
     } else {
+      // 如果檔案格式不對，創建新格式
       newContent = `const productDetails = {\n${productItem}\n};`;
     }
   } else if (type === 'products') {
+    // 在對應分類的 products 陣列中添加新產品
     const categoryId = productData.category;
     const firstImage = productData.images[0] || '';
     const productItem = `        {
@@ -317,42 +204,151 @@ window.prepareFileContentForGitHub = async function(baseUrl, token, path, produc
           "img": "${firstImage}",
           "url": "product.html?id=${productData.id}"
         }`;
-
-    if (currentContent.includes(`"${categoryId}":`)) {
-      // 找到對應分類的陣列，在最後一個產品後添加
-      const categoryRegex = new RegExp(
-        `("${categoryId}":\\s*\\[)([^\\]]*)(\\])`,
-        's'
+    
+    // 找到對應分類（更精確的匹配）
+    const categoryRegex = new RegExp(
+      `("id":\\s*"${categoryId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^}]*"products":\\s*\\[)([^\\]]*)(\\])`,
+      's'
+    );
+    const match = currentContent.match(categoryRegex);
+    
+    if (match) {
+      const productsArray = match[2].trim();
+      const newProductsArray = productsArray
+        ? productsArray + ',\n' + productItem
+        : productItem;
+      newContent = currentContent.replace(
+        categoryRegex,
+        `$1\n${newProductsArray}\n      $3`
       );
-      const match = currentContent.match(categoryRegex);
-      
-      if (match) {
-        const existingProducts = match[2].trim();
-        if (existingProducts) {
-          newContent = currentContent.replace(
-            categoryRegex,
-            `$1${existingProducts},\n${productItem}\n      $3`
-          );
-        } else {
-          newContent = currentContent.replace(
-            categoryRegex,
-            `$1\n${productItem}\n      $3`
-          );
-        }
-      } else {
-        throw new Error(`無法找到分類 ${categoryId} 的位置`);
-      }
     } else {
-      throw new Error(`無法找到分類 ${categoryId}，請確認 products.js 格式正確`);
+      throw new Error(`找不到分類 ${categoryId}，請確認分類 ID 是否正確`);
     }
   }
 
-  // 返回準備好的內容和 sha
-  const content = btoa(unescape(encodeURIComponent(newContent)));
+  // 返回準備好的內容和 sha（不直接上傳）
+  // 使用正確的 UTF-8 編碼方式（支持中文）
+  // 將字符串轉換為 UTF-8 字節數組，再轉換為 base64
+  const utf8Bytes = new TextEncoder().encode(newContent);
+  // 將 Uint8Array 轉換為字符串（使用 spread operator 避免 apply 的參數限制）
+  const binaryString = Array.from(utf8Bytes, byte => String.fromCharCode(byte)).join('');
+  const content = btoa(binaryString);
   
   return {
     content: content,
     sha: sha
   };
+};
+
+// 使用 Git Data API 在單一 commit 中提交多個檔案（與 github-deploy.js 相同的邏輯）
+window.commitMultipleFilesForGitHub = async function(token, owner, repo, files, message, branch = 'main') {
+  const baseUrl = `https://api.github.com/repos/${owner}/${repo}`;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    Accept: 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json',
+  };
+
+  // 1. 獲取當前分支的 ref
+  let refResponse = await fetch(`${baseUrl}/git/ref/heads/${branch}`, { headers });
+  if (!refResponse.ok && refResponse.status === 404) {
+    // 嘗試 master 分支
+    branch = 'master';
+    refResponse = await fetch(`${baseUrl}/git/ref/heads/${branch}`, { headers });
+  }
+  
+  if (!refResponse.ok) {
+    throw new Error(`無法獲取分支 ref (HTTP ${refResponse.status})`);
+  }
+  
+  const refData = await refResponse.json();
+  const latestCommitSha = refData.object.sha;
+
+  // 2. 獲取最新的 commit
+  const commitResponse = await fetch(`${baseUrl}/git/commits/${latestCommitSha}`, { headers });
+  if (!commitResponse.ok) {
+    throw new Error(`無法獲取 commit (HTTP ${commitResponse.status})`);
+  }
+  const commitData = await commitResponse.json();
+  const baseTreeSha = commitData.tree.sha;
+
+  // 3. 創建所有檔案的 blob
+  const blobPromises = files.map(async (file) => {
+    const blobResponse = await fetch(`${baseUrl}/git/blobs`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        content: file.content,
+        encoding: 'base64'
+      })
+    });
+    
+    if (!blobResponse.ok) {
+      throw new Error(`無法創建 blob for ${file.path} (HTTP ${blobResponse.status})`);
+    }
+    
+    const blobData = await blobResponse.json();
+    return {
+      path: file.path,
+      mode: '100644', // 普通檔案
+      type: 'blob',
+      sha: blobData.sha
+    };
+  });
+
+  const treeItems = await Promise.all(blobPromises);
+
+  // 5. 創建新的 tree（使用 base_tree，GitHub 會自動處理目錄結構和現有檔案）
+  const newTreeResponse = await fetch(`${baseUrl}/git/trees`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      base_tree: baseTreeSha, // 從現有 tree 開始
+      tree: treeItems // 只提供要更新/添加的檔案，GitHub 會自動處理其餘部分
+    })
+  });
+
+  if (!newTreeResponse.ok) {
+    const errorData = await newTreeResponse.json();
+    throw new Error(`無法創建 tree (HTTP ${newTreeResponse.status}): ${JSON.stringify(errorData)}`);
+  }
+  
+  const newTreeData = await newTreeResponse.json();
+  const newTreeSha = newTreeData.sha;
+
+  // 7. 創建新的 commit
+  const newCommitResponse = await fetch(`${baseUrl}/git/commits`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      message: message,
+      tree: newTreeSha,
+      parents: [latestCommitSha]
+    })
+  });
+
+  if (!newCommitResponse.ok) {
+    const errorData = await newCommitResponse.json();
+    throw new Error(`無法創建 commit (HTTP ${newCommitResponse.status}): ${JSON.stringify(errorData)}`);
+  }
+  
+  const newCommitData = await newCommitResponse.json();
+  const newCommitSha = newCommitData.sha;
+
+  // 8. 更新分支 ref
+  const updateRefResponse = await fetch(`${baseUrl}/git/refs/heads/${branch}`, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({
+      sha: newCommitSha
+    })
+  });
+
+  if (!updateRefResponse.ok) {
+    const errorData = await updateRefResponse.json();
+    throw new Error(`無法更新 ref (HTTP ${updateRefResponse.status}): ${JSON.stringify(errorData)}`);
+  }
+
+  return { success: true, commitSha: newCommitSha };
 };
 
