@@ -3,6 +3,6 @@
 // config.js 已加入 .gitignore，不會被提交到 Git
 
 const GITHUB_CONFIG = {
-  token: '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',  // 填入你的 GitHub Personal Access Token
-  repo: 'Garry85317/Witega',   // 填入你的 Repository（格式：username/repo）
+  token: '',  // 填入你的 GitHub Personal Access Token（格式：ghp_xxxxxxxxxxxx 或 github_pat_xxxxxxxxxxxx）
+  repo: '',   // 填入你的 Repository（格式：username/repo）
 };
