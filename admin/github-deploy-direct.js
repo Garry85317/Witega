@@ -146,11 +146,24 @@ window.prepareFileContentForGitHub = async function(token, owner, repo, path, pr
     const fileData = await getResponse.json();
     sha = fileData.sha;
     // 正確解碼 base64 內容（GitHub API 返回的 content 是 base64 編碼的）
+    // 使用 TextDecoder 正確解碼 UTF-8（支持中文）
     try {
-      currentContent = atob(fileData.content.replace(/\s/g, ''));
+      const base64Data = fileData.content.replace(/\s/g, '');
+      const binaryString = atob(base64Data);
+      // 將 binary string 轉換為 Uint8Array
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      // 使用 TextDecoder 解碼 UTF-8
+      currentContent = new TextDecoder('utf-8').decode(bytes);
     } catch (e) {
-      // 如果解碼失敗，嘗試直接使用
-      currentContent = fileData.content || '';
+      // 如果解碼失敗，嘗試直接使用 atob（兼容舊方法）
+      try {
+        currentContent = atob(fileData.content.replace(/\s/g, ''));
+      } catch (e2) {
+        currentContent = fileData.content || '';
+      }
     }
   } else if (getResponse.status === 404) {
     // 檔案不存在，創建新檔案
@@ -228,11 +241,9 @@ window.prepareFileContentForGitHub = async function(token, owner, repo, path, pr
 
   // 返回準備好的內容和 sha（不直接上傳）
   // 使用正確的 UTF-8 編碼方式（支持中文）
-  // 將字符串轉換為 UTF-8 字節數組，再轉換為 base64
-  const utf8Bytes = new TextEncoder().encode(newContent);
-  // 將 Uint8Array 轉換為字符串（使用 spread operator 避免 apply 的參數限制）
-  const binaryString = Array.from(utf8Bytes, byte => String.fromCharCode(byte)).join('');
-  const content = btoa(binaryString);
+  // 使用與 github-deploy.js 相同的方法：btoa(unescape(encodeURIComponent()))
+  // 這是處理 UTF-8 中文字符的標準方法
+  const content = btoa(unescape(encodeURIComponent(newContent)));
   
   return {
     content: content,
