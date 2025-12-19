@@ -374,7 +374,6 @@
           `;
           return;
         }
-        console.log(products[0].img);
 
         let html = '';
         for (let i = 0; i < products.length; i++) {
@@ -416,8 +415,17 @@
 
       // 初始化
       document.addEventListener('DOMContentLoaded', function () {
+        // 1. 先從 URL 讀取 category 參數（例如 products.html?category=smart-detection）
+        const params = new URLSearchParams(window.location.search);
+        const categoryFromUrl = params.get('category') || '';
+        if (categoryFromUrl) {
+          currentCategoryId = categoryFromUrl;
+        }
+
+        // 2. 再依據當前 categoryId 渲染分類與產品
         if (typeof productsData !== 'undefined' && productsData.categories) {
           renderCategories(productsData.categories);
+          updateCategoryTitle(productsData.categories);
           updateProducts(productsData.categories);
         } else {
           document.getElementById('productList').innerHTML = `

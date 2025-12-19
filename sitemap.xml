@@ -4,89 +4,782 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
+<!-- auto generated sitemap -->
 
 <url>
   <loc>https://witega.com.tw/</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://witega.com.tw/index.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/index_en.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://witega.com.tw/product/RX1.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://witega.com.tw/product/F1.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://witega.com.tw/product/T1.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://witega.com.tw/product/K1.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://witega.com.tw/product/RU1.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://witega.com.tw/product/RL1.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://witega.com.tw/product/G1.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://witega.com.tw/product/iSperm.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://witega.com.tw/product/wash.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
+  <loc>https://witega.com.tw/products.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://witega.com.tw/product/EPIG.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/F1.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/G1.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/K1.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/Nanolike.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/R1.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/RL1.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/RU1.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/RX1.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/T1.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/animalMarkingSpray.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/automaticTagApplicator.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/circleEarTag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/cutterForRemovingEarTag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/earCutter.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/earNotcher.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/earTagMarkerPen.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/electricEarTagApplicator.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/electronicEarTagReader.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/markingCrayon.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/sectorEarTag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/sheepEarTag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/animalLabels/squareEarTag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/atomizedFumigationAndDisinfectionSystem.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/bootCleaner.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/disinfectionWetWipes.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/disposableElasticBootCover.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/epidemicPreventionMistCannonTruck.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/flameDisinfectionGun.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/handPushDisinfectionMachine.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/intelligentAtomizingDisinfector.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/mistDisinfectionMachine.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/mobileOzoneGenerator.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/portableOzoneGenerator.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/smartVehicleDisinfectionTunnel.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/vehicleChassisCleaner.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/disinfection/wallMountedOzoneGenerator.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disinfectionBoot.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disinfectionSafetyBoot.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disposableCoverall.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disposableElasticBootCover.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disposableLatexGloves.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disposableLongGloves.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disposableNitrileGloves.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disposablePeGloves.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disposablePvcGloves.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/disposableUnderwear.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/epidemicPrevention/goggles.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/afterbirthBag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/aluminumFeedScoop.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/americanVersionOfTheBackCaliper.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/animalTrap.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/animalVibrator.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/artificialInseminationTrolleyForPigs.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/backfatCaliper.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/backupBodyRuler.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/biteBallNipple.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/biteNipple.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/boarOdorant.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/breedingSaddlesInseminationBackbag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/carcassBag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/carlboMedicineDoser.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/deliveryPapers.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/disposableSemenCollectionBag.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/disposableUmbilicalCordClamps.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/dosatronMedicineDoser.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/eightTypeDrinkingTrough.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/electricPowderSprayer.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/electricTailDocker.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/electricThermostaticSemenCollectionCup.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/ellipticDrinkingBowl.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/galvanizedPigHolder.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/gasTailDocker.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/halfRoundDrinkingTrough.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/hemostaticForcepsNeedleForceps.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/longPigHolder.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/longSortingPaddle.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/medicalGauze.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/medicalTray.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/miniCastrationScalpel.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/mouthOpenerForPig.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/obstetricTools.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/organizationForceps.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigCatcher.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigProd.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigSoundSimulator.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigletCastrationSupports.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigletFeedingTrough.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigletRubberMat.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigletTailDockerModule.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigletVentilator.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/pigletWeighbridge.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/plasticFeedScoop.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/plasticPigHolder.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/plugInTeethGrindingMachine.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/rectangularDrinkingTrough.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/roundDrinkingBowl.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/scalpelHandleAndBlade.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/semenCollectionBagWithFilter.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/semenCollectionCup.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/semenFilterGauze.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/shortSortingPaddle.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/singleSowMeasuringScale.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/smartFeeder.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/stainlessSteelFeedScoop.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/stainlessSteelPigletBowl.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/surgicalScissors.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/sutureLineForAnimals.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/sutureNeedleForAnimals.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/tailDockingForceps.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/teethCuttingForceps.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/toolBoxMedicineBox.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/troughAndBowlNipple.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/equipment/ventilationPipe.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/iSperm.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/animalScalpNeedle.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/butterflyBloodNeedle.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/disinfectionNeedleBox.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/disposableBloodCollectionAndStorage.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/disposableSyringe.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/disposableTraceBloodCollectionVessel.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/disposableVacuumBloodCollectionVessel.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/needleHolders.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/injection/staightBloodNeedle.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/PHTestPaper.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/ammoniaDetector.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/anemometer.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/animalThermometer.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/digitalThermo.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/infraRedThermometer.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/lightTester.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/maxMinThermometer.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/octagonThermoHygro.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/remoteTemperatureDetector.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/tempRecorder.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/temperatureHumidityMonitor.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/temperatureHumidityProbe.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/smartDetection/thermoHygroMeter.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/temperature/DHCFuelHotFan.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/temperature/DHFuelHotFan.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/temperature/electricHeatingFanElite.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/temperature/heatingLampHolder.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/temperature/pigHeatBoard.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/temperature/roughInfraredHeatLamp.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/product/temperature/smoothInfraredHeatLamp.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://witega.com.tw/product/tooth.html</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://witega.com.tw/assets/doc/RX1/RX1.pdf</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://witega.com.tw/product/wash.html</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://witega.com.tw/assets/doc/T1/T1.pdf</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
+  <loc>https://witega.com.tw/assets/doc/G1/G1.pdf</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://witega.com.tw/assets/doc/K1/K1.pdf</loc>
-  <lastmod>2022-05-09T13:41:45+00:00</lastmod>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-
+<url>
+  <loc>https://witega.com.tw/assets/doc/RX1/RX1.pdf</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://witega.com.tw/assets/doc/T1/T1.pdf</loc>
+  <lastmod>2025-12-19T09:53:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
 
 </urlset>
