@@ -245,14 +245,29 @@ function collectFormData() {
   const categoryName = categoryNames[category] || category;
   const images = [];
   
-  // 處理現有圖片（編輯模式）
-  uploadedImages.forEach((img, index) => {
+  // 先處理所有現有圖片，找出最大編號
+  let maxImageNumber = 0;
+  uploadedImages.forEach((img) => {
     if (img.existing && img.path) {
       // 保留現有圖片路徑
       images.push(img.path);
-    } else if (!img.existing) {
-      // 新上傳的圖片
-      const imagePath = `assets/img/products/${productId}/${productId}-${images.length + 1}.${getFileExtension(img.name)}`;
+      // 從路徑中提取圖片編號（例如：assets/img/products/P1/P1-2.jpg -> 2）
+      const match = img.path.match(/-(\d+)\./);
+      if (match) {
+        const num = parseInt(match[1], 10);
+        if (num > maxImageNumber) {
+          maxImageNumber = num;
+        }
+      }
+    }
+  });
+  
+  // 然後處理新上傳的圖片，從最大編號+1開始
+  uploadedImages.forEach((img) => {
+    if (!img.existing) {
+      // 新上傳的圖片，從最大編號+1開始編號
+      maxImageNumber++;
+      const imagePath = `assets/img/products/${productId}/${productId}-${maxImageNumber}.${getFileExtension(img.name)}`;
       images.push(imagePath);
     }
   });
@@ -370,17 +385,20 @@ async function saveProduct() {
       description: '完整的產品資料 JSON',
     });
 
-    // 4. 圖片檔案（ZIP）
-    if (uploadedImages.length > 0) {
+    // 4. 圖片檔案（ZIP）- 只打包新上傳的圖片
+    const newImages = uploadedImages.filter(img => !img.existing && img.data);
+    if (newImages.length > 0) {
       // 使用 JSZip 來打包圖片
       if (typeof JSZip !== 'undefined') {
         const zip = new JSZip();
-        uploadedImages.forEach((img, index) => {
+        newImages.forEach((img, index) => {
           const ext = getFileExtension(img.name);
           const filename = `${productData.id}-${index + 1}.${ext}`;
           // 將 base64 轉換為 binary
-          const base64Data = img.data.split(',')[1];
-          zip.file(filename, base64Data, { base64: true });
+          if (img.data && img.data.includes(',')) {
+            const base64Data = img.data.split(',')[1];
+            zip.file(filename, base64Data, { base64: true });
+          }
         });
         const zipBlob = await zip.generateAsync({ type: 'blob' });
         files.push({

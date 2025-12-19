@@ -377,26 +377,6 @@
                     placeholder="https://youtu.be/影片ID"
                   />
                 </div>
-
-                <!-- 提交按鈕 -->
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    id="previewBtn"
-                    onclick="previewData()"
-                  >
-                    <i class="bi bi-eye"></i> 預覽資料
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    id="saveProductBtn"
-                    onclick="saveProduct()"
-                  >
-                    <i class="bi bi-save"></i> 儲存產品
-                  </button>
-                </div>
               </form>
             </div>
             <div class="modal-footer">
@@ -408,6 +388,22 @@
                 onclick="hideProductForm()"
               >
                 <i class="bi bi-x-circle"></i> 取消
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                id="previewBtn"
+                onclick="previewData()"
+              >
+                <i class="bi bi-eye"></i> 預覽資料
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="saveProductBtn"
+                onclick="saveProduct()"
+              >
+                <i class="bi bi-save"></i> 儲存產品
               </button>
             </div>
           </div>
