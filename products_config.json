@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": "G1",
+      "name": "精子相位差顯微鏡",
+      "category": "smart-detection",
+      "description": "檢測精液情形，避免無效配種損失！",
+      "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
+      "keywords": "精子相位差顯微鏡 精子活力 精子位相差 顯微鏡 公豬精子 精子前向力 配種",
+      "images": [
+        "../assets/img/products/G1/G1-1.jpg"
+      ],
+      "specs": [
+        {
+          "label": "產品類別",
+          "value": "智能檢測儀器"
+        },
+        {
+          "label": "光學系統",
+          "value": "無限遠色差校正光學系統"
+        },
+        {
+          "label": "觀看方式",
+          "value": "可外接螢幕顯影、視筒目視"
+        },
+        {
+          "label": "照明系統",
+          "value": "柯勒氏LED照明"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "DM",
+          "url": "../assets/img/DM/G1.jpg",
+          "filename": "G1.jpg"
+        },
+        {
+          "label": "產品說明書",
+          "url": "../assets/doc/T1/T1.pdf",
+          "filename": "T1.pdf"
+        }
+      ],
+      "videoUrl": null,
+      "path": "product/G1.html"
+    },
+    {
+      "id": "T1",
+      "name": "多功能斃死豬搬運車",
+      "category": "tools",
+      "description": "僅需一人即可完成仔豬首次處理的所有工作事項，節省人力及時間！",
+      "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
+      "keywords": "多功能斃死豬搬運車 斃死豬 搬運車 省工設備",
+      "images": [
+        "../assets/img/products/T1/T1-1.jpg",
+        "../assets/img/products/T1/T1-2.jpg",
+        "../assets/img/products/T1/T1-3.jpg"
+      ],
+      "specs": [
+        {
+          "label": "產品類別",
+          "value": "其他相關設備"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "DM",
+          "url": "../assets/img/DM/T1.jpg",
+          "filename": "T1.jpg"
+        }
+      ],
+      "videoUrl": null,
+      "path": "product/T1.html"
+    }
+  ]
+}
+
