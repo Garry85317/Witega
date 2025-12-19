@@ -1,6 +1,3 @@
-# GitHub 配置（包含敏感資訊）
-admin/config.js
-
 # Python 相關
 __pycache__/
 *.py[cod]
