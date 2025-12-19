@@ -16,6 +16,12 @@ let allProductDetails = {};
 let isEditMode = false;
 let editingProductId = null;
 
+// 編輯模式下，記錄原始圖片路徑（用於檢測刪除的圖片）
+let originalImagePaths = [];
+
+// 記錄被刪除的圖片路徑（用於從 GitHub 刪除）
+let deletedImagePaths = [];
+
 // 分類名稱映射
 const categoryNames = {
   tools: '省工機具',
@@ -188,8 +194,19 @@ function handleImageUpload(event) {
 function removeImage(imageId) {
   const imageElement = document.getElementById(imageId);
   if (imageElement) {
-    // 從 uploadedImages 中移除
-    uploadedImages = uploadedImages.filter(img => img.id !== imageId);
+    // 找到要刪除的圖片對象
+    const imageToRemove = uploadedImages.find(img => img && img.id === imageId);
+    
+    // 如果是編輯模式且刪除的是現有圖片，記錄到刪除列表
+    if (isEditMode && imageToRemove && imageToRemove.existing === true && imageToRemove.path) {
+      deletedImagePaths.push(imageToRemove.path);
+      console.log('記錄要刪除的圖片:', imageToRemove.path);
+    }
+    
+    // 從 uploadedImages 中移除，確保過濾掉 null/undefined 值
+    uploadedImages = uploadedImages.filter(img => {
+      return img && img.id && img.id !== imageId;
+    });
     window.uploadedImages = uploadedImages;
     
     // 從 DOM 中移除
@@ -245,30 +262,99 @@ function collectFormData() {
   const categoryName = categoryNames[category] || category;
   const images = [];
   
-  // 先處理所有現有圖片，找出最大編號
+  // 先清理 uploadedImages 數組，移除所有 null/undefined 值
+  const cleanedImages = (uploadedImages || []).filter(img => img != null);
+  
+  // 先處理所有現有圖片，記錄所有使用的編號
+  const usedNumbers = new Set();
   let maxImageNumber = 0;
-  uploadedImages.forEach((img) => {
-    if (img.existing && img.path) {
-      // 保留現有圖片路徑
-      images.push(img.path);
-      // 從路徑中提取圖片編號（例如：assets/img/products/P1/P1-2.jpg -> 2）
-      const match = img.path.match(/-(\d+)\./);
-      if (match) {
-        const num = parseInt(match[1], 10);
-        if (num > maxImageNumber) {
-          maxImageNumber = num;
+  
+  cleanedImages.forEach((img) => {
+    try {
+      if (img && img.existing === true && img.path && typeof img.path === 'string') {
+        // 保留現有圖片路徑
+        images.push(img.path);
+        // 從路徑中提取圖片編號（例如：assets/img/products/P1/P1-2.jpg -> 2）
+        const match = img.path.match(/-(\d+)\./);
+        if (match && match[1]) {
+          const num = parseInt(match[1], 10);
+          if (!isNaN(num)) {
+            usedNumbers.add(num);
+            if (num > maxImageNumber) {
+              maxImageNumber = num;
+            }
+          }
         }
       }
+    } catch (error) {
+      console.error('處理現有圖片時發生錯誤:', error, img);
     }
   });
   
-  // 然後處理新上傳的圖片，從最大編號+1開始
-  uploadedImages.forEach((img) => {
-    if (!img.existing) {
-      // 新上傳的圖片，從最大編號+1開始編號
-      maxImageNumber++;
-      const imagePath = `assets/img/products/${productId}/${productId}-${maxImageNumber}.${getFileExtension(img.name)}`;
+  // 找出缺失的編號（用於重用被刪除的圖片編號）
+  const missingNumbers = [];
+  for (let i = 1; i <= maxImageNumber; i++) {
+    if (!usedNumbers.has(i)) {
+      missingNumbers.push(i);
+    }
+  }
+  missingNumbers.sort((a, b) => a - b); // 從小到大排序
+  
+  // 然後處理新上傳的圖片，優先使用缺失的編號
+  let missingIndex = 0;
+  
+  cleanedImages.forEach((img) => {
+    try {
+      // 確保是新上傳的圖片，且有有效的名稱和數據（分步檢查）
+      if (!img) {
+        return; // 跳過無效對象
+      }
+      
+      if (img.existing === true) {
+        return; // 跳過現有圖片
+      }
+      
+      if (!img.name || typeof img.name !== 'string') {
+        return; // 跳過無名稱或名稱類型錯誤的圖片
+      }
+      
+      if (img.data == null) {
+        return; // 跳過無數據的圖片
+      }
+      
+      if (typeof img.data !== 'string') {
+        return; // 跳過數據類型錯誤的圖片
+      }
+      
+      if (img.data.length === 0) {
+        return; // 跳過空數據
+      }
+      
+      // 現在可以安全地調用 trim()
+      const dataStr = img.data.trim();
+      if (dataStr.length === 0) {
+        return; // 跳過只有空白字符的數據
+      }
+      
+      // 新上傳的圖片，優先使用缺失的編號，如果沒有缺失的編號，使用最大編號+1
+      let imageNumber;
+      if (missingIndex < missingNumbers.length) {
+        // 使用缺失的編號（重用被刪除的圖片編號）
+        imageNumber = missingNumbers[missingIndex];
+        missingIndex++;
+        console.log(`重用缺失的圖片編號: ${imageNumber}`);
+      } else {
+        // 沒有缺失的編號，使用最大編號+1
+        maxImageNumber++;
+        imageNumber = maxImageNumber;
+        console.log(`使用新的圖片編號: ${imageNumber}`);
+      }
+      
+      const ext = getFileExtension(img.name);
+      const imagePath = `assets/img/products/${productId}/${productId}-${imageNumber}.${ext}`;
       images.push(imagePath);
+    } catch (error) {
+      console.error('處理新上傳圖片時發生錯誤:', error, img);
     }
   });
 
@@ -288,7 +374,11 @@ function collectFormData() {
 
 // 獲取檔案副檔名
 function getFileExtension(filename) {
-  return filename.split('.').pop().toLowerCase();
+  if (!filename || typeof filename !== 'string') {
+    return 'jpg'; // 預設為 jpg
+  }
+  const parts = filename.split('.');
+  return parts.length > 1 ? parts.pop().toLowerCase() : 'jpg';
 }
 
 // 預覽資料
@@ -386,26 +476,162 @@ async function saveProduct() {
     });
 
     // 4. 圖片檔案（ZIP）- 只打包新上傳的圖片
-    const newImages = uploadedImages.filter(img => !img.existing && img.data);
+    // 先清理 uploadedImages 數組，移除所有 null/undefined 值
+    const cleanedImages = (uploadedImages || []).filter(img => img != null);
+    
+    const newImages = cleanedImages.filter(img => {
+      try {
+        // 確保圖片對象存在
+        if (!img) {
+          return false;
+        }
+        
+        // 確保不是現有圖片
+        if (img.existing === true) {
+          return false;
+        }
+        
+        // 確保有名稱
+        if (!img.name) {
+          return false;
+        }
+        
+        // 確保 data 存在
+        if (img.data == null) {
+          return false;
+        }
+        
+        // 確保 data 是字符串類型
+        if (typeof img.data !== 'string') {
+          return false;
+        }
+        
+        // 確保 data 不為空
+        if (img.data.length === 0) {
+          return false;
+        }
+        
+        // 現在可以安全地調用 trim()
+        let dataStr;
+        try {
+          dataStr = String(img.data).trim();
+        } catch (e) {
+          console.error('轉換 data 為字符串時出錯:', e, img);
+          return false;
+        }
+        
+        // 確保 trim() 後是有效的字符串
+        if (typeof dataStr !== 'string' || dataStr.length === 0) {
+          return false;
+        }
+        
+        // 檢查是否包含逗號（base64 格式要求）- 再次確認類型
+        if (typeof dataStr === 'string' && dataStr.includes && !dataStr.includes(',')) {
+          return false;
+        }
+        
+        // 如果沒有 includes 方法，說明不是字符串
+        if (typeof dataStr !== 'string' || typeof dataStr.includes !== 'function') {
+          return false;
+        }
+        
+        return true;
+      } catch (error) {
+        console.error('過濾圖片時發生錯誤:', error, img);
+        return false;
+      }
+    });
+    
     if (newImages.length > 0) {
       // 使用 JSZip 來打包圖片
       if (typeof JSZip !== 'undefined') {
         const zip = new JSZip();
         newImages.forEach((img, index) => {
-          const ext = getFileExtension(img.name);
-          const filename = `${productData.id}-${index + 1}.${ext}`;
-          // 將 base64 轉換為 binary
-          if (img.data && img.data.includes(',')) {
-            const base64Data = img.data.split(',')[1];
-            zip.file(filename, base64Data, { base64: true });
+          try {
+            // 再次檢查，確保數據有效（分步檢查，避免對 null 調用方法）
+            if (!img) {
+              console.warn('跳過 null 圖片對象');
+              return;
+            }
+            
+            if (!img.name) {
+              console.warn('跳過無名稱的圖片:', img);
+              return;
+            }
+            
+            if (!img.data) {
+              console.warn('跳過無數據的圖片:', img);
+              return;
+            }
+            
+            // 確保 data 是字符串類型
+            if (typeof img.data !== 'string') {
+              console.warn('跳過數據類型錯誤的圖片:', img, typeof img.data);
+              return;
+            }
+            
+            // 再次確認 data 是字符串類型（防禦性編程）
+            if (typeof img.data !== 'string') {
+              console.warn('跳過數據類型錯誤的圖片（非字符串）:', img, typeof img.data);
+              return;
+            }
+            
+            // 使用 String() 強制轉換為字符串，然後 trim()
+            let dataStr;
+            try {
+              // 強制轉換為字符串，即使 img.data 是 null/undefined
+              dataStr = String(img.data || '').trim();
+            } catch (e) {
+              console.error('轉換 data 為字符串時出錯:', e, img);
+              return;
+            }
+            
+            // 確保是有效的字符串且不為空
+            if (typeof dataStr !== 'string' || dataStr.length === 0) {
+              console.warn('跳過空數據的圖片:', img);
+              return;
+            }
+            
+            // 檢查是否包含逗號（base64 格式要求）- 使用最安全的方式
+            try {
+              // 再次確認 includes 方法存在
+              if (typeof dataStr.includes === 'function') {
+                if (!dataStr.includes(',')) {
+                  console.warn('跳過格式錯誤的圖片數據（缺少逗號）:', img);
+                  return;
+                }
+              } else {
+                console.warn('dataStr 沒有 includes 方法:', typeof dataStr, img);
+                return;
+              }
+            } catch (e) {
+              console.error('調用 includes() 時出錯:', e, img, 'dataStr:', dataStr);
+              return;
+            }
+            
+            const ext = getFileExtension(img.name);
+            const filename = `${productData.id}-${index + 1}.${ext}`;
+            // 將 base64 轉換為 binary
+            const parts = dataStr.split(',');
+            if (parts.length >= 2 && parts[1]) {
+              zip.file(filename, parts[1], { base64: true });
+            } else {
+              console.warn('無法解析 base64 數據:', img);
+            }
+          } catch (error) {
+            console.error('處理圖片時發生錯誤:', error, img);
           }
         });
-        const zipBlob = await zip.generateAsync({ type: 'blob' });
-        files.push({
-          name: `${productData.id}-images.zip`,
-          blob: zipBlob,
-          description: '產品圖片壓縮檔',
-        });
+        
+        // 只有當 zip 中有文件時才生成
+        if (Object.keys(zip.files).length > 0) {
+          const zipBlob = await zip.generateAsync({ type: 'blob' });
+          files.push({
+            name: `${productData.id}-images.zip`,
+            blob: zipBlob,
+            description: '產品圖片壓縮檔',
+          });
+        }
       }
     }
 
@@ -479,12 +705,16 @@ async function saveProduct() {
         // 確保 uploadedImages 在全局可用
         window.uploadedImages = uploadedImages;
         
+        // 確保 deletedImagePaths 在全局可用（編輯模式下）
+        window.deletedImagePaths = deletedImagePaths || [];
+        
         // 通過 GAS 獲取 Token，前端直接調用 GitHub API
         if (typeof window.deployToGitHubDirect === 'undefined') {
           throw new Error('github-deploy-direct.js 未載入');
         }
         
-        const result = await window.deployToGitHubDirect(productData, gasUrl, githubRepo);
+        // 傳遞編輯模式信息
+        const result = await window.deployToGitHubDirect(productData, gasUrl, githubRepo, isEditMode);
         
         // 移除載入提示
         loadingAlert.remove();
