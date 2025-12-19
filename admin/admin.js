@@ -9,6 +9,13 @@ window.uploadedImages = uploadedImages;
 // 儲存所有產品資料（用於篩選）
 let allProductsData = [];
 
+// 儲存產品詳細資料（用於編輯）
+let allProductDetails = {};
+
+// 當前編輯模式（true = 編輯，false = 新增）
+let isEditMode = false;
+let editingProductId = null;
+
 // 分類名稱映射
 const categoryNames = {
   tools: '省工機具',
@@ -122,32 +129,49 @@ function removeDownload(id) {
 function handleImageUpload(event) {
   const files = event.target.files;
   const preview = document.getElementById('imagePreview');
-  preview.innerHTML = '';
-
-  uploadedImages = [];
-  window.uploadedImages = uploadedImages; // 同步到全局
+  
+  // 不清空現有圖片，只添加新圖片
+  // preview.innerHTML = '';
+  // uploadedImages = [];
+  // window.uploadedImages = uploadedImages;
 
   Array.from(files).forEach((file, index) => {
     if (file.type.startsWith('image/')) {
       const reader = new FileReader();
       reader.onload = function (e) {
+        const imageId = 'img_' + Date.now() + '_' + index;
         const img = document.createElement('div');
         img.className = 'image-preview';
+        img.id = imageId;
         img.innerHTML = `
-          <div class="d-flex align-items-center">
-            <img src="${e.target.result}" alt="預覽 ${index + 1}" style="max-width: 150px; max-height: 150px;" />
-            <div class="ms-3">
-              <small>${file.name}</small>
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <img src="${e.target.result}" alt="預覽 ${index + 1}" style="max-width: 150px; max-height: 150px;" />
+              <div class="ms-3">
+                <small><strong>${file.name}</strong></small>
+                <br>
+                <small class="text-muted">新上傳的圖片</small>
+              </div>
             </div>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-danger ms-3"
+              onclick="removeImage('${imageId}')"
+              title="刪除圖片"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
           </div>
         `;
         preview.appendChild(img);
 
         // 儲存圖片資料
         const imageData = {
+          id: imageId,
           name: file.name,
           data: e.target.result,
           type: file.type,
+          existing: false
         };
         uploadedImages.push(imageData);
         window.uploadedImages = uploadedImages; // 同步到全局
@@ -155,11 +179,30 @@ function handleImageUpload(event) {
       reader.readAsDataURL(file);
     }
   });
+  
+  // 清空文件輸入，允許重新選擇相同文件
+  event.target.value = '';
+}
+
+// 刪除圖片
+function removeImage(imageId) {
+  const imageElement = document.getElementById(imageId);
+  if (imageElement) {
+    // 從 uploadedImages 中移除
+    uploadedImages = uploadedImages.filter(img => img.id !== imageId);
+    window.uploadedImages = uploadedImages;
+    
+    // 從 DOM 中移除
+    imageElement.remove();
+  }
 }
 
 // 收集表單資料
 function collectFormData() {
-  const productId = document.getElementById('productId').value.trim();
+  // 如果是編輯模式，使用編輯中的產品 ID（因為欄位被禁用）
+  const productId = isEditMode && editingProductId 
+    ? editingProductId 
+    : document.getElementById('productId').value.trim();
   const productName = document.getElementById('productName').value.trim();
   const category = document.getElementById('productCategory').value;
   const description = document.getElementById('productDescription').value.trim();
@@ -200,10 +243,18 @@ function collectFormData() {
 
   // 生成圖片路徑
   const categoryName = categoryNames[category] || category;
-  const images = uploadedImages.map((img, index) => {
-    // 根據分類決定圖片路徑
-    const imagePath = `assets/img/products/${productId}/${productId}-${index + 1}.${getFileExtension(img.name)}`;
-    return imagePath;
+  const images = [];
+  
+  // 處理現有圖片（編輯模式）
+  uploadedImages.forEach((img, index) => {
+    if (img.existing && img.path) {
+      // 保留現有圖片路徑
+      images.push(img.path);
+    } else if (!img.existing) {
+      // 新上傳的圖片
+      const imagePath = `assets/img/products/${productId}/${productId}-${images.length + 1}.${getFileExtension(img.name)}`;
+      images.push(imagePath);
+    }
   });
 
   return {
@@ -260,6 +311,11 @@ async function saveProduct() {
   }
 
   const productData = collectFormData();
+  
+  // 如果是編輯模式，確保 ID 正確
+  if (isEditMode && editingProductId) {
+    productData.id = editingProductId;
+  }
 
   // 驗證必填欄位
 //   if (!productData.id || !productData.name || !productData.category) {
@@ -409,8 +465,9 @@ async function saveProduct() {
         const successAlert = document.createElement('div');
         successAlert.className = 'alert alert-success alert-dismissible fade show';
         const commitShaShort = result.commitSha ? result.commitSha.substring(0, 7) : 'N/A';
+        const actionText = isEditMode ? '更新' : '新增';
         successAlert.innerHTML = `
-          <strong><i class="bi bi-check-circle"></i> 產品已成功提交到 GitHub！</strong>
+          <strong><i class="bi bi-check-circle"></i> 產品已成功${actionText}並提交到 GitHub！</strong>
           <br>
           <small>Commit: <code>${commitShaShort}</code> | 等待 GitHub Pages 自動部署（約 1-2 分鐘）</small>
           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -423,8 +480,9 @@ async function saveProduct() {
           modalBody.insertBefore(successAlert, modalBody.firstChild);
         }
         
-        // 重新載入產品列表
+        // 重新載入產品列表和詳細資料
         await loadProductsTable();
+        await loadProductDetails();
         
         // 3 秒後關閉 modal 並清除表單
         setTimeout(() => {
@@ -694,9 +752,21 @@ function clearFilters() {
 
 // 顯示產品表單 Modal
 function showProductForm() {
-  // 重置 modal 標題
-  document.getElementById('productFormModalLabel').innerHTML = 
-    '<i class="bi bi-file-earmark-plus"></i> 新增產品';
+  // 如果不是編輯模式，重置表單
+  if (!isEditMode) {
+    document.getElementById('productForm').reset();
+    document.getElementById('imagePreview').innerHTML = '';
+    uploadedImages = [];
+    window.uploadedImages = [];
+    document.getElementById('specsContainer').innerHTML = '';
+    document.getElementById('productId').disabled = false;
+  }
+  
+  // 重置 modal 標題（如果不是編輯模式）
+  if (!isEditMode) {
+    document.getElementById('productFormModalLabel').innerHTML = 
+      '<i class="bi bi-file-earmark-plus"></i> 新增產品';
+  }
   
   const modal = new bootstrap.Modal(document.getElementById('productFormModal'));
   modal.show();
@@ -757,37 +827,140 @@ function hideProductForm() {
   window.uploadedImages = [];
   // 清除規格容器
   document.getElementById('specsContainer').innerHTML = '';
+  // 清除文件輸入
+  const fileInput = document.getElementById('productImages');
+  if (fileInput) {
+    fileInput.value = '';
+  }
 }
 
-// 編輯產品（目前只顯示表單，未來可以預填資料）
-function editProduct(productId) {
+// 載入產品詳細資料
+async function loadProductDetails() {
+  try {
+    const response = await fetch('../assets/data/product-details.js');
+    if (!response.ok) {
+      throw new Error('無法載入產品詳細資料');
+    }
+    
+    const text = await response.text();
+    const func = new Function(text + '; return productDetails;');
+    allProductDetails = func();
+    return allProductDetails;
+  } catch (error) {
+    console.error('載入產品詳細資料失敗:', error);
+    return {};
+  }
+}
+
+// 編輯產品
+async function editProduct(productId) {
+  isEditMode = true;
+  editingProductId = productId;
+  
+  // 載入產品詳細資料（如果還沒載入）
+  if (Object.keys(allProductDetails).length === 0) {
+    await loadProductDetails();
+  }
+  
+  // 獲取產品資料
+  const productData = allProductDetails[productId];
+  
+  if (!productData) {
+    alert('找不到產品資料，產品 ID: ' + productId);
+    isEditMode = false;
+    editingProductId = null;
+    return;
+  }
+  
+  // 顯示表單
   showProductForm();
+  
   // 更新 modal 標題
   document.getElementById('productFormModalLabel').innerHTML = 
     '<i class="bi bi-pencil"></i> 編輯產品';
-  // TODO: 載入產品資料並填入表單
-  // 暫時顯示提示
-  setTimeout(() => {
-    const alertDiv = document.createElement('div');
-    alertDiv.className = 'alert alert-info alert-dismissible fade show';
-    alertDiv.innerHTML = `
-      <strong>編輯功能開發中</strong>
-      <p class="mb-0">產品 ID: ${productId}</p>
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    `;
-    const form = document.getElementById('productForm');
-    if (form && form.parentNode) {
-      form.parentNode.insertBefore(alertDiv, form);
-    }
-  }, 300);
+  
+  // 填入表單資料
+  document.getElementById('productId').value = productData.id || '';
+  document.getElementById('productName').value = productData.name || '';
+  document.getElementById('productCategory').value = productData.category || '';
+  document.getElementById('productDescription').value = productData.description || '';
+  document.getElementById('metaDescription').value = productData.metaDescription || '';
+  document.getElementById('keywords').value = productData.keywords || '';
+  document.getElementById('videoUrl').value = productData.videoUrl || '';
+  
+  // 禁用產品 ID 欄位（編輯時不能修改 ID）
+  document.getElementById('productId').disabled = true;
+  
+  // 填入規格
+  const specsContainer = document.getElementById('specsContainer');
+  specsContainer.innerHTML = '';
+  if (productData.specs && productData.specs.length > 0) {
+    productData.specs.forEach(spec => {
+      addSpec();
+      const specItems = specsContainer.querySelectorAll('.spec-item');
+      const lastSpec = specItems[specItems.length - 1];
+      const labelInput = lastSpec.querySelector('[data-spec-label]');
+      const valueInput = lastSpec.querySelector('[data-spec-value]');
+      if (labelInput) labelInput.value = spec.label || '';
+      if (valueInput) valueInput.value = spec.value || '';
+    });
+  }
+  
+  // 顯示現有圖片
+  const imagePreview = document.getElementById('imagePreview');
+  imagePreview.innerHTML = '';
+  uploadedImages = [];
+  window.uploadedImages = [];
+  
+  if (productData.images && productData.images.length > 0) {
+    productData.images.forEach((imagePath, index) => {
+      const imageId = 'img_existing_' + productId + '_' + index;
+      const imgDiv = document.createElement('div');
+      imgDiv.className = 'image-preview';
+      imgDiv.id = imageId;
+      imgDiv.innerHTML = `
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <img src="../${imagePath}" alt="現有圖片 ${index + 1}" style="max-width: 150px; max-height: 150px;" onerror="this.style.display='none'">
+            <div class="ms-3">
+              <small><strong>現有圖片 ${index + 1}</strong></small>
+              <br>
+              <small class="text-muted">${imagePath}</small>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-danger ms-3"
+            onclick="removeImage('${imageId}')"
+            title="刪除圖片"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      `;
+      imagePreview.appendChild(imgDiv);
+      
+      // 儲存現有圖片資訊（用於更新時保留）
+      uploadedImages.push({
+        id: imageId,
+        name: imagePath.split('/').pop(),
+        data: null, // 現有圖片不需要 base64
+        type: 'image/jpeg',
+        existing: true,
+        path: imagePath
+      });
+      window.uploadedImages = uploadedImages;
+    });
+  }
 }
 
 // 頁面載入時初始化
 document.addEventListener('DOMContentLoaded', async function () {
-  // 如果已登入，載入產品列表
+  // 如果已登入，載入產品列表和詳細資料
   const isAuthenticated = sessionStorage.getItem('admin_authenticated') === 'true';
   if (isAuthenticated) {
     await loadProductsTable();
+    await loadProductDetails();
   }
   
   // 監聽 modal 關閉事件，自動重置表單
