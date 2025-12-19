@@ -11,8 +11,14 @@ window.deployToGitHub = async function(productData, token, repo) {
       throw new Error('Repository 格式錯誤，應為 username/repo');
     }
 
-    // 1. 更新 product-details.js
-    await window.updateFileOnGitHub(
+    // 統一的 commit message
+    const commitMessage = `新增產品: ${productData.name}`;
+    
+    // 準備所有要更新的檔案
+    const filesToUpdate = [];
+
+    // 1. 準備 product-details.js 更新
+    const productDetailsContent = await window.prepareFileContent(
       token,
       owner,
       repoName,
@@ -20,9 +26,15 @@ window.deployToGitHub = async function(productData, token, repo) {
       productData,
       'product-details'
     );
+    filesToUpdate.push({
+      path: 'assets/data/product-details.js',
+      content: productDetailsContent.content,
+      sha: productDetailsContent.sha,
+      message: commitMessage
+    });
 
-    // 2. 更新 products.js
-    await window.updateFileOnGitHub(
+    // 2. 準備 products.js 更新
+    const productsContent = await window.prepareFileContent(
       token,
       owner,
       repoName,
@@ -30,8 +42,14 @@ window.deployToGitHub = async function(productData, token, repo) {
       productData,
       'products'
     );
+    filesToUpdate.push({
+      path: 'assets/data/products.js',
+      content: productsContent.content,
+      sha: productsContent.sha,
+      message: commitMessage
+    });
 
-    // 3. 上傳圖片
+    // 3. 準備圖片上傳
     if (window.uploadedImages && window.uploadedImages.length > 0) {
       for (let i = 0; i < window.uploadedImages.length; i++) {
         const img = window.uploadedImages[i];
@@ -46,16 +64,35 @@ window.deployToGitHub = async function(productData, token, repo) {
           bytes[j] = binaryData.charCodeAt(j);
         }
 
-        await window.uploadFileToGitHub(
-          token,
-          owner,
-          repoName,
-          path,
-          bytes,
-          `新增產品圖片: ${productData.name}`
-        );
+        // 轉換為 base64
+        const binString = Array.from(bytes, (byte) =>
+          String.fromCodePoint(byte)
+        ).join('');
+        const base64Content = btoa(binString);
+
+        filesToUpdate.push({
+          path: path,
+          content: base64Content,
+          sha: null, // 新檔案沒有 sha
+          message: commitMessage
+        });
       }
     }
+
+    // 4. 一次性提交所有檔案（並行執行，使用相同的 commit message）
+    const updatePromises = filesToUpdate.map(file => 
+      window.updateFileOnGitHubDirect(
+        token,
+        owner,
+        repoName,
+        file.path,
+        file.content,
+        file.sha,
+        file.message
+      )
+    );
+
+    await Promise.all(updatePromises);
 
     return { success: true, message: '產品已成功提交到 GitHub！' };
   } catch (error) {
@@ -64,8 +101,8 @@ window.deployToGitHub = async function(productData, token, repo) {
   }
 };
 
-// 更新檔案到 GitHub（暴露到全局）
-window.updateFileOnGitHub = async function(token, owner, repo, path, productData, type) {
+// 準備檔案內容（不直接上傳）
+window.prepareFileContent = async function(token, owner, repo, path, productData, type) {
   // 先獲取現有檔案內容
   const getFileUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   const getResponse = await fetch(getFileUrl, {
@@ -162,9 +199,28 @@ window.updateFileOnGitHub = async function(token, owner, repo, path, productData
     }
   }
 
-  // 上傳更新
-  const updateUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+  // 返回準備好的內容和 sha（不直接上傳）
   const content = btoa(unescape(encodeURIComponent(newContent)));
+  
+  return {
+    content: content,
+    sha: sha
+  };
+};
+
+// 直接更新檔案到 GitHub（暴露到全局）
+window.updateFileOnGitHubDirect = async function(token, owner, repo, path, content, sha, message) {
+  const updateUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+  
+  const requestBody = {
+    message: message,
+    content: content
+  };
+  
+  // 如果是更新現有檔案，需要提供 sha
+  if (sha) {
+    requestBody.sha = sha;
+  }
   
   const response = await fetch(updateUrl, {
     method: 'PUT',
@@ -173,11 +229,7 @@ window.updateFileOnGitHub = async function(token, owner, repo, path, productData
       Accept: 'application/vnd.github.v3+json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      message: `新增產品: ${productData.name}`,
-      content: content,
-      sha: sha,
-    }),
+    body: JSON.stringify(requestBody),
   });
 
   if (!response.ok) {
@@ -191,16 +243,14 @@ window.updateFileOnGitHub = async function(token, owner, repo, path, productData
     } catch (e) {
       errorMessage = `${errorMessage}: ${await response.text()}`;
     }
-    throw new Error(errorMessage);
+    throw new Error(`${path}: ${errorMessage}`);
   }
 
   return await response.json();
 };
 
-// 上傳檔案到 GitHub（暴露到全局）
+// 上傳檔案到 GitHub（保留作為備用，現在使用 updateFileOnGitHubDirect）
 window.uploadFileToGitHub = async function(token, owner, repo, path, content, message) {
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-  
   // 將 binary 轉換為 base64
   let base64Content = '';
   if (content instanceof Uint8Array) {
@@ -212,33 +262,6 @@ window.uploadFileToGitHub = async function(token, owner, repo, path, content, me
     base64Content = content;
   }
 
-  const response = await fetch(url, {
-    method: 'PUT',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      message: message,
-      content: base64Content,
-    }),
-  });
-
-  if (!response.ok) {
-    let errorMessage = `上傳失敗 (HTTP ${response.status})`;
-    try {
-      const errorData = await response.json();
-      errorMessage = errorData.message || errorData.error || errorMessage;
-      if (errorData.errors && errorData.errors.length > 0) {
-        errorMessage += ': ' + errorData.errors.map(e => e.message).join(', ');
-      }
-    } catch (e) {
-      errorMessage = `${errorMessage}: ${await response.text()}`;
-    }
-    throw new Error(errorMessage);
-  }
-
-  return await response.json();
+  return await window.updateFileOnGitHubDirect(token, owner, repo, path, base64Content, null, message);
 };
 
