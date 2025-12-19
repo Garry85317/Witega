@@ -338,22 +338,13 @@ async function saveProduct() {
       description: '部署說明文件',
     });
 
-    // 嘗試使用 GitHub API 自動提交（優先從 config.js 讀取，否則從表單讀取）
+    // 從 config.js 讀取 GitHub 配置
     let githubToken = '';
     let githubRepo = '';
     
-    // 優先從 config.js 讀取
     if (typeof GITHUB_CONFIG !== 'undefined') {
       githubToken = GITHUB_CONFIG.token || '';
       githubRepo = GITHUB_CONFIG.repo || '';
-    }
-    
-    // 如果 config.js 沒有，從表單讀取
-    if (!githubToken) {
-      githubToken = document.getElementById('githubToken').value.trim();
-    }
-    if (!githubRepo) {
-      githubRepo = document.getElementById('githubRepo').value.trim();
     }
 
     if (githubToken && githubRepo) {
@@ -412,9 +403,11 @@ async function saveProduct() {
           suggestion = '\n\n💡 可能的原因：\n' +
             '1. Repository 不存在或名稱錯誤\n' +
             '2. Token 沒有訪問該 Repository 的權限';
-        } else if (errorMessage.includes('sha')) {
-          suggestion = '\n\n💡 可能的原因：\n' +
-            '1. 檔案已被其他人修改，請重新整理後再試';
+        } else if (errorMessage.includes('sha') || errorMessage.includes('已被其他人修改') || errorMessage.includes('does not match') || errorMessage.includes('is at')) {
+          suggestion = '\n\n💡 解決方法：\n' +
+            '1. 重新整理頁面（F5 或 Cmd+R）\n' +
+            '2. 等待幾秒後再試（系統已自動重試，但可能仍有衝突）\n' +
+            '3. 如果持續發生，可能是檔案正在被其他人修改，請稍後再試';
         }
         
         alert(
@@ -433,7 +426,7 @@ async function saveProduct() {
           '1. 解壓縮圖片檔案到對應資料夾\n' +
           '2. 按照 DEPLOY_INSTRUCTIONS.md 更新 JSON 檔案\n' +
           '3. 執行 git add . && git commit -m "新增產品" && git push\n\n' +
-          '💡 提示：如果想使用自動提交，請在上方填入 GitHub Token 和 Repository。'
+          '💡 提示：如果想使用自動提交，請在 config.js 中配置 GitHub Token 和 Repository。'
         );
       }, 1000);
     }
@@ -558,65 +551,43 @@ git push origin main
 document.addEventListener('DOMContentLoaded', function () {
   console.log('產品管理後台已載入');
   
-  // 優先從 config.js 讀取配置
-  let githubToken = '';
-  let githubRepo = '';
-  
-  if (typeof GITHUB_CONFIG !== 'undefined') {
-    githubToken = GITHUB_CONFIG.token || '';
-    githubRepo = GITHUB_CONFIG.repo || '';
-  }
-  
-  // 如果 config.js 沒有配置，從 localStorage 讀取
-  if (!githubToken) {
-    githubToken = localStorage.getItem('githubToken') || '';
-  }
-  if (!githubRepo) {
-    githubRepo = localStorage.getItem('githubRepo') || '';
-  }
-  
-  // 填入表單
-  if (githubToken) {
-    document.getElementById('githubToken').value = githubToken;
-    // 如果從 config.js 讀取，顯示為已配置（但不顯示實際值）
-    if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.token) {
-      document.getElementById('githubToken').type = 'password';
-      document.getElementById('githubToken').placeholder = '已從 config.js 載入';
-      document.getElementById('githubToken').readOnly = true;
-      document.getElementById('githubToken').title = 'Token 已從 config.js 載入，如需修改請編輯 config.js';
+  // 檢查 config.js 是否已配置
+  if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.token && GITHUB_CONFIG.repo) {
+    // 顯示成功提示
+    const alertContainer = document.querySelector('.card-body');
+    if (alertContainer) {
+      const configAlert = document.createElement('div');
+      configAlert.className = 'alert alert-success alert-dismissible fade show';
+      configAlert.innerHTML = `
+        <strong><i class="bi bi-check-circle"></i> 已從 config.js 載入 GitHub 配置</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      // 插入到提示區域之後
+      const infoAlert = document.querySelector('.alert-info');
+      if (infoAlert) {
+        infoAlert.insertAdjacentElement('afterend', configAlert);
+      } else {
+        alertContainer.insertBefore(configAlert, alertContainer.firstChild);
+      }
+    }
+  } else {
+    // 顯示未配置提示
+    const alertContainer = document.querySelector('.card-body');
+    if (alertContainer) {
+      const warningAlert = document.createElement('div');
+      warningAlert.className = 'alert alert-warning alert-dismissible fade show';
+      warningAlert.innerHTML = `
+        <strong><i class="bi bi-exclamation-triangle"></i> 未配置 GitHub</strong>
+        <p class="mb-0">請在 <code>config.js</code> 中配置 GitHub Token 和 Repository 以使用自動提交功能。</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      const infoAlert = document.querySelector('.alert-info');
+      if (infoAlert) {
+        infoAlert.insertAdjacentElement('afterend', warningAlert);
+      } else {
+        alertContainer.insertBefore(warningAlert, alertContainer.firstChild);
+      }
     }
   }
-  
-  if (githubRepo) {
-    document.getElementById('githubRepo').value = githubRepo;
-    if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.repo) {
-      document.getElementById('githubRepo').readOnly = true;
-      document.getElementById('githubRepo').title = 'Repository 已從 config.js 載入，如需修改請編輯 config.js';
-    }
-  }
-
-  // 如果使用 config.js，顯示提示
-  if (typeof GITHUB_CONFIG !== 'undefined' && (GITHUB_CONFIG.token || GITHUB_CONFIG.repo)) {
-    const configAlert = document.createElement('div');
-    configAlert.className = 'alert alert-success alert-dismissible fade show';
-    configAlert.innerHTML = `
-      <strong><i class="bi bi-check-circle"></i> 已從 config.js 載入 GitHub 配置</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    `;
-    const githubConfig = document.querySelector('.github-config');
-    githubConfig.insertBefore(configAlert, githubConfig.firstChild);
-  }
-
-  // 儲存 GitHub 配置到 localStorage（僅當手動輸入時）
-  document.getElementById('githubToken').addEventListener('change', function () {
-    if (!this.readOnly) {
-      localStorage.setItem('githubToken', this.value);
-    }
-  });
-  document.getElementById('githubRepo').addEventListener('change', function () {
-    if (!this.readOnly) {
-      localStorage.setItem('githubRepo', this.value);
-    }
-  });
 });
 

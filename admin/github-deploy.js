@@ -30,7 +30,7 @@ window.deployToGitHub = async function(productData, token, repo) {
       path: 'assets/data/product-details.js',
       content: productDetailsContent.content,
       sha: productDetailsContent.sha,
-      message: commitMessage
+      isText: true
     });
 
     // 2. 準備 products.js 更新
@@ -46,7 +46,7 @@ window.deployToGitHub = async function(productData, token, repo) {
       path: 'assets/data/products.js',
       content: productsContent.content,
       sha: productsContent.sha,
-      message: commitMessage
+      isText: true
     });
 
     // 3. 準備圖片上傳
@@ -74,25 +74,19 @@ window.deployToGitHub = async function(productData, token, repo) {
           path: path,
           content: base64Content,
           sha: null, // 新檔案沒有 sha
-          message: commitMessage
+          isText: false // 圖片是二進制檔案
         });
       }
     }
 
-    // 4. 一次性提交所有檔案（並行執行，使用相同的 commit message）
-    const updatePromises = filesToUpdate.map(file => 
-      window.updateFileOnGitHubDirect(
-        token,
-        owner,
-        repoName,
-        file.path,
-        file.content,
-        file.sha,
-        file.message
-      )
+    // 4. 使用 Git Data API 在單一 commit 中提交所有檔案
+    await window.commitMultipleFiles(
+      token,
+      owner,
+      repoName,
+      filesToUpdate,
+      commitMessage
     );
-
-    await Promise.all(updatePromises);
 
     return { success: true, message: '產品已成功提交到 GitHub！' };
   } catch (error) {
@@ -208,8 +202,30 @@ window.prepareFileContent = async function(token, owner, repo, path, productData
   };
 };
 
-// 直接更新檔案到 GitHub（暴露到全局）
-window.updateFileOnGitHubDirect = async function(token, owner, repo, path, content, sha, message) {
+// 獲取檔案的最新 SHA
+window.getFileSHA = async function(token, owner, repo, path) {
+  const getFileUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+  const getResponse = await fetch(getFileUrl, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+  });
+
+  if (getResponse.ok) {
+    const fileData = await getResponse.json();
+    return fileData.sha;
+  } else if (getResponse.status === 404) {
+    // 檔案不存在，返回 null
+    return null;
+  } else {
+    throw new Error(`無法讀取檔案 SHA (HTTP ${getResponse.status})`);
+  }
+};
+
+// 直接更新檔案到 GitHub（暴露到全局，帶重試機制）
+window.updateFileOnGitHubDirect = async function(token, owner, repo, path, content, sha, message, retryCount = 0) {
+  const maxRetries = 2; // 最多重試 2 次
   const updateUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   
   const requestBody = {
@@ -234,10 +250,31 @@ window.updateFileOnGitHubDirect = async function(token, owner, repo, path, conte
 
   if (!response.ok) {
     let errorMessage = `更新失敗 (HTTP ${response.status})`;
+    let shouldRetry = false;
+    
     try {
       const errorData = await response.json();
       errorMessage = errorData.message || errorData.error || errorMessage;
-      if (errorData.errors && errorData.errors.length > 0) {
+      
+      // 檢查是否為 SHA 不匹配錯誤
+      if (errorData.message && (
+        errorData.message.includes('sha') || 
+        errorData.message.includes('does not match') ||
+        errorData.message.includes('is at') ||
+        response.status === 409 // 409 Conflict 通常表示 SHA 不匹配
+      )) {
+        // SHA 不匹配，嘗試重新獲取最新的 SHA 並重試
+        if (retryCount < maxRetries && sha) {
+          console.log(`SHA 不匹配，重新獲取最新 SHA 並重試 (${retryCount + 1}/${maxRetries})...`);
+          const newSHA = await window.getFileSHA(token, owner, repo, path);
+          if (newSHA) {
+            // 等待一小段時間後重試
+            await new Promise(resolve => setTimeout(resolve, 500));
+            return await window.updateFileOnGitHubDirect(token, owner, repo, path, content, newSHA, message, retryCount + 1);
+          }
+        }
+        errorMessage = `檔案已被其他人修改，請重新整理頁面後再試。\n原始錯誤: ${errorData.message}`;
+      } else if (errorData.errors && errorData.errors.length > 0) {
         errorMessage += ': ' + errorData.errors.map(e => e.message).join(', ');
       }
     } catch (e) {
@@ -249,7 +286,119 @@ window.updateFileOnGitHubDirect = async function(token, owner, repo, path, conte
   return await response.json();
 };
 
-// 上傳檔案到 GitHub（保留作為備用，現在使用 updateFileOnGitHubDirect）
+// 使用 Git Data API 在單一 commit 中提交多個檔案
+window.commitMultipleFiles = async function(token, owner, repo, files, message, branch = 'main') {
+  const baseUrl = `https://api.github.com/repos/${owner}/${repo}`;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    Accept: 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json',
+  };
+
+  // 1. 獲取當前分支的 ref
+  let refResponse = await fetch(`${baseUrl}/git/ref/heads/${branch}`, { headers });
+  if (!refResponse.ok && refResponse.status === 404) {
+    // 嘗試 master 分支
+    branch = 'master';
+    refResponse = await fetch(`${baseUrl}/git/ref/heads/${branch}`, { headers });
+  }
+  
+  if (!refResponse.ok) {
+    throw new Error(`無法獲取分支 ref (HTTP ${refResponse.status})`);
+  }
+  
+  const refData = await refResponse.json();
+  const latestCommitSha = refData.object.sha;
+
+  // 2. 獲取最新的 commit
+  const commitResponse = await fetch(`${baseUrl}/git/commits/${latestCommitSha}`, { headers });
+  if (!commitResponse.ok) {
+    throw new Error(`無法獲取 commit (HTTP ${commitResponse.status})`);
+  }
+  const commitData = await commitResponse.json();
+  const baseTreeSha = commitData.tree.sha;
+
+  // 3. 創建所有檔案的 blob
+  const blobPromises = files.map(async (file) => {
+    const blobResponse = await fetch(`${baseUrl}/git/blobs`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        content: file.content,
+        encoding: 'base64'
+      })
+    });
+    
+    if (!blobResponse.ok) {
+      throw new Error(`無法創建 blob for ${file.path} (HTTP ${blobResponse.status})`);
+    }
+    
+    const blobData = await blobResponse.json();
+    return {
+      path: file.path,
+      mode: '100644', // 普通檔案
+      type: 'blob',
+      sha: blobData.sha
+    };
+  });
+
+  const treeItems = await Promise.all(blobPromises);
+
+  // 5. 創建新的 tree（使用 base_tree，GitHub 會自動處理目錄結構和現有檔案）
+  const newTreeResponse = await fetch(`${baseUrl}/git/trees`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      base_tree: baseTreeSha, // 從現有 tree 開始
+      tree: treeItems // 只提供要更新/添加的檔案，GitHub 會自動處理其餘部分
+    })
+  });
+
+  if (!newTreeResponse.ok) {
+    const errorData = await newTreeResponse.json();
+    throw new Error(`無法創建 tree (HTTP ${newTreeResponse.status}): ${JSON.stringify(errorData)}`);
+  }
+  
+  const newTreeData = await newTreeResponse.json();
+  const newTreeSha = newTreeData.sha;
+
+  // 7. 創建新的 commit
+  const newCommitResponse = await fetch(`${baseUrl}/git/commits`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      message: message,
+      tree: newTreeSha,
+      parents: [latestCommitSha]
+    })
+  });
+
+  if (!newCommitResponse.ok) {
+    const errorData = await newCommitResponse.json();
+    throw new Error(`無法創建 commit (HTTP ${newCommitResponse.status}): ${JSON.stringify(errorData)}`);
+  }
+  
+  const newCommitData = await newCommitResponse.json();
+  const newCommitSha = newCommitData.sha;
+
+  // 8. 更新分支 ref
+  const updateRefResponse = await fetch(`${baseUrl}/git/refs/heads/${branch}`, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({
+      sha: newCommitSha
+    })
+  });
+
+  if (!updateRefResponse.ok) {
+    const errorData = await updateRefResponse.json();
+    throw new Error(`無法更新 ref (HTTP ${updateRefResponse.status}): ${JSON.stringify(errorData)}`);
+  }
+
+  return { success: true, commitSha: newCommitSha };
+};
+
+// 上傳檔案到 GitHub（保留作為備用，現在使用 commitMultipleFiles）
 window.uploadFileToGitHub = async function(token, owner, repo, path, content, message) {
   // 將 binary 轉換為 base64
   let base64Content = '';
