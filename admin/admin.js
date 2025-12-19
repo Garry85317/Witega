@@ -556,37 +556,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // 顯示成功提示
     const alertContainer = document.querySelector('.card-body');
     if (alertContainer) {
-      const configAlert = document.createElement('div');
-      configAlert.className = 'alert alert-success alert-dismissible fade show';
-      configAlert.innerHTML = `
-        <strong><i class="bi bi-check-circle"></i> 已從 config.js 載入 GitHub 配置</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      `;
-      // 插入到提示區域之後
-      const infoAlert = document.querySelector('.alert-info');
-      if (infoAlert) {
-        infoAlert.insertAdjacentElement('afterend', configAlert);
-      } else {
-        alertContainer.insertBefore(configAlert, alertContainer.firstChild);
-      }
-    }
-  } else {
-    // 顯示未配置提示
-    const alertContainer = document.querySelector('.card-body');
-    if (alertContainer) {
-      const warningAlert = document.createElement('div');
-      warningAlert.className = 'alert alert-warning alert-dismissible fade show';
-      warningAlert.innerHTML = `
-        <strong><i class="bi bi-exclamation-triangle"></i> 未配置 GitHub</strong>
-        <p class="mb-0">請在 <code>config.js</code> 中配置 GitHub Token 和 Repository 以使用自動提交功能。</p>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      `;
-      const infoAlert = document.querySelector('.alert-info');
-      if (infoAlert) {
-        infoAlert.insertAdjacentElement('afterend', warningAlert);
-      } else {
-        alertContainer.insertBefore(warningAlert, alertContainer.firstChild);
-      }
+      const configAlert = document.getElementById('githubConfigAlert');
+      alert("✅ 已從 config.js 載入 GitHub 配置");
     }
   }
 });
