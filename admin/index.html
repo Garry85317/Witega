@@ -18,7 +18,7 @@
         padding-top: 20px;
       }
       .admin-container {
-        max-width: 1200px;
+        padding: 20px;
         margin: 0 auto;
       }
       .login-container {
@@ -61,6 +61,19 @@
       }
       .btn-remove:hover {
         color: #c82333;
+      }
+      .product-thumbnail {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      .table-responsive {
+        max-height: 100%;
+        overflow-y: auto;
+      }
+      .modal-xl {
+        max-width: 1200px;
       }
     </style>
   </head>
@@ -108,142 +121,189 @@
 
     <!-- 後台內容 -->
     <div class="admin-container" id="adminContent">
-      <div class="card">
+      <!-- 產品列表表格 -->
+      <div class="card mb-4">
         <div
           class="card-header bg-primary text-white d-flex justify-content-between align-items-center"
         >
           <h3 class="mb-0"><i class="bi bi-box-seam"></i> 產品管理後台</h3>
-          <button class="btn btn-sm btn-light" onclick="handleLogout()">
-            <i class="bi bi-box-arrow-right"></i> 登出
-          </button>
+          <div>
+            <button
+              class="btn btn-sm btn-light me-2"
+              onclick="showProductForm()"
+            >
+              <i class="bi bi-plus-circle"></i> 新增產品
+            </button>
+            <button class="btn btn-sm btn-light" onclick="handleLogout()">
+              <i class="bi bi-box-arrow-right"></i> 登出
+            </button>
+          </div>
         </div>
         <div class="card-body">
-          <!-- 產品表單 -->
-          <form id="productForm">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="mb-3">
-                  <label for="productId" class="form-label"
-                    >產品 ID <span class="text-danger">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="productId"
-                    required
-                    placeholder="例如: NEW1"
-                  />
-                  <small class="form-text text-muted"
-                    >唯一識別碼，建議使用英文和數字</small
-                  >
-                </div>
+          <div id="productsTableContainer">
+            <div class="text-center py-4">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">載入中...</span>
               </div>
-              <div class="col-md-6">
-                <div class="mb-3">
-                  <label for="productName" class="form-label"
-                    >產品名稱 <span class="text-danger">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="productName"
-                    required
-                    placeholder="例如: 新產品名稱"
-                  />
-                </div>
-              </div>
+              <p class="mt-2 text-muted">正在載入產品列表...</p>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="row">
-              <div class="col-md-6">
-                <div class="mb-3">
-                  <label for="productCategory" class="form-label"
-                    >產品類別 <span class="text-danger">*</span></label
-                  >
-                  <select class="form-select" id="productCategory" required>
-                    <option value="">請選擇類別</option>
-                    <option value="tools">省工機具</option>
-                    <option value="smart-detection">智能檢測儀器</option>
-                    <option value="biosecurity">生物安全防治設備</option>
-                    <option value="animal-marking">動物標示</option>
-                    <option value="injection">注射防疫</option>
-                    <option value="temperature">環溫控制</option>
-                    <option value="disinfection">清洗消毒</option>
-                    <option value="epidemicPrevention">豬場防疫</option>
-                    <option value="equipment">養殖器械</option>
-                  </select>
+      <!-- 新增/編輯產品 Modal -->
+      <div
+        class="modal fade"
+        id="productFormModal"
+        tabindex="-1"
+        aria-labelledby="productFormModalLabel"
+        aria-hidden="true"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+      >
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="productFormModalLabel">
+                <i class="bi bi-file-earmark-plus"></i> 新增/編輯產品
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onclick="hideProductForm()"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <!-- 產品表單 -->
+              <form id="productForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="productId" class="form-label"
+                        >產品 ID <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="productId"
+                        required
+                        placeholder="例如: NEW1"
+                      />
+                      <small class="form-text text-muted"
+                        >唯一識別碼，建議使用英文和數字</small
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="productName" class="form-label"
+                        >產品名稱 <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="productName"
+                        required
+                        placeholder="例如: 新產品名稱"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="productCategory" class="form-label"
+                        >產品類別 <span class="text-danger">*</span></label
+                      >
+                      <select class="form-select" id="productCategory" required>
+                        <option value="">請選擇類別</option>
+                        <option value="tools">省工機具</option>
+                        <option value="smart-detection">智能檢測儀器</option>
+                        <option value="biosecurity">生物安全防治設備</option>
+                        <option value="animal-marking">動物標示</option>
+                        <option value="injection">注射防疫</option>
+                        <option value="temperature">環溫控制</option>
+                        <option value="disinfection">清洗消毒</option>
+                        <option value="epidemicPrevention">豬場防疫</option>
+                        <option value="equipment">養殖器械</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="productDescription" class="form-label"
+                        >產品描述 <span class="text-danger">*</span></label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="productDescription"
+                        rows="3"
+                        required
+                        placeholder="簡短的產品描述"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="mb-3">
-                  <label for="productDescription" class="form-label"
-                    >產品描述 <span class="text-danger">*</span></label
+                  <label for="metaDescription" class="form-label"
+                    >SEO 描述</label
                   >
                   <textarea
                     class="form-control"
-                    id="productDescription"
-                    rows="3"
-                    required
-                    placeholder="簡短的產品描述"
+                    id="metaDescription"
+                    rows="2"
+                    placeholder="用於搜尋引擎優化"
                   ></textarea>
                 </div>
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="metaDescription" class="form-label">SEO 描述</label>
-              <textarea
-                class="form-control"
-                id="metaDescription"
-                rows="2"
-                placeholder="用於搜尋引擎優化"
-              ></textarea>
-            </div>
+                <div class="mb-3">
+                  <label for="keywords" class="form-label">關鍵字</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="keywords"
+                    placeholder="關鍵字1 關鍵字2 關鍵字3"
+                  />
+                </div>
 
-            <div class="mb-3">
-              <label for="keywords" class="form-label">關鍵字</label>
-              <input
-                type="text"
-                class="form-control"
-                id="keywords"
-                placeholder="關鍵字1 關鍵字2 關鍵字3"
-              />
-            </div>
+                <!-- 產品規格 -->
+                <div class="mb-3">
+                  <label class="form-label">產品規格</label>
+                  <div id="specsContainer">
+                    <!-- 規格項目將動態添加 -->
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary"
+                    onclick="addSpec()"
+                  >
+                    <i class="bi bi-plus"></i> 新增規格
+                  </button>
+                </div>
 
-            <!-- 產品規格 -->
-            <div class="mb-3">
-              <label class="form-label">產品規格</label>
-              <div id="specsContainer">
-                <!-- 規格項目將動態添加 -->
-              </div>
-              <button
-                type="button"
-                class="btn btn-sm btn-outline-primary"
-                onclick="addSpec()"
-              >
-                <i class="bi bi-plus"></i> 新增規格
-              </button>
-            </div>
+                <!-- 產品圖片 -->
+                <div class="mb-3">
+                  <label class="form-label">產品圖片</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="productImages"
+                    multiple
+                    accept="image/*"
+                    onchange="handleImageUpload(event)"
+                  />
+                  <small class="form-text text-muted"
+                    >可上傳多張圖片（JPG、PNG）</small
+                  >
+                  <div id="imagePreview" class="mt-3"></div>
+                </div>
 
-            <!-- 產品圖片 -->
-            <div class="mb-3">
-              <label class="form-label">產品圖片</label>
-              <input
-                type="file"
-                class="form-control"
-                id="productImages"
-                multiple
-                accept="image/*"
-                onchange="handleImageUpload(event)"
-              />
-              <small class="form-text text-muted"
-                >可上傳多張圖片（JPG、PNG）</small
-              >
-              <div id="imagePreview" class="mt-3"></div>
-            </div>
-
-            <!-- 下載檔案 -->
-            <!-- <div class="mb-3">
+                <!-- 下載檔案 -->
+                <!-- <div class="mb-3">
               <label class="form-label">下載檔案（可選）</label>
               <div id="downloadsContainer">
               </div>
@@ -256,35 +316,49 @@
               </button>
             </div> -->
 
-            <!-- 影片連結 -->
-            <div class="mb-3">
-              <label for="videoUrl" class="form-label">YouTube 影片連結</label>
-              <input
-                type="url"
-                class="form-control"
-                id="videoUrl"
-                placeholder="https://youtu.be/影片ID"
-              />
-            </div>
+                <!-- 影片連結 -->
+                <div class="mb-3">
+                  <label for="videoUrl" class="form-label"
+                    >YouTube 影片連結</label
+                  >
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="videoUrl"
+                    placeholder="https://youtu.be/影片ID"
+                  />
+                </div>
 
-            <!-- 提交按鈕 -->
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <!-- 提交按鈕 -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="previewData()"
+                  >
+                    <i class="bi bi-eye"></i> 預覽資料
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="saveProduct()"
+                  >
+                    <i class="bi bi-save"></i> 儲存產品
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
               <button
                 type="button"
                 class="btn btn-secondary"
-                onclick="previewData()"
+                data-bs-dismiss="modal"
+                onclick="hideProductForm()"
               >
-                <i class="bi bi-eye"></i> 預覽資料
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                onclick="saveProduct()"
-              >
-                <i class="bi bi-save"></i> 儲存產品
+                <i class="bi bi-x-circle"></i> 取消
               </button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
 
@@ -332,12 +406,16 @@
       };
 
       // 檢查登入狀態
-      function checkAuth() {
+      async function checkAuth() {
         const isAuthenticated =
           sessionStorage.getItem('admin_authenticated') === 'true';
         if (isAuthenticated) {
           document.getElementById('loginForm').style.display = 'none';
           document.getElementById('adminContent').style.display = 'block';
+          // 載入產品列表
+          if (typeof loadProductsTable === 'function') {
+            await loadProductsTable();
+          }
         } else {
           document.getElementById('loginForm').style.display = 'block';
           document.getElementById('adminContent').style.display = 'none';

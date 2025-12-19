@@ -352,7 +352,13 @@ async function saveProduct() {
         <strong>正在自動提交到 GitHub...</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
       `;
-      document.querySelector('.card-body').insertBefore(loadingAlert, document.querySelector('form'));
+      const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
+      const productForm = document.getElementById('productForm');
+      if (productForm && modalBody) {
+        modalBody.insertBefore(loadingAlert, productForm);
+      } else if (modalBody) {
+        modalBody.insertBefore(loadingAlert, modalBody.firstChild);
+      }
 
       try {
         // 確保 uploadedImages 在全局可用
@@ -378,14 +384,24 @@ async function saveProduct() {
           <small>Commit: <code>${commitShaShort}</code> | 等待 GitHub Pages 自動部署（約 1-2 分鐘）</small>
           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         `;
-        document.querySelector('.card-body').insertBefore(successAlert, document.querySelector('form'));
+        const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
+        const productForm = document.getElementById('productForm');
+        if (productForm && modalBody) {
+          modalBody.insertBefore(successAlert, productForm);
+        } else if (modalBody) {
+          modalBody.insertBefore(successAlert, modalBody.firstChild);
+        }
         
-        // 10 秒後自動關閉
+        // 重新載入產品列表
+        await loadProductsTable();
+        
+        // 3 秒後關閉 modal 並清除表單
         setTimeout(() => {
+          hideProductForm();
           if (successAlert.parentNode) {
             successAlert.remove();
           }
-        }, 10000);
+        }, 3000);
       } catch (error) {
         // 移除載入提示
         loadingAlert.remove();
@@ -399,7 +415,13 @@ async function saveProduct() {
           <small>${error.message || '未知錯誤'}</small>
           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         `;
-        document.querySelector('.card-body').insertBefore(errorAlert, document.querySelector('form'));
+        const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
+        const productForm = document.getElementById('productForm');
+        if (productForm && modalBody) {
+          modalBody.insertBefore(errorAlert, productForm);
+        } else if (modalBody) {
+          modalBody.insertBefore(errorAlert, modalBody.firstChild);
+        }
       }
 }
 
@@ -482,14 +504,123 @@ git push origin main
 }
 
 
-// 頁面載入時初始化
-document.addEventListener('DOMContentLoaded', async function () {
+// 載入產品列表
+async function loadProductsTable() {
+  const container = document.getElementById('productsTableContainer');
   
-  // 檢查 config.js 是否已配置
-  if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.gasUrl && GITHUB_CONFIG.repo) {
-    // 顯示成功提示
-    const alertContainer = document.querySelector('.card-body');
-    if (alertContainer) {
+  try {
+    // 載入 products.js
+    const response = await fetch('../assets/data/products.js');
+    if (!response.ok) {
+      throw new Error('無法載入產品資料');
+    }
+    
+    const text = await response.text();
+    
+    // 解析 JavaScript 文件（提取 productsData 物件）
+    // 使用 eval 或 Function 來執行 JavaScript 代碼
+    const func = new Function(text + '; return productsData;');
+    const productsData = func();
+    
+    // 建立表格
+    let tableHTML = `
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th style="width: 100px;">縮圖</th>
+              <th>產品名稱</th>
+              <th>類別</th>
+              <th style="width: 100px;">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+    `;
+    
+    // 遍歷所有分類和產品
+    if (productsData && productsData.categories) {
+      productsData.categories.forEach(category => {
+        if (category.products && category.products.length > 0) {
+          category.products.forEach(product => {
+            const categoryName = categoryNames[category.id] || category.name || category.id;
+            const thumbnail = product.img || '';
+            const productName = product.name || product.id;
+            
+            tableHTML += `
+              <tr>
+                <td>
+                  ${thumbnail ? `<img src="../${thumbnail}" alt="${productName}" class="product-thumbnail" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'%3E%3Crect fill=\'%23ddd\' width=\'80\' height=\'80\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\' font-size=\'12\'%3E無圖片%3C/text%3E%3C/svg%3E'">` : '<span class="text-muted">無圖片</span>'}
+                </td>
+                <td><strong>${productName}</strong></td>
+                <td><span class="badge bg-secondary">${categoryName}</span></td>
+                <td>
+                  <button class="btn btn-sm btn-outline-primary" onclick="editProduct('${product.id}')" title="編輯">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+            `;
+          });
+        }
+      });
+    }
+    
+    tableHTML += `
+          </tbody>
+        </table>
+      </div>
+    `;
+    
+    // 如果沒有產品，顯示提示
+    if (!productsData || !productsData.categories || 
+        productsData.categories.every(cat => !cat.products || cat.products.length === 0)) {
+      tableHTML = `
+        <div class="text-center py-5">
+          <i class="bi bi-inbox" style="font-size: 3rem; color: #ccc;"></i>
+          <p class="mt-3 text-muted">目前沒有任何產品</p>
+          <button class="btn btn-primary" onclick="showProductForm()">
+            <i class="bi bi-plus-circle"></i> 新增第一個產品
+          </button>
+        </div>
+      `;
+    }
+    
+    container.innerHTML = tableHTML;
+    
+  } catch (error) {
+    console.error('載入產品列表失敗:', error);
+    container.innerHTML = `
+      <div class="alert alert-danger">
+        <strong><i class="bi bi-exclamation-triangle"></i> 載入產品列表失敗</strong>
+        <p class="mb-0 mt-2">${error.message}</p>
+        <button class="btn btn-sm btn-primary mt-2" onclick="loadProductsTable()">
+          <i class="bi bi-arrow-clockwise"></i> 重新載入
+        </button>
+      </div>
+    `;
+  }
+}
+
+// 顯示產品表單 Modal
+function showProductForm() {
+  // 重置 modal 標題
+  document.getElementById('productFormModalLabel').innerHTML = 
+    '<i class="bi bi-file-earmark-plus"></i> 新增產品';
+  
+  const modal = new bootstrap.Modal(document.getElementById('productFormModal'));
+  modal.show();
+  
+  // 顯示配置提示（如果有的話）
+  const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
+  if (modalBody) {
+    // 移除舊的配置提示
+    const oldConfigAlert = modalBody.querySelector('#githubConfigAlert');
+    if (oldConfigAlert) {
+      oldConfigAlert.remove();
+    }
+    
+    // 檢查並顯示配置狀態
+    if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.gasUrl && GITHUB_CONFIG.repo) {
       const configAlert = document.createElement('div');
       configAlert.className = 'alert alert-success alert-dismissible fade show';
       configAlert.id = 'githubConfigAlert';
@@ -497,18 +628,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         <strong><i class="bi bi-check-circle"></i> 已從 config.js 載入 GitHub 配置（使用 GAS 代理）</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
       `;
-      const infoAlert = document.querySelector('.alert-info');
-      if (infoAlert) {
-        infoAlert.insertAdjacentElement('afterend', configAlert);
+      const productForm = document.getElementById('productForm');
+      if (productForm) {
+        modalBody.insertBefore(configAlert, productForm);
       } else {
-        alertContainer.insertBefore(configAlert, alertContainer.firstChild);
+        modalBody.insertBefore(configAlert, modalBody.firstChild);
       }
-      
-    }
-  } else {
-    // 顯示未配置提示
-    const alertContainer = document.querySelector('.card-body');
-    if (alertContainer) {
+    } else {
       const warningAlert = document.createElement('div');
       warningAlert.className = 'alert alert-warning alert-dismissible fade show';
       warningAlert.innerHTML = `
@@ -516,13 +642,87 @@ document.addEventListener('DOMContentLoaded', async function () {
         <p class="mb-0">請在 <code>config.js</code> 中配置 gasUrl 和 repo 以使用自動提交功能。</p>
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
       `;
-      const infoAlert = document.querySelector('.alert-info');
-      if (infoAlert) {
-        infoAlert.insertAdjacentElement('afterend', warningAlert);
+      const productForm = document.getElementById('productForm');
+      if (productForm) {
+        modalBody.insertBefore(warningAlert, productForm);
       } else {
-        alertContainer.insertBefore(warningAlert, alertContainer.firstChild);
+        modalBody.insertBefore(warningAlert, modalBody.firstChild);
       }
     }
   }
+}
+
+// 隱藏產品表單 Modal
+function hideProductForm() {
+  const modalElement = document.getElementById('productFormModal');
+  const modal = bootstrap.Modal.getInstance(modalElement);
+  if (modal) {
+    modal.hide();
+  }
+  // 重置表單
+  document.getElementById('productForm').reset();
+  document.getElementById('imagePreview').innerHTML = '';
+  uploadedImages = [];
+  window.uploadedImages = [];
+  // 清除規格容器
+  document.getElementById('specsContainer').innerHTML = '';
+}
+
+// 編輯產品（目前只顯示表單，未來可以預填資料）
+function editProduct(productId) {
+  showProductForm();
+  // 更新 modal 標題
+  document.getElementById('productFormModalLabel').innerHTML = 
+    '<i class="bi bi-pencil"></i> 編輯產品';
+  // TODO: 載入產品資料並填入表單
+  // 暫時顯示提示
+  setTimeout(() => {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'alert alert-info alert-dismissible fade show';
+    alertDiv.innerHTML = `
+      <strong>編輯功能開發中</strong>
+      <p class="mb-0">產品 ID: ${productId}</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    const form = document.getElementById('productForm');
+    if (form && form.parentNode) {
+      form.parentNode.insertBefore(alertDiv, form);
+    }
+  }, 300);
+}
+
+// 頁面載入時初始化
+document.addEventListener('DOMContentLoaded', async function () {
+  // 如果已登入，載入產品列表
+  const isAuthenticated = sessionStorage.getItem('admin_authenticated') === 'true';
+  if (isAuthenticated) {
+    await loadProductsTable();
+  }
+  
+  // 監聽 modal 關閉事件，自動重置表單
+  const productFormModal = document.getElementById('productFormModal');
+  if (productFormModal) {
+    productFormModal.addEventListener('hidden.bs.modal', function () {
+      // 重置表單
+      document.getElementById('productForm').reset();
+      document.getElementById('imagePreview').innerHTML = '';
+      uploadedImages = [];
+      window.uploadedImages = [];
+      // 清除規格容器
+      document.getElementById('specsContainer').innerHTML = '';
+      // 移除所有 alert（除了配置提示）
+      const modalBody = productFormModal.querySelector('.modal-body');
+      if (modalBody) {
+        const alerts = modalBody.querySelectorAll('.alert:not(#githubConfigAlert)');
+        alerts.forEach(alert => alert.remove());
+      }
+      // 重置 modal 標題
+      document.getElementById('productFormModalLabel').innerHTML = 
+        '<i class="bi bi-file-earmark-plus"></i> 新增產品';
+    });
+  }
+  
+  // 檢查 config.js 是否已配置（配置提示會在 modal 打開時顯示）
+  // 這裡不需要顯示，因為 modal 預設是隱藏的
 });
 
