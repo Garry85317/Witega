@@ -6,6 +6,9 @@
 let uploadedImages = [];
 window.uploadedImages = uploadedImages;
 
+// 儲存所有產品資料（用於篩選）
+let allProductsData = [];
+
 // 分類名稱映射
 const categoryNames = {
   tools: '省工機具',
@@ -556,70 +559,24 @@ async function loadProductsTable() {
     const func = new Function(text + '; return productsData;');
     const productsData = func();
     
-    // 建立表格
-    let tableHTML = `
-      <div class="table-responsive">
-        <table class="table table-hover align-middle">
-          <thead class="table-light">
-            <tr>
-              <th style="width: 100px;">縮圖</th>
-              <th>產品名稱</th>
-              <th>類別</th>
-              <th style="width: 100px;">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-    `;
-    
-    // 遍歷所有分類和產品
+    // 儲存所有產品資料（扁平化結構，方便篩選）
+    allProductsData = [];
     if (productsData && productsData.categories) {
       productsData.categories.forEach(category => {
         if (category.products && category.products.length > 0) {
           category.products.forEach(product => {
-            const categoryName = categoryNames[category.id] || category.name || category.id;
-            const thumbnail = product.img || '';
-            const productName = product.name || product.id;
-            
-            tableHTML += `
-              <tr>
-                <td>
-                  ${thumbnail ? `<img src="../${thumbnail}" alt="${productName}" class="product-thumbnail" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'%3E%3Crect fill=\'%23ddd\' width=\'80\' height=\'80\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\' font-size=\'12\'%3E無圖片%3C/text%3E%3C/svg%3E'">` : '<span class="text-muted">無圖片</span>'}
-                </td>
-                <td><strong>${productName}</strong></td>
-                <td><span class="badge bg-secondary">${categoryName}</span></td>
-                <td>
-                  <button class="btn btn-sm btn-outline-primary" onclick="editProduct('${product.id}')" title="編輯">
-                    <i class="bi bi-pencil"></i>
-                  </button>
-                </td>
-              </tr>
-            `;
+            allProductsData.push({
+              ...product,
+              categoryId: category.id,
+              categoryName: categoryNames[category.id] || category.name || category.id
+            });
           });
         }
       });
     }
     
-    tableHTML += `
-          </tbody>
-        </table>
-      </div>
-    `;
-    
-    // 如果沒有產品，顯示提示
-    if (!productsData || !productsData.categories || 
-        productsData.categories.every(cat => !cat.products || cat.products.length === 0)) {
-      tableHTML = `
-        <div class="text-center py-5">
-          <i class="bi bi-inbox" style="font-size: 3rem; color: #ccc;"></i>
-          <p class="mt-3 text-muted">目前沒有任何產品</p>
-          <button class="btn btn-primary" onclick="showProductForm()">
-            <i class="bi bi-plus-circle"></i> 新增第一個產品
-          </button>
-        </div>
-      `;
-    }
-    
-    container.innerHTML = tableHTML;
+    // 渲染表格（使用篩選後的資料）
+    renderProductsTable();
     
   } catch (error) {
     console.error('載入產品列表失敗:', error);
@@ -633,6 +590,106 @@ async function loadProductsTable() {
       </div>
     `;
   }
+}
+
+// 渲染產品表格
+function renderProductsTable(filteredProducts = null) {
+  const container = document.getElementById('productsTableContainer');
+  const productsToShow = filteredProducts !== null ? filteredProducts : allProductsData;
+  
+  // 建立表格
+  let tableHTML = `
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th style="width: 100px;">縮圖</th>
+            <th>產品名稱</th>
+            <th>類別</th>
+            <th style="width: 100px;">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+  `;
+  
+  // 如果有產品，顯示產品列表
+  if (productsToShow && productsToShow.length > 0) {
+    productsToShow.forEach(product => {
+      const thumbnail = product.img || '';
+      const productName = product.name || product.id;
+      const categoryName = product.categoryName || '';
+      
+      tableHTML += `
+        <tr>
+          <td>
+            ${thumbnail ? `<img src="../${thumbnail}" alt="${productName}" class="product-thumbnail" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'%3E%3Crect fill=\'%23ddd\' width=\'80\' height=\'80\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\' font-size=\'12\'%3E無圖片%3C/text%3E%3C/svg%3E'">` : '<span class="text-muted">無圖片</span>'}
+          </td>
+          <td><strong>${productName}</strong></td>
+          <td><span class="badge bg-secondary">${categoryName}</span></td>
+          <td>
+            <button class="btn btn-sm btn-outline-primary" onclick="editProduct('${product.id}')" title="編輯">
+              <i class="bi bi-pencil"></i>
+            </button>
+          </td>
+        </tr>
+      `;
+    });
+  } else {
+    // 如果沒有產品，顯示提示
+    tableHTML = `
+      <tr>
+        <td colspan="4" class="text-center py-5">
+          <i class="bi bi-inbox" style="font-size: 3rem; color: #ccc;"></i>
+          <p class="mt-3 text-muted">${filteredProducts !== null ? '沒有符合篩選條件的產品' : '目前沒有任何產品'}</p>
+          ${filteredProducts === null ? `<button class="btn btn-primary" onclick="showProductForm()">
+            <i class="bi bi-plus-circle"></i> 新增第一個產品
+          </button>` : ''}
+        </td>
+      </tr>
+    `;
+  }
+  
+  tableHTML += `
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-2 text-muted">
+      <small>顯示 ${productsToShow.length} / ${allProductsData.length} 個產品</small>
+    </div>
+  `;
+  
+  container.innerHTML = tableHTML;
+}
+
+// 篩選產品
+function filterProducts() {
+  const searchName = document.getElementById('searchProductName')?.value.trim().toLowerCase() || '';
+  const filterCategory = document.getElementById('filterCategory')?.value || '';
+  
+  let filtered = allProductsData;
+  
+  // 按名稱篩選
+  if (searchName) {
+    filtered = filtered.filter(product => {
+      const productName = (product.name || product.id || '').toLowerCase();
+      return productName.includes(searchName);
+    });
+  }
+  
+  // 按類別篩選
+  if (filterCategory) {
+    filtered = filtered.filter(product => product.categoryId === filterCategory);
+  }
+  
+  // 渲染篩選後的結果
+  renderProductsTable(filtered);
+}
+
+// 清除篩選
+function clearFilters() {
+  document.getElementById('searchProductName').value = '';
+  document.getElementById('filterCategory').value = '';
+  renderProductsTable();
 }
 
 // 顯示產品表單 Modal
