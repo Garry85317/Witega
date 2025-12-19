@@ -332,19 +332,41 @@ async function saveProduct() {
       githubRepo = GITHUB_CONFIG.repo || '';
       gasUrl = GITHUB_CONFIG.gasUrl || '';
     } else {
+      alert('GitHub 配置未載入，請檢查 config.js');
       return;
     }
 
     // 驗證配置
     if (!gasUrl) {
+      alert('請在 config.js 中配置 gasUrl');
       return;
     }
 
     if (!githubRepo) {
+      alert('請在 config.js 中配置 repo');
       return;
     }
 
     // 使用 GAS 代理或直接調用 GitHub API
+      // 禁用按鈕並顯示載入狀態
+      const saveBtn = document.getElementById('saveProductBtn');
+      const cancelBtn = document.getElementById('cancelBtn');
+      const previewBtn = document.getElementById('previewBtn');
+      
+      const originalSaveBtnHTML = saveBtn.innerHTML;
+      const originalSaveBtnDisabled = saveBtn.disabled;
+      
+      // 禁用所有按鈕
+      saveBtn.disabled = true;
+      if (cancelBtn) cancelBtn.disabled = true;
+      if (previewBtn) previewBtn.disabled = true;
+      
+      // 更新保存按鈕顯示載入狀態
+      saveBtn.innerHTML = `
+        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+        正在儲存...
+      `;
+      
       // 顯示載入提示
       const loadingAlert = document.createElement('div');
       loadingAlert.className = 'alert alert-info alert-dismissible fade show';
@@ -373,6 +395,12 @@ async function saveProduct() {
         
         // 移除載入提示
         loadingAlert.remove();
+        
+        // 恢復按鈕狀態
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = originalSaveBtnHTML;
+        if (cancelBtn) cancelBtn.disabled = false;
+        if (previewBtn) previewBtn.disabled = false;
         
         // 顯示成功訊息
         const successAlert = document.createElement('div');
@@ -405,6 +433,12 @@ async function saveProduct() {
       } catch (error) {
         // 移除載入提示
         loadingAlert.remove();
+        
+        // 恢復按鈕狀態
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = originalSaveBtnHTML;
+        if (cancelBtn) cancelBtn.disabled = false;
+        if (previewBtn) previewBtn.disabled = false;
         
         // 顯示錯誤訊息
         const errorAlert = document.createElement('div');
