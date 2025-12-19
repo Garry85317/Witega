@@ -318,15 +318,15 @@ async function saveProduct() {
   }
 
   // 驗證必填欄位
-//   if (!productData.id || !productData.name || !productData.category) {
-//     alert('請填寫所有必填欄位');
-//     return;
-//   }
+  if (!productData.id || !productData.name || !productData.category) {
+    alert('請填寫所有必填欄位');
+    return;
+  }
 
-//   if (productData.images.length === 0) {
-//     alert('請至少上傳一張產品圖片');
-//     return;
-//   }
+  if (productData.images.length === 0) {
+    alert('請至少上傳一張產品圖片');
+    return;
+  }
 
     // 生成檔案
     const files = [];
@@ -832,6 +832,11 @@ function hideProductForm() {
   if (fileInput) {
     fileInput.value = '';
   }
+  // 恢復產品 ID 欄位（編輯時被禁用）
+  document.getElementById('productId').disabled = false;
+  // 重置編輯模式
+  isEditMode = false;
+  editingProductId = null;
 }
 
 // 載入產品詳細資料
@@ -974,6 +979,16 @@ document.addEventListener('DOMContentLoaded', async function () {
       window.uploadedImages = [];
       // 清除規格容器
       document.getElementById('specsContainer').innerHTML = '';
+      // 清除文件輸入
+      const fileInput = document.getElementById('productImages');
+      if (fileInput) {
+        fileInput.value = '';
+      }
+      // 恢復產品 ID 欄位（編輯時被禁用）
+      document.getElementById('productId').disabled = false;
+      // 重置編輯模式
+      isEditMode = false;
+      editingProductId = null;
       // 移除所有 alert（除了配置提示）
       const modalBody = productFormModal.querySelector('.modal-body');
       if (modalBody) {
