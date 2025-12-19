@@ -328,6 +328,22 @@ async function saveProduct() {
     return;
   }
 
+  // 檢查產品 ID 是否重複（僅在新增模式時檢查）
+  if (!isEditMode) {
+    // 確保產品詳細資料已載入
+    if (Object.keys(allProductDetails).length === 0) {
+      await loadProductDetails();
+    }
+    
+    // 檢查 ID 是否已存在
+    if (allProductDetails[productData.id]) {
+      alert(`產品 ID "${productData.id}" 已存在，請使用其他 ID`);
+      // 聚焦到產品 ID 欄位
+      document.getElementById('productId').focus();
+      return;
+    }
+  }
+
     // 生成檔案
     const files = [];
 
