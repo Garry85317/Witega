@@ -1363,15 +1363,15 @@ const productDetails = {
     "downloads": [],
     "videoUrl": null
 },
-  "disposableElasticBootCover": {
-    "id": "disposableElasticBootCover",
+  "disinfectionSprayGun": {
+    "id": "disinfectionSprayGun",
     "name": "消毒噴壺",
     "category": "disinfection",
     "description": "可通過旋轉噴水嘴來調節霧化/水柱的狀態;\n                  噴水鎖定卡扣，以免誤觸噴灑; 加厚新料壺身，不變形，防爆更耐磨。",
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-        "assets/img/products/disinfection/disposableElasticBootCover.jpg"
+        "assets/img/products/disinfection/disinfectionSprayGun.jpg"
     ],
     "specs": [
         {

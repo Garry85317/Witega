@@ -425,10 +425,10 @@ const productsData = {
           "url": "product.html?id=disinfectionWetWipes"
         },
         {
-          "id": "disposableElasticBootCover",
+          "id": "disinfectionSprayGun",
           "name": "消毒噴壺",
-          "img": "assets/img/products/disinfection/disposableElasticBootCover.jpg",
-          "url": "product.html?id=disposableElasticBootCover"
+          "img": "assets/img/products/disinfection/disinfectionSprayGun.jpg",
+          "url": "product.html?id=disinfectionSprayGun"
         }, {
           "id": "vehicleChassisCleaner",
           "name": "車輛底盤清洗機",
