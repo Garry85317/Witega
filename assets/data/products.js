@@ -315,6 +315,12 @@ const productsData = {
           "name": "一次性靜脈采血針（直式）",
           "img": "assets/img/products/injection/straightBloodNeedle.jpg",
           "url": "product.html?id=straightBloodNeedle"
+        },
+        {
+          "id": "Disposable Needle",
+          "name": "背帶式快速易換針頭",
+          "img": "assets/img/products/Disposable Needle/Disposable Needle-1.png",
+          "url": "product.html?id=Disposable Needle"
         }
       ]
     },
@@ -429,7 +435,8 @@ const productsData = {
           "name": "消毒噴壺",
           "img": "assets/img/products/disinfection/disinfectionSprayGun.jpg",
           "url": "product.html?id=disinfectionSprayGun"
-        }, {
+        },
+        {
           "id": "vehicleChassisCleaner",
           "name": "車輛底盤清洗機",
           "img": "assets/img/products/disinfection/vehicleChassisCleaner.jpg",
@@ -452,7 +459,7 @@ const productsData = {
           "name": "手推式消毒機",
           "img": "assets/img/products/disinfection/handPushDisinfectionMachine.jpg",
           "url": "product.html?id=handPushDisinfectionMachine"
-        },
+        }
       ]
     },
     {
@@ -795,12 +802,6 @@ const productsData = {
           "img": "assets/img/products/equipment/smartFeeder.jpg",
           "url": "product.html?id=smartFeeder"
         },
-        // {
-        //   "id": "pigletWeighbridge",
-        //   "name": "仔豬地磅",
-        //   "img": "assets/img/products/equipment/pigletWeighbridge.jpg",
-        //   "url": "product.html?id=pigletWeighbridge"
-        // },
         {
           "id": "animalTrap",
           "name": "動物捕殺器",
@@ -930,4 +931,4 @@ const productsData = {
       ]
     }
   ]
-}; 
+};

@@ -1,4 +1,3 @@
-// 產品詳細資料
 const productDetails = {
   "DHCFuelHotFan": {
     "id": "DHCFuelHotFan",
@@ -4278,18 +4277,21 @@ const productDetails = {
     ],
     "downloads": [],
     "videoUrl": null
+},
+  "Disposable Needle": {
+    "id": "Disposable Needle",
+    "name": "背帶式快速易換針頭",
+    "category": "injection",
+    "description": "適用各式注射器，採用鎖扣技術牢牢鎖住針頭不脫落，提高工作效率。\n針頭有序排列，全程免接觸快速換針防止交叉感染，使用便利又安全。",
+    "metaDescription": "適用各式注射器，採用鎖扣技術牢牢鎖住針頭不脫落，提高工作效率。\n針頭有序排列，全程免接觸快速換針防止交叉感染，使用便利又安全。",
+    "keywords": "",
+    "images": [
+        "assets/img/products/Disposable Needle/Disposable Needle-1.png",
+        "assets/img/products/Disposable Needle/Disposable Needle-2.png",
+        "assets/img/products/Disposable Needle/Disposable Needle-3.png"
+    ],
+    "specs": [],
+    "downloads": [],
+    "videoUrl": "https://www.youtube.com/watch?v=jOjchi2xu_U"
 }
-};
-
-// 分類名稱映射
-const categoryNames = {
-  "tools": "省工機具",
-  "smart-detection": "智能檢測儀器",
-  "biosecurity": "生物安全防治設備",
-  "animal-marking": "動物標示",
-  "injection": "注射防疫",
-  "temperature": "環溫控制",
-  "disinfection": "清洗消毒",
-  "epidemicPrevention": "豬場防疫",
-  "equipment": "養殖器械"
 };
