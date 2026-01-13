@@ -4293,5 +4293,30 @@ const productDetails = {
     "specs": [],
     "downloads": [],
     "videoUrl": "https://www.youtube.com/watch?v=jOjchi2xu_U"
+},
+  "PREMIUM INJECTOR": {
+    "id": "PREMIUM INJECTOR",
+    "name": "連續注射器",
+    "category": "injection",
+    "description": "符合人體工學設計，針筒採用安全衛生材質且可水煮消毒，大部分產品劑量可調，透過視覺視窗調整刻度，減少誤差的同時也大幅提升工作效率，所有產品使用過程中皆不會又漏液現象。",
+    "metaDescription": "符合人體工學設計，針筒採用安全衛生材質且可水煮消毒，大部分產品劑量可調，透過視覺視窗調整刻度，減少誤差的同時也大幅提升工作效率，所有產品使用過程中皆不會又漏液現象。",
+    "keywords": "",
+    "images": [
+        "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-1.jpg",
+        "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-2.jpg",
+        "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-3.jpg"
+    ],
+    "specs": [
+        {
+            "label": "premium(可調)",
+            "value": "0.5ml、2ml、5ml"
+        },
+        {
+            "label": "vs標記式注射器(不可調)",
+            "value": "0.5ml、1ml、2ml"
+        }
+    ],
+    "downloads": [],
+    "videoUrl": null
 }
 };

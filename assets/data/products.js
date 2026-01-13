@@ -321,6 +321,12 @@ const productsData = {
           "name": "背帶式快速易換針頭",
           "img": "assets/img/products/Disposable Needle/Disposable Needle-1.png",
           "url": "product.html?id=Disposable Needle"
+        },
+        {
+          "id": "PREMIUM INJECTOR",
+          "name": "連續注射器",
+          "img": "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-1.jpg",
+          "url": "product.html?id=PREMIUM INJECTOR"
         }
       ]
     },
