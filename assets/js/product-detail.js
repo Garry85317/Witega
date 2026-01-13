@@ -5,6 +5,19 @@
 (function () {
   'use strict';
 
+  // 分類名稱映射
+  const categoryNames = {
+    tools: '省工機具',
+    'smart-detection': '智能檢測儀器',
+    biosecurity: '生物安全防治設備',
+    'animal-marking': '動物標示',
+    injection: '注射防疫',
+    temperature: '環溫控制',
+    disinfection: '清洗消毒',
+    epidemicPrevention: '豬場防疫',
+    equipment: '養殖器械',
+  };
+
   // 從 URL 獲取產品 ID
   function getProductId() {
     const urlParams = new URLSearchParams(window.location.search);
