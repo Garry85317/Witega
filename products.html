@@ -65,6 +65,7 @@
 
     <style>
       .products {
+        min-height: 82.1vh;
         padding-top: 120px;
       }
 
@@ -162,6 +163,65 @@
       .product-item a {
         text-decoration: none;
       }
+
+      /* 搜尋列 */
+      .search-bar-wrapper {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      #productSearch {
+        max-width: 320px;
+      }
+
+      /* 載入指示器 */
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .loading-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+        display: none !important;
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #5846f9;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* 產品列表淡入動畫 */
+      #productList {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #productList.loaded {
+        opacity: 1;
+      }
     </style>
   </head>
 
@@ -220,6 +280,11 @@
     </header>
     <!-- End Header -->
 
+    <!-- 載入指示器 -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner"></div>
+    </div>
+
     <main id="main">
       <section id="products" class="products">
         <div class="container" data-aos="fade-up">
@@ -238,6 +303,14 @@
             <div class="col-lg-9">
               <div class="section-title">
                 <h2 id="currentCategory">全部產品</h2>
+              </div>
+              <div class="search-bar-wrapper">
+                <input
+                  type="text"
+                  id="productSearch"
+                  class="form-control"
+                  placeholder="輸入關鍵字搜尋產品（名稱、編號）"
+                />
               </div>
               <div class="row" id="productList">
                 <!-- 产品将通过 JavaScript 动态渲染 -->
@@ -287,14 +360,13 @@
     ></a>
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="form/contact.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
@@ -306,48 +378,66 @@
     <script type="text/javascript">
       // 当前选中的分类ID
       let currentCategoryId = '';
+      // 當前搜尋關鍵字
+      let currentSearchTerm = '';
 
-      // 渲染分类列表
+      // 隱藏載入指示器
+      function hideLoading() {
+        const overlay = document.getElementById('loadingOverlay');
+        if (overlay) {
+          overlay.classList.add('hidden');
+          setTimeout(() => {
+            overlay.style.display = 'none';
+          }, 300);
+        }
+      }
+
+      // 渲染分类列表（使用 DocumentFragment 優化）
       function renderCategories(categories) {
         const categoryList = document.getElementById('categoryList');
-        let html = `
-          <li>
-            <a href="#" class="category-link ${
-              currentCategoryId === '' ? 'active' : ''
-            }" data-category="">全部產品</a>
-          </li>
-        `;
+        const fragment = document.createDocumentFragment();
+        
+        // 全部產品選項
+        const allItem = document.createElement('li');
+        const allLink = document.createElement('a');
+        allLink.href = '#';
+        allLink.className = 'category-link' + (currentCategoryId === '' ? ' active' : '');
+        allLink.dataset.category = '';
+        allLink.textContent = '全部產品';
+        allItem.appendChild(allLink);
+        fragment.appendChild(allItem);
 
         // 添加其他分类
         categories.forEach((category) => {
-          html += `
-            <li>
-              <a href="#" class="category-link ${
-                currentCategoryId === category.id ? 'active' : ''
-              }" 
-                 data-category="${category.id}">${category.name}</a>
-            </li>
-          `;
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = '#';
+          link.className = 'category-link' + (currentCategoryId === category.id ? ' active' : '');
+          link.dataset.category = category.id;
+          link.textContent = category.name;
+          li.appendChild(link);
+          fragment.appendChild(li);
         });
 
-        categoryList.innerHTML = html;
+        categoryList.innerHTML = '';
+        categoryList.appendChild(fragment);
 
-        // 添加点击事件
-        document.querySelectorAll('.category-link').forEach((link) => {
-          link.addEventListener('click', function (e) {
+        // 使用事件委派優化點擊事件
+        categoryList.addEventListener('click', function(e) {
+          if (e.target.classList.contains('category-link')) {
             e.preventDefault();
-            currentCategoryId = this.dataset.category;
+            currentCategoryId = e.target.dataset.category;
 
             // 更新激活状态
-            document
-              .querySelectorAll('.category-link')
-              .forEach((l) => l.classList.remove('active'));
-            this.classList.add('active');
+            document.querySelectorAll('.category-link').forEach((l) => {
+              l.classList.remove('active');
+            });
+            e.target.classList.add('active');
 
             // 更新标题和产品列表
             updateCategoryTitle(categories);
             updateProducts(categories);
-          });
+          }
         });
       }
 
@@ -362,9 +452,22 @@
         }
       }
 
-      // 渲染产品列表
+      // 依搜尋關鍵字過濾產品（名稱、id 模糊搜尋）
+      function filterProductsBySearch(products) {
+        const keyword = currentSearchTerm.trim().toLowerCase();
+        if (!keyword) return products;
+
+        return products.filter((p) => {
+          const name = (p.name || '').toLowerCase();
+          const id = (p.id || '').toLowerCase();
+          return name.includes(keyword) || id.includes(keyword);
+        });
+      }
+
+      // 渲染产品列表（使用 DocumentFragment 和 requestAnimationFrame 優化）
       function renderProducts(products) {
         const productList = document.getElementById('productList');
+        productList.classList.remove('loaded');
 
         if (!products || products.length === 0) {
           productList.innerHTML = `
@@ -372,32 +475,58 @@
               <p>該分類暫無產品</p>
             </div>
           `;
+          productList.classList.add('loaded');
           return;
         }
 
-        let html = '';
-        for (let i = 0; i < products.length; i++) {
-          const product = products[i];
-          html += `
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="product-item">
-                <a href="${product.url}">
-                  <div class="product-img">
-                    <img src="${product.img}" alt="${product.name}" class="img-fluid">
-                  </div>
-                  <div class="product-info">
-                    <h4>${product.name}</h4>
-                  </div>
-                </a>
-              </div>
-            </div>
-          `;
-        }
+        // 使用 DocumentFragment 批量操作 DOM
+        const fragment = document.createDocumentFragment();
+        
+        products.forEach((product) => {
+          const col = document.createElement('div');
+          col.className = 'col-lg-4 col-md-6 mb-4';
+          
+          const item = document.createElement('div');
+          item.className = 'product-item';
+          
+          const link = document.createElement('a');
+          link.href = product.url;
+          
+          const imgDiv = document.createElement('div');
+          imgDiv.className = 'product-img';
+          
+          const img = document.createElement('img');
+          img.src = product.img;
+          img.alt = product.name;
+          img.className = 'img-fluid';
+          img.loading = 'lazy';
+          imgDiv.appendChild(img);
+          
+          const infoDiv = document.createElement('div');
+          infoDiv.className = 'product-info';
+          
+          const h4 = document.createElement('h4');
+          h4.textContent = product.name;
+          infoDiv.appendChild(h4);
+          
+          link.appendChild(imgDiv);
+          link.appendChild(infoDiv);
+          item.appendChild(link);
+          col.appendChild(item);
+          fragment.appendChild(col);
+        });
 
-        productList.innerHTML = html;
+        // 使用 requestAnimationFrame 優化渲染
+        requestAnimationFrame(() => {
+          productList.innerHTML = '';
+          productList.appendChild(fragment);
+          requestAnimationFrame(() => {
+            productList.classList.add('loaded');
+          });
+        });
       }
 
-      // 更新产品列表
+      // 更新产品列表（依分類 + 搜尋條件）
       function updateProducts(categories) {
         let products = [];
         if (currentCategoryId === '') {
@@ -410,37 +539,14 @@
           const category = categories.find((c) => c.id === currentCategoryId);
           products = category ? category.products : [];
         }
+        // 依搜尋關鍵字再過濾
+        products = filterProductsBySearch(products);
         renderProducts(products);
       }
 
-      // 初始化
+      // 初始化（合併所有 DOMContentLoaded 事件）
       document.addEventListener('DOMContentLoaded', function () {
-        // 1. 先從 URL 讀取 category 參數（例如 products.html?category=smart-detection）
-        const params = new URLSearchParams(window.location.search);
-        const categoryFromUrl = params.get('category') || '';
-        if (categoryFromUrl) {
-          currentCategoryId = categoryFromUrl;
-        }
-
-        // 2. 再依據當前 categoryId 渲染分類與產品
-        if (typeof productsData !== 'undefined' && productsData.categories) {
-          renderCategories(productsData.categories);
-          updateCategoryTitle(productsData.categories);
-          updateProducts(productsData.categories);
-        } else {
-          document.getElementById('productList').innerHTML = `
-            <div class="col-12 text-center">
-              <p>無法載入產品數據</p>
-            </div>
-          `;
-        }
-      });
-    </script>
-
-    <!-- 修正资源路径 -->
-    <script>
-      // 修正所有使用 "../" 的资源路径
-      document.addEventListener('DOMContentLoaded', function () {
+        // 修正资源路径
         const logo = document.querySelector('.logo img');
         if (logo) {
           logo.src = 'assets/img/logo.png';
@@ -450,7 +556,48 @@
         links.forEach((link) => {
           link.href = link.href.replace('../', '');
         });
+
+        // 從 URL 讀取 category 參數
+        const params = new URLSearchParams(window.location.search);
+        const categoryFromUrl = params.get('category') || '';
+        if (categoryFromUrl) {
+          currentCategoryId = categoryFromUrl;
+        }
+
+        // 渲染分類與產品
+        if (typeof productsData !== 'undefined' && productsData.categories) {
+          renderCategories(productsData.categories);
+          updateCategoryTitle(productsData.categories);
+          updateProducts(productsData.categories);
+
+          // 綁定搜尋事件（模糊搜尋）
+          const searchInput = document.getElementById('productSearch');
+          if (searchInput) {
+            searchInput.addEventListener('input', function () {
+              currentSearchTerm = this.value;
+              updateProducts(productsData.categories);
+            });
+          }
+          
+          // 渲染完成後隱藏載入指示器
+          setTimeout(() => {
+            hideLoading();
+          }, 100);
+        } else {
+          document.getElementById('productList').innerHTML = `
+            <div class="col-12 text-center">
+              <p>無法載入產品數據</p>
+            </div>
+          `;
+          hideLoading();
+        }
       });
+
+      // 超時保護：確保載入指示器不會一直顯示
+      setTimeout(() => {
+        hideLoading();
+      }, 3000);
     </script>
+
   </body>
 </html>
