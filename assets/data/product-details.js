@@ -4360,5 +4360,19 @@ const productDetails = {
     "specs": [],
     "downloads": [],
     "videoUrl": null
+},
+  "NX1": {
+    "id": "NX1",
+    "name": "動物用超音波儀",
+    "category": "smart-detection",
+    "description": "機械式扇葉探頭，防水介面5.6吋大螢幕，適用豬、羊、小動物",
+    "metaDescription": "機械式扇葉探頭，防水介面5.6吋大螢幕，適用豬、羊、小動物",
+    "keywords": "",
+    "images": [
+        "assets/img/products/NX1/NX1-1.jpg"
+    ],
+    "specs": [],
+    "downloads": [],
+    "videoUrl": null
 }
 };

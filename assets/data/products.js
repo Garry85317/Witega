@@ -171,6 +171,12 @@ const productsData = {
           "name": "智能超音波",
           "img": "assets/img/products/RS1/RS1-1.png",
           "url": "product.html?id=RS1"
+        },
+        {
+          "id": "NX1",
+          "name": "動物用超音波儀",
+          "img": "assets/img/products/NX1/NX1-1.jpg",
+          "url": "product.html?id=NX1"
         }
       ]
     },
