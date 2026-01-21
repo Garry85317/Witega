@@ -465,6 +465,12 @@ const productsData = {
           "name": "手推式消毒機",
           "img": "assets/img/products/disinfection/handPushDisinfectionMachine.jpg",
           "url": "product.html?id=handPushDisinfectionMachine"
+        },
+        {
+          "id": "witegafoam",
+          "name": "畜舍專用泡沫洗劑",
+          "img": "assets/img/products/witegafoam/witegafoam-1.jpg",
+          "url": "product.html?id=witegafoam"
         }
       ]
     },

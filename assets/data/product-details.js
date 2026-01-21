@@ -7,37 +7,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/temperature/DHCFuelHotFan.jpg"
+        "assets/img/products/temperature/DHCFuelHotFan.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "HDC- 40"
-      },
-      {
-        "label": "功率",
-        "value": "40W"
-      },
-      {
-        "label": "出風量",
-        "value": "1000m³/h"
-      },
-      {
-        "label": "油箱容量",
-        "value": "250L"
-      },
-      {
-        "label": "電壓",
-        "value": "220V-50Hz"
-      },
-      {
-        "label": "尺寸",
-        "value": "860*520*820mm"
-      }
+        {
+            "label": "型號",
+            "value": "HDC- 40"
+        },
+        {
+            "label": "功率",
+            "value": "40W"
+        },
+        {
+            "label": "出風量",
+            "value": "1000m³/h"
+        },
+        {
+            "label": "油箱容量",
+            "value": "250L"
+        },
+        {
+            "label": "電壓",
+            "value": "220V-50Hz"
+        },
+        {
+            "label": "尺寸",
+            "value": "860*520*820mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "DHFuelHotFan": {
     "id": "DHFuelHotFan",
     "name": "WH06智能柴油暖風機",
@@ -46,33 +46,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/temperature/DHFuelHotFan.jpg"
+        "assets/img/products/temperature/DHFuelHotFan.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "HD-30，HD-40，HD-50，HD-60"
-      },
-      {
-        "label": "功率",
-        "value": "100W，150W，200W，250W"
-      },
-      {
-        "label": "出風量",
-        "value": "400m³/h，700m³/h，1050m³/h"
-      },
-      {
-        "label": "油箱容量",
-        "value": "26L，38L，53L"
-      },
-      {
-        "label": "電壓",
-        "value": "220V-50Hz"
-      }
+        {
+            "label": "型號",
+            "value": "HD-30，HD-40，HD-50，HD-60"
+        },
+        {
+            "label": "功率",
+            "value": "100W，150W，200W，250W"
+        },
+        {
+            "label": "出風量",
+            "value": "400m³/h，700m³/h，1050m³/h"
+        },
+        {
+            "label": "油箱容量",
+            "value": "26L，38L，53L"
+        },
+        {
+            "label": "電壓",
+            "value": "220V-50Hz"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "EPIG": {
     "id": "EPIG",
     "name": "無針注射器",
@@ -81,23 +81,23 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "無針注射器 小豬疫苗 防止感染 藥劑注射",
     "images": [
-      "assets/img/products/EPIG/EPIG-1.jpg",
-      "assets/img/products/EPIG/EPIG-2.jpg",
-      "assets/img/products/EPIG/EPIG-3.jpg"
+        "assets/img/products/EPIG/EPIG-1.jpg",
+        "assets/img/products/EPIG/EPIG-2.jpg",
+        "assets/img/products/EPIG/EPIG-3.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "其他相關設備"
-      },
-      {
-        "label": "人性",
-        "value": "易於設定、維護、清潔"
-      }
+        {
+            "label": "產品類別",
+            "value": "其他相關設備"
+        },
+        {
+            "label": "人性",
+            "value": "易於設定、維護、清潔"
+        }
     ],
     "downloads": [],
     "videoUrl": "https://youtu.be/r3YE703t_3k"
-  },
+},
   "F1": {
     "id": "F1",
     "name": "多功能仔豬工作車",
@@ -106,37 +106,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "多功能仔豬工作車 小豬磨牙 防止感染 多功能工作車 小豬車 省時省力",
     "images": [
-      "assets/img/products/F1/F1-1.jpg",
-      "assets/img/products/F1/F1-2.jpg",
-      "assets/img/products/F1/F1-3.jpg"
+        "assets/img/products/F1/F1-1.jpg",
+        "assets/img/products/F1/F1-2.jpg",
+        "assets/img/products/F1/F1-3.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "其他相關設備"
-      },
-      {
-        "label": "產地",
-        "value": "台灣"
-      },
-      {
-        "label": "尺寸",
-        "value": "76 * 50 * 78 cm"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      }
+        {
+            "label": "產品類別",
+            "value": "其他相關設備"
+        },
+        {
+            "label": "產地",
+            "value": "台灣"
+        },
+        {
+            "label": "尺寸",
+            "value": "76 * 50 * 78 cm"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        }
     ],
     "downloads": [
-      {
-        "label": "DM",
-        "url": "assets/img/DM/F1.jpg",
-        "filename": "F1.jpg"
-      }
+        {
+            "label": "DM",
+            "url": "assets/img/DM/F1.jpg",
+            "filename": "F1.jpg"
+        }
     ],
     "videoUrl": "https://youtu.be/iD7EG6XOGbg"
-  },
+},
   "G1": {
     "id": "G1",
     "name": "精子相位差顯微鏡",
@@ -145,29 +145,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "精子相位差顯微鏡 精子活力 精子位相差 顯微鏡 公豬精子 精子前向力 配種",
     "images": [
-      "assets/img/products/G1/G1-1.jpg"
+        "assets/img/products/G1/G1-1.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "光學系統",
-        "value": "無限遠色差校正光學系統"
-      },
-      {
-        "label": "觀看方式",
-        "value": "可外接螢幕顯影、視筒目視"
-      },
-      {
-        "label": "照明系統",
-        "value": "柯勒氏LED照明"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "光學系統",
+            "value": "無限遠色差校正光學系統"
+        },
+        {
+            "label": "觀看方式",
+            "value": "可外接螢幕顯影、視筒目視"
+        },
+        {
+            "label": "照明系統",
+            "value": "柯勒氏LED照明"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "K1": {
     "id": "K1",
     "name": "電動公豬試情車",
@@ -176,27 +176,27 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "提升配種率 母豬發情 發情 公豬車 電動公豬試情車",
     "images": [
-      "assets/img/products/K1/K1-1.jpg",
-      "assets/img/products/K1/K1-2.jpg",
-      "assets/img/products/K1/K1-3.jpg"
+        "assets/img/products/K1/K1-1.jpg",
+        "assets/img/products/K1/K1-2.jpg",
+        "assets/img/products/K1/K1-3.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "電動省工機具"
-      },
-      {
-        "label": "尺寸",
-        "value": "178 * 58 * 168 cm"
-      },
-      {
-        "label": "產地",
-        "value": "台灣"
-      }
+        {
+            "label": "產品類別",
+            "value": "電動省工機具"
+        },
+        {
+            "label": "尺寸",
+            "value": "178 * 58 * 168 cm"
+        },
+        {
+            "label": "產地",
+            "value": "台灣"
+        }
     ],
     "downloads": [],
     "videoUrl": "https://youtu.be/s7QGqjMo8Io"
-  },
+},
   "Nanolike": {
     "id": "Nanolike",
     "name": "飼料桶檢測儀",
@@ -205,23 +205,23 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "精子相位差顯微鏡 精子活力 精子位相差 顯微鏡 公豬精子 精子前向力 配種 自動精子檢測機 iSperm",
     "images": [
-      "assets/img/products/iSperm/iSperm-1.jpg",
-      "assets/img/products/iSperm/iSperm-2.jpg",
-      "assets/img/products/iSperm/iSperm-3.jpg"
+        "assets/img/products/iSperm/iSperm-1.jpg",
+        "assets/img/products/iSperm/iSperm-2.jpg",
+        "assets/img/products/iSperm/iSperm-3.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "連接設備",
-        "value": "Web平臺 + APP"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "連接設備",
+            "value": "Web平臺 + APP"
+        }
     ],
     "downloads": [],
     "videoUrl": "https://youtu.be/pWeu5IQPuak"
-  },
+},
   "PHTestPaper": {
     "id": "PHTestPaper",
     "name": "PH試紙",
@@ -230,29 +230,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/PHTestPaper.jpg"
+        "assets/img/products/smartDetection/PHTestPaper.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "PH測量範圍",
-        "value": "1-14"
-      },
-      {
-        "label": "產品型號",
-        "value": "廣範 PH 試紙"
-      },
-      {
-        "label": "規格",
-        "value": "50本/盒，20盒/箱"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "PH測量範圍",
+            "value": "1-14"
+        },
+        {
+            "label": "產品型號",
+            "value": "廣範 PH 試紙"
+        },
+        {
+            "label": "規格",
+            "value": "50本/盒，20盒/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "R1": {
     "id": "R1",
     "name": "電動小豬搬運車",
@@ -261,46 +261,46 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "提升配種率 母豬發情 發情 公豬車 電動公豬試情車",
     "images": [
-      "assets/img/products/R1/R1-1.png",
-      "assets/img/products/R1/R1-2.png",
-      "assets/img/products/R1/R1-3.png",
-      "assets/img/products/R1/R1-4.png"
+        "assets/img/products/R1/R1-1.png",
+        "assets/img/products/R1/R1-2.png",
+        "assets/img/products/R1/R1-3.png",
+        "assets/img/products/R1/R1-4.png"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "電動省工機具"
-      },
-      {
-        "label": "尺寸",
-        "value": "153 * 65 * 110 cm"
-      },
-      {
-        "label": "內容",
-        "value": "123 * 59 * 60 cm"
-      },
-      {
-        "label": "承重",
-        "value": "300 KG"
-      },
-      {
-        "label": "過彎",
-        "value": "100公分 90度彎"
-      },
-      {
-        "label": "產地",
-        "value": "台灣"
-      }
+        {
+            "label": "產品類別",
+            "value": "電動省工機具"
+        },
+        {
+            "label": "尺寸",
+            "value": "153 * 65 * 110 cm"
+        },
+        {
+            "label": "內容",
+            "value": "123 * 59 * 60 cm"
+        },
+        {
+            "label": "承重",
+            "value": "300 KG"
+        },
+        {
+            "label": "過彎",
+            "value": "100公分 90度彎"
+        },
+        {
+            "label": "產地",
+            "value": "台灣"
+        }
     ],
     "downloads": [
-      {
-        "label": "DM",
-        "url": "assets/img/DM/R1.jpg",
-        "filename": "R1.jpg"
-      }
+        {
+            "label": "DM",
+            "url": "assets/img/DM/R1.jpg",
+            "filename": "R1.jpg"
+        }
     ],
     "videoUrl": null
-  },
+},
   "RL1": {
     "id": "RL1",
     "name": "無線腰眼面積測定機",
@@ -309,30 +309,30 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "無線超音波腰眼面積測定機 母豬背脂 無線腰眼面積測定機 腰眼測定 母豬背脂 配種天數 配種",
     "images": [
-      "assets/img/products/RL1/RL1-1.jpg",
-      "assets/img/products/RL1/RL1-2.jpg"
+        "assets/img/products/RL1/RL1-1.jpg",
+        "assets/img/products/RL1/RL1-2.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "掃描方式",
-        "value": "線性陣列"
-      },
-      {
-        "label": "連線方式",
-        "value": "WIFI"
-      },
-      {
-        "label": "連線設備",
-        "value": "IOS 平板"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "掃描方式",
+            "value": "線性陣列"
+        },
+        {
+            "label": "連線方式",
+            "value": "WIFI"
+        },
+        {
+            "label": "連線設備",
+            "value": "IOS 平板"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "RU1": {
     "id": "RU1",
     "name": "無線超音波背脂機",
@@ -341,30 +341,30 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "無線超音波背脂機 母豬背脂 無線背脂測定 背脂機 母豬背脂 配種天數 配種",
     "images": [
-      "assets/img/products/RU1/RU1-1.jpg",
-      "assets/img/products/RU1/RU1-2.jpg"
+        "assets/img/products/RU1/RU1-1.jpg",
+        "assets/img/products/RU1/RU1-2.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "掃描方式",
-        "value": "線性陣列"
-      },
-      {
-        "label": "連線方式",
-        "value": "WIFI"
-      },
-      {
-        "label": "連線設備",
-        "value": "IOS 平板"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "掃描方式",
+            "value": "線性陣列"
+        },
+        {
+            "label": "連線方式",
+            "value": "WIFI"
+        },
+        {
+            "label": "連線設備",
+            "value": "IOS 平板"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "RX1": {
     "id": "RX1",
     "name": "無線超音波測孕器",
@@ -373,27 +373,27 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "無線超音波測孕器 母豬超音波 無線超音波 測孕器 母豬懷孕 母豬測孕 子宮疾病 配種天數 配種",
     "images": [
-      "assets/img/products/RX1/RX1-1.jpg",
-      "assets/img/products/RX1/RX1-2.jpg",
-      "assets/img/products/RX1/RX1-3.jpg"
+        "assets/img/products/RX1/RX1-1.jpg",
+        "assets/img/products/RX1/RX1-2.jpg",
+        "assets/img/products/RX1/RX1-3.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "模式",
-        "value": "B mode"
-      },
-      {
-        "label": "連線方式",
-        "value": "WIFI"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "模式",
+            "value": "B mode"
+        },
+        {
+            "label": "連線方式",
+            "value": "WIFI"
+        }
     ],
     "downloads": [],
     "videoUrl": "https://youtu.be/P7_1XqKwWY4"
-  },
+},
   "T1": {
     "id": "T1",
     "name": "多功能斃死豬搬運車",
@@ -402,27 +402,27 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "拖運死豬 搬運死豬 拉死豬 發情 精液活力 精蟲畸形率 背脂",
     "images": [
-      "assets/img/products/T1/T1-1.jpg",
-      "assets/img/products/T1/T1-2.jpg",
-      "assets/img/products/T1/T1-3.jpg"
+        "assets/img/products/T1/T1-1.jpg",
+        "assets/img/products/T1/T1-2.jpg",
+        "assets/img/products/T1/T1-3.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "電動省工機具"
-      },
-      {
-        "label": "尺寸",
-        "value": "120 * 55 * 173 cm"
-      },
-      {
-        "label": "產地",
-        "value": "台灣"
-      }
+        {
+            "label": "產品類別",
+            "value": "電動省工機具"
+        },
+        {
+            "label": "尺寸",
+            "value": "120 * 55 * 173 cm"
+        },
+        {
+            "label": "產地",
+            "value": "台灣"
+        }
     ],
     "downloads": [],
     "videoUrl": "https://youtu.be/12bDx0_OwZ4"
-  },
+},
   "afterbirthBag": {
     "id": "afterbirthBag",
     "name": "胎衣袋",
@@ -431,21 +431,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/afterbirthBag.jpg"
+        "assets/img/products/equipment/afterbirthBag.jpg"
     ],
     "specs": [
-      {
-        "label": "尺寸",
-        "value": "85*55cm"
-      },
-      {
-        "label": "規格",
-        "value": "50個/卷"
-      }
+        {
+            "label": "尺寸",
+            "value": "85*55cm"
+        },
+        {
+            "label": "規格",
+            "value": "50個/卷"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "aluminumFeedScoop": {
     "id": "aluminumFeedScoop",
     "name": "鋁製飼料鏟",
@@ -454,21 +454,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/aluminumFeedScoop.jpg"
+        "assets/img/products/equipment/aluminumFeedScoop.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "鋁"
-      },
-      {
-        "label": "尺寸",
-        "value": "38*14*25cm"
-      }
+        {
+            "label": "材質",
+            "value": "鋁"
+        },
+        {
+            "label": "尺寸",
+            "value": "38*14*25cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "americanVersionOfTheBackCaliper": {
     "id": "americanVersionOfTheBackCaliper",
     "name": "美國版背脂體態卡尺",
@@ -477,21 +477,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/americanVersionOfTheBackCaliper.jpg"
+        "assets/img/products/equipment/americanVersionOfTheBackCaliper.jpg"
     ],
     "specs": [
-      {
-        "label": "品類",
-        "value": "美版"
-      },
-      {
-        "label": "材質",
-        "value": "注塑把手，304不鏽鋼"
-      }
+        {
+            "label": "品類",
+            "value": "美版"
+        },
+        {
+            "label": "材質",
+            "value": "注塑把手，304不鏽鋼"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "ammoniaDetector": {
     "id": "ammoniaDetector",
     "name": "氨氣檢測儀",
@@ -500,41 +500,41 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/ammoniaDetector.jpg"
+        "assets/img/products/smartDetection/ammoniaDetector.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "供電方式",
-        "value": "直流供電 9-18V"
-      },
-      {
-        "label": "工作溫度",
-        "value": "-20°C~50°C"
-      },
-      {
-        "label": "防水等級",
-        "value": "IP67"
-      },
-      {
-        "label": "靈敏度",
-        "value": "0.10±0.03 ppm"
-      },
-      {
-        "label": "分辨率",
-        "value": "0.5ppm"
-      },
-      {
-        "label": "響應時間",
-        "value": "≤60s"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "供電方式",
+            "value": "直流供電 9-18V"
+        },
+        {
+            "label": "工作溫度",
+            "value": "-20°C~50°C"
+        },
+        {
+            "label": "防水等級",
+            "value": "IP67"
+        },
+        {
+            "label": "靈敏度",
+            "value": "0.10±0.03 ppm"
+        },
+        {
+            "label": "分辨率",
+            "value": "0.5ppm"
+        },
+        {
+            "label": "響應時間",
+            "value": "≤60s"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "anemometer": {
     "id": "anemometer",
     "name": "風速風向儀",
@@ -543,33 +543,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/anemometer.jpg"
+        "assets/img/products/smartDetection/anemometer.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "功率",
-        "value": "電池槽9V電池、超低功率"
-      },
-      {
-        "label": "風速",
-        "value": "6種風速單位"
-      },
-      {
-        "label": "精度測量",
-        "value": "高精度測量±（2%-50%）"
-      },
-      {
-        "label": "機身",
-        "value": "ABS+TPE 雙注塑機身"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "功率",
+            "value": "電池槽9V電池、超低功率"
+        },
+        {
+            "label": "風速",
+            "value": "6種風速單位"
+        },
+        {
+            "label": "精度測量",
+            "value": "高精度測量±（2%-50%）"
+        },
+        {
+            "label": "機身",
+            "value": "ABS+TPE 雙注塑機身"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "animalMarkingSpray": {
     "id": "animalMarkingSpray",
     "name": "Sipert 動物噴墨",
@@ -578,29 +578,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/animalMarkingSpray.jpg"
+        "assets/img/products/animalLabels/animalMarkingSpray.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "顏色",
-        "value": "紅、綠、藍"
-      },
-      {
-        "label": "重量",
-        "value": "500ml"
-      },
-      {
-        "label": "規格",
-        "value": "2瓶/小箱、 48瓶/大箱"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "顏色",
+            "value": "紅、綠、藍"
+        },
+        {
+            "label": "重量",
+            "value": "500ml"
+        },
+        {
+            "label": "規格",
+            "value": "2瓶/小箱、 48瓶/大箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "animalScalpNeedle": {
     "id": "animalScalpNeedle",
     "name": "獸用頭皮針",
@@ -609,29 +609,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/animalScalpNeedle.jpg"
+        "assets/img/products/injection/animalScalpNeedle.jpg"
     ],
     "specs": [
-      {
-        "label": "針頭型號",
-        "value": "9號，12號"
-      },
-      {
-        "label": "針頭",
-        "value": "0.9mm、1.2mm"
-      },
-      {
-        "label": "管長",
-        "value": "0.5m"
-      },
-      {
-        "label": "規格",
-        "value": "200隻/包"
-      }
+        {
+            "label": "針頭型號",
+            "value": "9號，12號"
+        },
+        {
+            "label": "針頭",
+            "value": "0.9mm、1.2mm"
+        },
+        {
+            "label": "管長",
+            "value": "0.5m"
+        },
+        {
+            "label": "規格",
+            "value": "200隻/包"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "animalThermometer": {
     "id": "animalThermometer",
     "name": "獸用體溫計",
@@ -640,25 +640,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/animalThermometer.jpg"
+        "assets/img/products/smartDetection/animalThermometer.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "溫度範圍",
-        "value": "35°C-43°C"
-      },
-      {
-        "label": "水銀長度",
-        "value": "11cm 可繫繩"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "溫度範圍",
+            "value": "35°C-43°C"
+        },
+        {
+            "label": "水銀長度",
+            "value": "11cm 可繫繩"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "animalTrap": {
     "id": "animalTrap",
     "name": "動物捕殺器",
@@ -667,25 +667,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/animalTrap.jpg"
+        "assets/img/products/equipment/animalTrap.jpg"
     ],
     "specs": [
-      {
-        "label": "電壓",
-        "value": "0-30V可調"
-      },
-      {
-        "label": "尺寸",
-        "value": "120*360*160mm"
-      },
-      {
-        "label": "桿長",
-        "value": "電豬桿長73cm，電纜長10m"
-      }
+        {
+            "label": "電壓",
+            "value": "0-30V可調"
+        },
+        {
+            "label": "尺寸",
+            "value": "120*360*160mm"
+        },
+        {
+            "label": "桿長",
+            "value": "電豬桿長73cm，電纜長10m"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "animalVibrator": {
     "id": "animalVibrator",
     "name": "獸用震動棒",
@@ -694,21 +694,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/animalVibrator.jpg"
+        "assets/img/products/equipment/animalVibrator.jpg"
     ],
     "specs": [
-      {
-        "label": "電源",
-        "value": "電池"
-      },
-      {
-        "label": "規格",
-        "value": "獨立包裝"
-      }
+        {
+            "label": "電源",
+            "value": "電池"
+        },
+        {
+            "label": "規格",
+            "value": "獨立包裝"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "artificialInseminationTrolleyForPigs": {
     "id": "artificialInseminationTrolleyForPigs",
     "name": "豬隻人工授精車",
@@ -717,12 +717,12 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/artificialInseminationTrolleyForPigs.jpg"
+        "assets/img/products/equipment/artificialInseminationTrolleyForPigs.jpg"
     ],
     "specs": [],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "atomizedFumigationAndDisinfectionSystem": {
     "id": "atomizedFumigationAndDisinfectionSystem",
     "name": "霧化薰蒸消毒系統",
@@ -731,29 +731,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/atomizedFumigationAndDisinfectionSystem.jpg"
+        "assets/img/products/disinfection/atomizedFumigationAndDisinfectionSystem.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "201不鏽鋼"
-      },
-      {
-        "label": "功率",
-        "value": "3500W"
-      },
-      {
-        "label": "霧化量",
-        "value": "60L/h"
-      },
-      {
-        "label": "尺寸",
-        "value": "110*75*45cm"
-      }
+        {
+            "label": "材質",
+            "value": "201不鏽鋼"
+        },
+        {
+            "label": "功率",
+            "value": "3500W"
+        },
+        {
+            "label": "霧化量",
+            "value": "60L/h"
+        },
+        {
+            "label": "尺寸",
+            "value": "110*75*45cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "automaticTagApplicator": {
     "id": "automaticTagApplicator",
     "name": "Sipert 自動回彈耳標鉗",
@@ -762,29 +762,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/automaticTagApplicator.jpg"
+        "assets/img/products/animalLabels/automaticTagApplicator.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "材質",
-        "value": "合金、高強度塑膠"
-      },
-      {
-        "label": "尺寸",
-        "value": "195*170mm"
-      },
-      {
-        "label": "顏色",
-        "value": "藍色+黑色"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "材質",
+            "value": "合金、高強度塑膠"
+        },
+        {
+            "label": "尺寸",
+            "value": "195*170mm"
+        },
+        {
+            "label": "顏色",
+            "value": "藍色+黑色"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "backfatCaliper": {
     "id": "backfatCaliper",
     "name": "背脂體態卡尺",
@@ -793,21 +793,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/backfatCaliper.jpg"
+        "assets/img/products/equipment/backfatCaliper.jpg"
     ],
     "specs": [
-      {
-        "label": "品類",
-        "value": "標準"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      }
+        {
+            "label": "品類",
+            "value": "標準"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "backupBodyRuler": {
     "id": "backupBodyRuler",
     "name": "後備體尺",
@@ -816,12 +816,12 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/backupBodyRuler.jpg"
+        "assets/img/products/equipment/backupBodyRuler.jpg"
     ],
     "specs": [],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "biteBallNipple": {
     "id": "biteBallNipple",
     "name": "防噴濺式飲水嘴",
@@ -830,25 +830,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/biteBallNipple.jpg"
+        "assets/img/products/equipment/biteBallNipple.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "飲水嘴頭",
-        "value": "塑帽，鋼帽，銅帽"
-      },
-      {
-        "label": "尺寸",
-        "value": "79mm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "飲水嘴頭",
+            "value": "塑帽，鋼帽，銅帽"
+        },
+        {
+            "label": "尺寸",
+            "value": "79mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "biteNipple": {
     "id": "biteNipple",
     "name": "鴨嘴式飲水嘴",
@@ -857,25 +857,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/biteNipple.jpg"
+        "assets/img/products/equipment/biteNipple.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "飲水嘴頭",
-        "value": "塑帽，銅帽，鋼帽"
-      },
-      {
-        "label": "尺寸",
-        "value": "66mm，74mm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "飲水嘴頭",
+            "value": "塑帽，銅帽，鋼帽"
+        },
+        {
+            "label": "尺寸",
+            "value": "66mm，74mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "boarOdorant": {
     "id": "boarOdorant",
     "name": "母豬誘情劑",
@@ -884,29 +884,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/boarOdorant.jpg"
+        "assets/img/products/equipment/boarOdorant.jpg"
     ],
     "specs": [
-      {
-        "label": "特性",
-        "value": "類比公豬氣味"
-      },
-      {
-        "label": "用途",
-        "value": "檢查母豬是否處於發情期"
-      },
-      {
-        "label": "容量",
-        "value": "80ml，250ml"
-      },
-      {
-        "label": "規格",
-        "value": "12瓶/盒"
-      }
+        {
+            "label": "特性",
+            "value": "類比公豬氣味"
+        },
+        {
+            "label": "用途",
+            "value": "檢查母豬是否處於發情期"
+        },
+        {
+            "label": "容量",
+            "value": "80ml，250ml"
+        },
+        {
+            "label": "規格",
+            "value": "12瓶/盒"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "bootCleaner": {
     "id": "bootCleaner",
     "name": "雨靴消毒清洗機",
@@ -915,37 +915,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/bootCleaner.jpg"
+        "assets/img/products/disinfection/bootCleaner.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "304不鏽鋼"
-      },
-      {
-        "label": "毛刷材質",
-        "value": "尼龍"
-      },
-      {
-        "label": "水管材質",
-        "value": "PVC"
-      },
-      {
-        "label": "尺寸",
-        "value": "54*28*85cm"
-      },
-      {
-        "label": "配置",
-        "value": "整機+10米水管+專用噴槍"
-      },
-      {
-        "label": "重量",
-        "value": "13.5kg"
-      }
+        {
+            "label": "材質",
+            "value": "304不鏽鋼"
+        },
+        {
+            "label": "毛刷材質",
+            "value": "尼龍"
+        },
+        {
+            "label": "水管材質",
+            "value": "PVC"
+        },
+        {
+            "label": "尺寸",
+            "value": "54*28*85cm"
+        },
+        {
+            "label": "配置",
+            "value": "整機+10米水管+專用噴槍"
+        },
+        {
+            "label": "重量",
+            "value": "13.5kg"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "breedingSaddlesInseminationBackbag": {
     "id": "breedingSaddlesInseminationBackbag",
     "name": "配種鞍 / 授精背袋",
@@ -954,12 +954,12 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/breedingSaddlesInseminationBackbag.jpg"
+        "assets/img/products/equipment/breedingSaddlesInseminationBackbag.jpg"
     ],
     "specs": [],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "butterflyBloodNeedle": {
     "id": "butterflyBloodNeedle",
     "name": "一次性靜脈采血針（蝶式）",
@@ -968,17 +968,17 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/butterflyBloodNeedle.jpg"
+        "assets/img/products/injection/butterflyBloodNeedle.jpg"
     ],
     "specs": [
-      {
-        "label": "產品規格",
-        "value": "100包/盒，50包/箱"
-      }
+        {
+            "label": "產品規格",
+            "value": "100包/盒，50包/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "carcassBag": {
     "id": "carcassBag",
     "name": "動物屍體袋",
@@ -987,21 +987,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/carcassBag.jpg"
+        "assets/img/products/equipment/carcassBag.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "小號、中號、大號、超大號"
-      },
-      {
-        "label": "材質",
-        "value": "CPE高密度聚乙烯"
-      }
+        {
+            "label": "型號",
+            "value": "小號、中號、大號、超大號"
+        },
+        {
+            "label": "材質",
+            "value": "CPE高密度聚乙烯"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "carlboMedicineDoser": {
     "id": "carlboMedicineDoser",
     "name": "嘉樂寶加藥器",
@@ -1010,49 +1010,49 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/carlboMedicineDoser.jpg"
+        "assets/img/products/equipment/carlboMedicineDoser.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "GLB-PG/BD"
-      },
-      {
-        "label": "接口尺寸",
-        "value": "DN20"
-      },
-      {
-        "label": "流量範圍",
-        "value": "10L/h-2.5m³h"
-      },
-      {
-        "label": "工作水壓",
-        "value": "0.3-6bar"
-      },
-      {
-        "label": "工作溫度",
-        "value": "5-40°C"
-      },
-      {
-        "label": "顏色",
-        "value": "黑色，黃色"
-      },
-      {
-        "label": "外尺寸",
-        "value": "1310*650*800mm"
-      },
-      {
-        "label": "內尺寸",
-        "value": "1100*600*610mm"
-      },
-      {
-        "label": "承重",
-        "value": "250kg"
-      }
+        {
+            "label": "型號",
+            "value": "GLB-PG/BD"
+        },
+        {
+            "label": "接口尺寸",
+            "value": "DN20"
+        },
+        {
+            "label": "流量範圍",
+            "value": "10L/h-2.5m³h"
+        },
+        {
+            "label": "工作水壓",
+            "value": "0.3-6bar"
+        },
+        {
+            "label": "工作溫度",
+            "value": "5-40°C"
+        },
+        {
+            "label": "顏色",
+            "value": "黑色，黃色"
+        },
+        {
+            "label": "外尺寸",
+            "value": "1310*650*800mm"
+        },
+        {
+            "label": "內尺寸",
+            "value": "1100*600*610mm"
+        },
+        {
+            "label": "承重",
+            "value": "250kg"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "circleEarTag": {
     "id": "circleEarTag",
     "name": "圓形耳標",
@@ -1061,33 +1061,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/circleEarTag.jpg"
+        "assets/img/products/animalLabels/circleEarTag.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "顏色",
-        "value": "紅、黃、藍、綠、橘、白、粉"
-      },
-      {
-        "label": "材質",
-        "value": "TPU"
-      },
-      {
-        "label": "規格",
-        "value": "100個/包、30包/箱"
-      },
-      {
-        "label": "尺寸",
-        "value": "直徑28mm"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "顏色",
+            "value": "紅、黃、藍、綠、橘、白、粉"
+        },
+        {
+            "label": "材質",
+            "value": "TPU"
+        },
+        {
+            "label": "規格",
+            "value": "100個/包、30包/箱"
+        },
+        {
+            "label": "尺寸",
+            "value": "直徑28mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "cutterForRemovingEarTag": {
     "id": "cutterForRemovingEarTag",
     "name": "卸標刀",
@@ -1096,25 +1096,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/cutterForRemovingEarTag.jpg"
+        "assets/img/products/animalLabels/cutterForRemovingEarTag.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "尺寸",
-        "value": "21.5*5cm"
-      },
-      {
-        "label": "材質",
-        "value": "金屬與塑料（底部帶磁鐵？？）"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "尺寸",
+            "value": "21.5*5cm"
+        },
+        {
+            "label": "材質",
+            "value": "金屬與塑料（底部帶磁鐵？？）"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "deliveryPapers": {
     "id": "deliveryPapers",
     "name": "分娩紙",
@@ -1123,25 +1123,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/deliveryPapers.jpg"
+        "assets/img/products/equipment/deliveryPapers.jpg"
     ],
     "specs": [
-      {
-        "label": "尺寸",
-        "value": "30*60cm"
-      },
-      {
-        "label": "重量",
-        "value": "5斤/ 包"
-      },
-      {
-        "label": "張數",
-        "value": "190張/包"
-      }
+        {
+            "label": "尺寸",
+            "value": "30*60cm"
+        },
+        {
+            "label": "重量",
+            "value": "5斤/ 包"
+        },
+        {
+            "label": "張數",
+            "value": "190張/包"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "digitalThermo": {
     "id": "digitalThermo",
     "name": "獸用電子體溫計",
@@ -1150,25 +1150,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/digitalThermo.jpg"
+        "assets/img/products/smartDetection/digitalThermo.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "探針長度",
-        "value": "150mm"
-      },
-      {
-        "label": "整機尺寸",
-        "value": "21*228mm"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "探針長度",
+            "value": "150mm"
+        },
+        {
+            "label": "整機尺寸",
+            "value": "21*228mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disinfectionBoot": {
     "id": "disinfectionBoot",
     "name": "平底雨靴",
@@ -1177,25 +1177,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disinfectionBoot.jpg"
+        "assets/img/products/epidemicPrevention/disinfectionBoot.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "塑膠"
-      },
-      {
-        "label": "尺碼",
-        "value": "36-44碼"
-      },
-      {
-        "label": "顏色",
-        "value": "紅綠黃橙黑白"
-      }
+        {
+            "label": "材質",
+            "value": "塑膠"
+        },
+        {
+            "label": "尺碼",
+            "value": "36-44碼"
+        },
+        {
+            "label": "顏色",
+            "value": "紅綠黃橙黑白"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disinfectionNeedleBox": {
     "id": "disinfectionNeedleBox",
     "name": "消毒針頭盒",
@@ -1204,21 +1204,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/disinfectionNeedleBox.jpg"
+        "assets/img/products/injection/disinfectionNeedleBox.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "鋁"
-      },
-      {
-        "label": "尺寸",
-        "value": "5ml、10ml、20ml、50ml"
-      }
+        {
+            "label": "材質",
+            "value": "鋁"
+        },
+        {
+            "label": "尺寸",
+            "value": "5ml、10ml、20ml、50ml"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disinfectionSafetyBoot": {
     "id": "disinfectionSafetyBoot",
     "name": "鋼頭雨靴",
@@ -1227,21 +1227,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disinfectionSafetyBoot.jpg"
+        "assets/img/products/epidemicPrevention/disinfectionSafetyBoot.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "塑膠，鋼"
-      },
-      {
-        "label": "尺碼",
-        "value": "36-44碼"
-      }
+        {
+            "label": "材質",
+            "value": "塑膠，鋼"
+        },
+        {
+            "label": "尺碼",
+            "value": "36-44碼"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disinfectionWetWipes": {
     "id": "disinfectionWetWipes",
     "name": "消毒濕巾",
@@ -1250,25 +1250,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/disinfectionWetWipes.jpg"
+        "assets/img/products/disinfection/disinfectionWetWipes.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "柔棉水刺無紡布"
-      },
-      {
-        "label": "尺寸",
-        "value": "200*250mm"
-      },
-      {
-        "label": "重量",
-        "value": "5.6公斤"
-      }
+        {
+            "label": "材質",
+            "value": "柔棉水刺無紡布"
+        },
+        {
+            "label": "尺寸",
+            "value": "200*250mm"
+        },
+        {
+            "label": "重量",
+            "value": "5.6公斤"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableBloodCollectionAndStorage": {
     "id": "disposableBloodCollectionAndStorage",
     "name": "一次性採血盛血器",
@@ -1277,29 +1277,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/disposableBloodCollectionAndStorage.jpg"
+        "assets/img/products/injection/disposableBloodCollectionAndStorage.jpg"
     ],
     "specs": [
-      {
-        "label": "針頭型號",
-        "value": "9號，12號"
-      },
-      {
-        "label": "針頭規格",
-        "value": "0.9*38mm，1.2*38mm"
-      },
-      {
-        "label": "產品容量",
-        "value": "5ml，10ml"
-      },
-      {
-        "label": "產品規格",
-        "value": "100支/盒"
-      }
+        {
+            "label": "針頭型號",
+            "value": "9號，12號"
+        },
+        {
+            "label": "針頭規格",
+            "value": "0.9*38mm，1.2*38mm"
+        },
+        {
+            "label": "產品容量",
+            "value": "5ml，10ml"
+        },
+        {
+            "label": "產品規格",
+            "value": "100支/盒"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableCoverall": {
     "id": "disposableCoverall",
     "name": "一次性防護服",
@@ -1308,33 +1308,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disposableCoverall.jpg"
+        "assets/img/products/epidemicPrevention/disposableCoverall.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "SS，SF，SMS"
-      },
-      {
-        "label": "重量",
-        "value": "SS，SF（55g）SMS（40g-65g）"
-      },
-      {
-        "label": "材質",
-        "value": "無紡布，透氣膜碼"
-      },
-      {
-        "label": "尺碼",
-        "value": "185XXL"
-      },
-      {
-        "label": "規格",
-        "value": "50件/箱"
-      }
+        {
+            "label": "型號",
+            "value": "SS，SF，SMS"
+        },
+        {
+            "label": "重量",
+            "value": "SS，SF（55g）SMS（40g-65g）"
+        },
+        {
+            "label": "材質",
+            "value": "無紡布，透氣膜碼"
+        },
+        {
+            "label": "尺碼",
+            "value": "185XXL"
+        },
+        {
+            "label": "規格",
+            "value": "50件/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableElasticBootCover": {
     "id": "disposableElasticBootCover",
     "name": "一次性高筒鬆緊鞋套",
@@ -1343,25 +1343,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disposableElasticBootCover.jpg"
+        "assets/img/products/epidemicPrevention/disposableElasticBootCover.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "HDPE"
-      },
-      {
-        "label": "尺寸",
-        "value": "48*42cm"
-      },
-      {
-        "label": "規格",
-        "value": "10隻/卷"
-      }
+        {
+            "label": "材質",
+            "value": "HDPE"
+        },
+        {
+            "label": "尺寸",
+            "value": "48*42cm"
+        },
+        {
+            "label": "規格",
+            "value": "10隻/卷"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disinfectionSprayGun": {
     "id": "disinfectionSprayGun",
     "name": "消毒噴壺",
@@ -1370,21 +1370,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/disinfectionSprayGun.jpg"
+        "assets/img/products/disinfection/disinfectionSprayGun.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "塑膠"
-      },
-      {
-        "label": "容積",
-        "value": "0.5L，1L，1.5L，2L，3L"
-      }
+        {
+            "label": "材質",
+            "value": "塑膠"
+        },
+        {
+            "label": "容積",
+            "value": "0.5L，1L，1.5L，2L，3L"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableLatexGloves": {
     "id": "disposableLatexGloves",
     "name": "一次性乳膠手套",
@@ -1393,21 +1393,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disposableLatexGloves.jpg"
+        "assets/img/products/epidemicPrevention/disposableLatexGloves.jpg"
     ],
     "specs": [
-      {
-        "label": "尺碼",
-        "value": "S，M，L，XL"
-      },
-      {
-        "label": "規格",
-        "value": "100隻/盒"
-      }
+        {
+            "label": "尺碼",
+            "value": "S，M，L，XL"
+        },
+        {
+            "label": "規格",
+            "value": "100隻/盒"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableLongGloves": {
     "id": "disposableLongGloves",
     "name": "一次性長臂手套",
@@ -1416,21 +1416,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disposableLongGloves.jpg"
+        "assets/img/products/epidemicPrevention/disposableLongGloves.jpg"
     ],
     "specs": [
-      {
-        "label": "尺碼",
-        "value": "長90cm"
-      },
-      {
-        "label": "規格",
-        "value": "100隻/盒，10盒/箱"
-      }
+        {
+            "label": "尺碼",
+            "value": "長90cm"
+        },
+        {
+            "label": "規格",
+            "value": "100隻/盒，10盒/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableNitrileGloves": {
     "id": "disposableNitrileGloves",
     "name": "一次性丁腈手套",
@@ -1439,21 +1439,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disposableNitrileGloves.jpg"
+        "assets/img/products/epidemicPrevention/disposableNitrileGloves.jpg"
     ],
     "specs": [
-      {
-        "label": "尺碼",
-        "value": "S，M，L，XL"
-      },
-      {
-        "label": "規格",
-        "value": "100隻/盒，10盒/箱"
-      }
+        {
+            "label": "尺碼",
+            "value": "S，M，L，XL"
+        },
+        {
+            "label": "規格",
+            "value": "100隻/盒，10盒/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposablePeGloves": {
     "id": "disposablePeGloves",
     "name": "一次性PE手套",
@@ -1462,21 +1462,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disposablePeGloves.jpg"
+        "assets/img/products/epidemicPrevention/disposablePeGloves.jpg"
     ],
     "specs": [
-      {
-        "label": "尺碼",
-        "value": "XL"
-      },
-      {
-        "label": "規格",
-        "value": "100隻/包，200隻/盒，20盒/箱"
-      }
+        {
+            "label": "尺碼",
+            "value": "XL"
+        },
+        {
+            "label": "規格",
+            "value": "100隻/包，200隻/盒，20盒/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposablePvcGloves": {
     "id": "disposablePvcGloves",
     "name": "一次性PVC手套",
@@ -1485,21 +1485,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disposablePvcGloves.jpg"
+        "assets/img/products/epidemicPrevention/disposablePvcGloves.jpg"
     ],
     "specs": [
-      {
-        "label": "尺碼",
-        "value": "S，M，L，XL"
-      },
-      {
-        "label": "規格",
-        "value": "100隻/盒，10盒/箱"
-      }
+        {
+            "label": "尺碼",
+            "value": "S，M，L，XL"
+        },
+        {
+            "label": "規格",
+            "value": "100隻/盒，10盒/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableSemenCollectionBag": {
     "id": "disposableSemenCollectionBag",
     "name": "一次性採精袋",
@@ -1508,21 +1508,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/disposableSemenCollectionBag.jpg"
+        "assets/img/products/equipment/disposableSemenCollectionBag.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "PE"
-      },
-      {
-        "label": "容積",
-        "value": "1L，2L，3L"
-      }
+        {
+            "label": "材質",
+            "value": "PE"
+        },
+        {
+            "label": "容積",
+            "value": "1L，2L，3L"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableSyringe": {
     "id": "disposableSyringe",
     "name": "一次性注射器",
@@ -1531,12 +1531,12 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/disposableSyringe.jpg"
+        "assets/img/products/injection/disposableSyringe.jpg"
     ],
     "specs": [],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableTraceBloodCollectionVessel": {
     "id": "disposableTraceBloodCollectionVessel",
     "name": "一次性微量採血管",
@@ -1545,29 +1545,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/disposableTraceBloodCollectionVessel.jpg"
+        "assets/img/products/injection/disposableTraceBloodCollectionVessel.jpg"
     ],
     "specs": [
-      {
-        "label": "採血",
-        "value": "鏟型"
-      },
-      {
-        "label": "成分",
-        "value": "分離膠+抗凝劑"
-      },
-      {
-        "label": "容量",
-        "value": "1ml"
-      },
-      {
-        "label": "規格",
-        "value": "100支/包，30包/箱"
-      }
+        {
+            "label": "採血",
+            "value": "鏟型"
+        },
+        {
+            "label": "成分",
+            "value": "分離膠+抗凝劑"
+        },
+        {
+            "label": "容量",
+            "value": "1ml"
+        },
+        {
+            "label": "規格",
+            "value": "100支/包，30包/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableUmbilicalCordClamps": {
     "id": "disposableUmbilicalCordClamps",
     "name": "一次性臍帶夾",
@@ -1576,25 +1576,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/disposableUmbilicalCordClamps.jpg"
+        "assets/img/products/equipment/disposableUmbilicalCordClamps.jpg"
     ],
     "specs": [
-      {
-        "label": "尺寸",
-        "value": "約5cm"
-      },
-      {
-        "label": "材質",
-        "value": "PVC"
-      },
-      {
-        "label": "規格",
-        "value": "100個/包"
-      }
+        {
+            "label": "尺寸",
+            "value": "約5cm"
+        },
+        {
+            "label": "材質",
+            "value": "PVC"
+        },
+        {
+            "label": "規格",
+            "value": "100個/包"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableUnderwear": {
     "id": "disposableUnderwear",
     "name": "一次性內褲",
@@ -1603,25 +1603,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/disposableUnderwear.jpg"
+        "assets/img/products/epidemicPrevention/disposableUnderwear.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "無紡布"
-      },
-      {
-        "label": "顏色",
-        "value": "男士藍色，女士白色"
-      },
-      {
-        "label": "規格",
-        "value": "100條/包"
-      }
+        {
+            "label": "材質",
+            "value": "無紡布"
+        },
+        {
+            "label": "顏色",
+            "value": "男士藍色，女士白色"
+        },
+        {
+            "label": "規格",
+            "value": "100條/包"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "disposableVacuumBloodCollectionVessel": {
     "id": "disposableVacuumBloodCollectionVessel",
     "name": "一次性真空採血管",
@@ -1630,25 +1630,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/disposableVacuumBloodCollectionVessel.jpg"
+        "assets/img/products/injection/disposableVacuumBloodCollectionVessel.jpg"
     ],
     "specs": [
-      {
-        "label": "產品種類",
-        "value": "促凝劑管，抗凝管，無添加管"
-      },
-      {
-        "label": "容量",
-        "value": "1ml，2ml，5ml，10ml"
-      },
-      {
-        "label": "規格",
-        "value": "100隻/包"
-      }
+        {
+            "label": "產品種類",
+            "value": "促凝劑管，抗凝管，無添加管"
+        },
+        {
+            "label": "容量",
+            "value": "1ml，2ml，5ml，10ml"
+        },
+        {
+            "label": "規格",
+            "value": "100隻/包"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "dosatronMedicineDoser": {
     "id": "dosatronMedicineDoser",
     "name": "法國多壽加藥器",
@@ -1657,45 +1657,45 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/dosatronMedicineDoser.jpg"
+        "assets/img/products/equipment/dosatronMedicineDoser.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "D25RE2，D25RE5VF"
-      },
-      {
-        "label": "接口尺寸",
-        "value": "25mm"
-      },
-      {
-        "label": "流量範圍",
-        "value": "10L/h-2.5m³h"
-      },
-      {
-        "label": "工作水壓",
-        "value": "0.3-6bar"
-      },
-      {
-        "label": "工作溫度",
-        "value": "5-40°C"
-      },
-      {
-        "label": "加藥比例",
-        "value": "（E2）0.2-2%，（E5VF）1-5%"
-      },
-      {
-        "label": "材質",
-        "value": "ABS"
-      },
-      {
-        "label": "承重",
-        "value": "（E2）100kg，（E5VF）150kg"
-      }
+        {
+            "label": "型號",
+            "value": "D25RE2，D25RE5VF"
+        },
+        {
+            "label": "接口尺寸",
+            "value": "25mm"
+        },
+        {
+            "label": "流量範圍",
+            "value": "10L/h-2.5m³h"
+        },
+        {
+            "label": "工作水壓",
+            "value": "0.3-6bar"
+        },
+        {
+            "label": "工作溫度",
+            "value": "5-40°C"
+        },
+        {
+            "label": "加藥比例",
+            "value": "（E2）0.2-2%，（E5VF）1-5%"
+        },
+        {
+            "label": "材質",
+            "value": "ABS"
+        },
+        {
+            "label": "承重",
+            "value": "（E2）100kg，（E5VF）150kg"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "earCutter": {
     "id": "earCutter",
     "name": "耳缺鉗",
@@ -1704,29 +1704,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/earCutter.jpg"
+        "assets/img/products/animalLabels/earCutter.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "型號",
-        "value": "U型、V型"
-      },
-      {
-        "label": "材質",
-        "value": "304不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "158mm"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "型號",
+            "value": "U型、V型"
+        },
+        {
+            "label": "材質",
+            "value": "304不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "158mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "earNotcher": {
     "id": "earNotcher",
     "name": "耳孔鉗",
@@ -1735,33 +1735,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/earNotcher.jpg"
+        "assets/img/products/animalLabels/earNotcher.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "材質",
-        "value": "合金"
-      },
-      {
-        "label": "孔徑",
-        "value": "7mm"
-      },
-      {
-        "label": "長度",
-        "value": "195mm"
-      },
-      {
-        "label": "重量",
-        "value": "285g"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "材質",
+            "value": "合金"
+        },
+        {
+            "label": "孔徑",
+            "value": "7mm"
+        },
+        {
+            "label": "長度",
+            "value": "195mm"
+        },
+        {
+            "label": "重量",
+            "value": "285g"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "earTagMarkerPen": {
     "id": "earTagMarkerPen",
     "name": "Sipert 耳牌筆",
@@ -1770,29 +1770,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/earTagMarkerPen.jpg"
+        "assets/img/products/animalLabels/earTagMarkerPen.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "顏色",
-        "value": "黑色"
-      },
-      {
-        "label": "油墨",
-        "value": "進口"
-      },
-      {
-        "label": "規格",
-        "value": "10支/盒"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "顏色",
+            "value": "黑色"
+        },
+        {
+            "label": "油墨",
+            "value": "進口"
+        },
+        {
+            "label": "規格",
+            "value": "10支/盒"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "eightTypeDrinkingTrough": {
     "id": "eightTypeDrinkingTrough",
     "name": "8字型飲水碗",
@@ -1801,26 +1801,26 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/eightTypeDrinkingTrough.jpg",
-      "assets/img/products/equipment/drinkingTrough.jpg"
+        "assets/img/products/equipment/eightTypeDrinkingTrough.jpg",
+        "assets/img/products/equipment/drinkingTrough.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "51*29*8cm"
-      },
-      {
-        "label": "規格",
-        "value": "S/M，100個/箱"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "51*29*8cm"
+        },
+        {
+            "label": "規格",
+            "value": "S/M，100個/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "electricEarTagApplicator": {
     "id": "electricEarTagApplicator",
     "name": "電動耳標鉗",
@@ -1829,33 +1829,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/electricEarTagApplicator.jpg"
+        "assets/img/products/animalLabels/electricEarTagApplicator.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "電源",
-        "value": "充電式-鋰電池"
-      },
-      {
-        "label": "功率",
-        "value": "16.8V"
-      },
-      {
-        "label": "尺寸",
-        "value": "33*26*8cm"
-      },
-      {
-        "label": "規格",
-        "value": "配兩塊鋰電池"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "電源",
+            "value": "充電式-鋰電池"
+        },
+        {
+            "label": "功率",
+            "value": "16.8V"
+        },
+        {
+            "label": "尺寸",
+            "value": "33*26*8cm"
+        },
+        {
+            "label": "規格",
+            "value": "配兩塊鋰電池"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "electricHeatingFanElite": {
     "id": "electricHeatingFanElite",
     "name": "電熱風機-ELITE",
@@ -1864,37 +1864,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/temperature/electricHeatingFanElite.jpg"
+        "assets/img/products/temperature/electricHeatingFanElite.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "Elite-10，Elite-15，Elite-30"
-      },
-      {
-        "label": "功率",
-        "value": "10W，15W，30W"
-      },
-      {
-        "label": "出風量",
-        "value": "1300m³/h，1800m³/h"
-      },
-      {
-        "label": "電流",
-        "value": "16A，23A，46A"
-      },
-      {
-        "label": "電壓",
-        "value": "380V-50Hz"
-      },
-      {
-        "label": "尺寸",
-        "value": "500*7000*890mm"
-      }
+        {
+            "label": "型號",
+            "value": "Elite-10，Elite-15，Elite-30"
+        },
+        {
+            "label": "功率",
+            "value": "10W，15W，30W"
+        },
+        {
+            "label": "出風量",
+            "value": "1300m³/h，1800m³/h"
+        },
+        {
+            "label": "電流",
+            "value": "16A，23A，46A"
+        },
+        {
+            "label": "電壓",
+            "value": "380V-50Hz"
+        },
+        {
+            "label": "尺寸",
+            "value": "500*7000*890mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "electricPowderSprayer": {
     "id": "electricPowderSprayer",
     "name": "電動噴粉機",
@@ -1903,25 +1903,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/electricPowderSprayer.jpg"
+        "assets/img/products/equipment/electricPowderSprayer.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "銅電機，ABS塑膠"
-      },
-      {
-        "label": "功率",
-        "value": "600w"
-      },
-      {
-        "label": "噴射距離",
-        "value": "6-8m"
-      }
+        {
+            "label": "材質",
+            "value": "銅電機，ABS塑膠"
+        },
+        {
+            "label": "功率",
+            "value": "600w"
+        },
+        {
+            "label": "噴射距離",
+            "value": "6-8m"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "electricTailDocker": {
     "id": "electricTailDocker",
     "name": "店熱斷尾器",
@@ -1930,25 +1930,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/electricTailDocker.jpg"
+        "assets/img/products/equipment/electricTailDocker.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼，絕緣橡膠"
-      },
-      {
-        "label": "適用對象",
-        "value": "豬犬等"
-      },
-      {
-        "label": "功能",
-        "value": "用於出生15天內仔豬斷尾"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼，絕緣橡膠"
+        },
+        {
+            "label": "適用對象",
+            "value": "豬犬等"
+        },
+        {
+            "label": "功能",
+            "value": "用於出生15天內仔豬斷尾"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "electricThermostaticSemenCollectionCup": {
     "id": "electricThermostaticSemenCollectionCup",
     "name": "電動恆溫採精杯",
@@ -1957,25 +1957,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/electricThermostaticSemenCollectionCup.jpg"
+        "assets/img/products/equipment/electricThermostaticSemenCollectionCup.jpg"
     ],
     "specs": [
-      {
-        "label": "溫控",
-        "value": "恒溫"
-      },
-      {
-        "label": "容量",
-        "value": "600ml，1000ml"
-      },
-      {
-        "label": "規格",
-        "value": "獨立包裝"
-      }
+        {
+            "label": "溫控",
+            "value": "恒溫"
+        },
+        {
+            "label": "容量",
+            "value": "600ml，1000ml"
+        },
+        {
+            "label": "規格",
+            "value": "獨立包裝"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "electronicEarTagReader": {
     "id": "electronicEarTagReader",
     "name": "電子耳標識別器",
@@ -1984,29 +1984,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/electronicEarTagReader.jpg"
+        "assets/img/products/animalLabels/electronicEarTagReader.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "型號",
-        "value": "RFIDVIEW-H06 桿式藍牙"
-      },
-      {
-        "label": "尺寸",
-        "value": "不拉伸45，拉伸后120cm"
-      },
-      {
-        "label": "協議標準",
-        "value": "IS0 11784/5 FDX-B 0R FDX"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "型號",
+            "value": "RFIDVIEW-H06 桿式藍牙"
+        },
+        {
+            "label": "尺寸",
+            "value": "不拉伸45，拉伸后120cm"
+        },
+        {
+            "label": "協議標準",
+            "value": "IS0 11784/5 FDX-B 0R FDX"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "ellipticDrinkingBowl": {
     "id": "ellipticDrinkingBowl",
     "name": "橢圓飲水碗",
@@ -2015,22 +2015,22 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/ellipticDrinkingBowl.jpg",
-      "assets/img/products/equipment/drinkingTrough.jpg"
+        "assets/img/products/equipment/ellipticDrinkingBowl.jpg",
+        "assets/img/products/equipment/drinkingTrough.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "小號、中號、大號、超大號"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      }
+        {
+            "label": "型號",
+            "value": "小號、中號、大號、超大號"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "epidemicPreventionMistCannonTruck": {
     "id": "epidemicPreventionMistCannonTruck",
     "name": "防疫霧炮灑水車",
@@ -2039,37 +2039,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/epidemicPreventionMistCannonTruck.jpg"
+        "assets/img/products/disinfection/epidemicPreventionMistCannonTruck.jpg"
     ],
     "specs": [
-      {
-        "label": "電瓶規格",
-        "value": "4塊48v"
-      },
-      {
-        "label": "續航里程",
-        "value": "40km"
-      },
-      {
-        "label": "霧炮射程",
-        "value": "8-10m"
-      },
-      {
-        "label": "水箱容積",
-        "value": "1.5²"
-      },
-      {
-        "label": "灑水寬度",
-        "value": "1.8m"
-      },
-      {
-        "label": "測量尺寸",
-        "value": "370*110*150cm"
-      }
+        {
+            "label": "電瓶規格",
+            "value": "4塊48v"
+        },
+        {
+            "label": "續航里程",
+            "value": "40km"
+        },
+        {
+            "label": "霧炮射程",
+            "value": "8-10m"
+        },
+        {
+            "label": "水箱容積",
+            "value": "1.5²"
+        },
+        {
+            "label": "灑水寬度",
+            "value": "1.8m"
+        },
+        {
+            "label": "測量尺寸",
+            "value": "370*110*150cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "flameDisinfectionGun": {
     "id": "flameDisinfectionGun",
     "name": "火焰消毒槍",
@@ -2078,41 +2078,41 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/flameDisinfectionGun.jpg"
+        "assets/img/products/disinfection/flameDisinfectionGun.jpg"
     ],
     "specs": [
-      {
-        "label": "產品材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "槍桿長度",
-        "value": "≈130cm"
-      },
-      {
-        "label": "噴頭數量",
-        "value": "1.2.4.6.8.10頭"
-      },
-      {
-        "label": "槍支撐輪",
-        "value": "鍍鋅材質"
-      },
-      {
-        "label": "火焰溫度",
-        "value": "≈1300°C"
-      },
-      {
-        "label": "火焰長度",
-        "value": "≈25cm"
-      },
-      {
-        "label": "產品特點",
-        "value": "快速升溫"
-      }
+        {
+            "label": "產品材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "槍桿長度",
+            "value": "≈130cm"
+        },
+        {
+            "label": "噴頭數量",
+            "value": "1.2.4.6.8.10頭"
+        },
+        {
+            "label": "槍支撐輪",
+            "value": "鍍鋅材質"
+        },
+        {
+            "label": "火焰溫度",
+            "value": "≈1300°C"
+        },
+        {
+            "label": "火焰長度",
+            "value": "≈25cm"
+        },
+        {
+            "label": "產品特點",
+            "value": "快速升溫"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "galvanizedPigHolder": {
     "id": "galvanizedPigHolder",
     "name": "鍍鋅保定器",
@@ -2121,21 +2121,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/galvanizedPigHolder.jpg"
+        "assets/img/products/equipment/galvanizedPigHolder.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "鍍鋅"
-      },
-      {
-        "label": "尺寸",
-        "value": "鍍鋅周長≈90cm"
-      }
+        {
+            "label": "材質",
+            "value": "鍍鋅"
+        },
+        {
+            "label": "尺寸",
+            "value": "鍍鋅周長≈90cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "gasTailDocker": {
     "id": "gasTailDocker",
     "name": "瓦斯斷尾器",
@@ -2144,25 +2144,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/gasTailDocker.jpg"
+        "assets/img/products/equipment/gasTailDocker.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "優質不鏽鋼"
-      },
-      {
-        "label": "功率",
-        "value": "150w/220v"
-      },
-      {
-        "label": "氣瓶容量",
-        "value": "300ml"
-      }
+        {
+            "label": "材質",
+            "value": "優質不鏽鋼"
+        },
+        {
+            "label": "功率",
+            "value": "150w/220v"
+        },
+        {
+            "label": "氣瓶容量",
+            "value": "300ml"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "goggles": {
     "id": "goggles",
     "name": "護目鏡",
@@ -2171,25 +2171,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/epidemicPrevention/goggles.jpg"
+        "assets/img/products/epidemicPrevention/goggles.jpg"
     ],
     "specs": [
-      {
-        "label": "重量",
-        "value": "≈70g"
-      },
-      {
-        "label": "特點",
-        "value": "防起霧，內可帶近視鏡"
-      },
-      {
-        "label": "規格",
-        "value": "100個/箱"
-      }
+        {
+            "label": "重量",
+            "value": "≈70g"
+        },
+        {
+            "label": "特點",
+            "value": "防起霧，內可帶近視鏡"
+        },
+        {
+            "label": "規格",
+            "value": "100個/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "halfRoundDrinkingTrough": {
     "id": "halfRoundDrinkingTrough",
     "name": "半圓盆飲水碗",
@@ -2198,22 +2198,22 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/halfRoundDrinkingTrough.jpg",
-      "assets/img/products/equipment/drinkingTrough.jpg"
+        "assets/img/products/equipment/halfRoundDrinkingTrough.jpg",
+        "assets/img/products/equipment/drinkingTrough.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "17.5*19.5*7cm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "17.5*19.5*7cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "handPushDisinfectionMachine": {
     "id": "handPushDisinfectionMachine",
     "name": "手推式消毒機",
@@ -2222,41 +2222,41 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/handPushDisinfectionMachine.jpg"
+        "assets/img/products/disinfection/handPushDisinfectionMachine.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "汽油版/柴油版/電動版"
-      },
-      {
-        "label": "動力",
-        "value": "7.5P"
-      },
-      {
-        "label": "藥箱容量",
-        "value": "160L"
-      },
-      {
-        "label": "射程",
-        "value": "9-13m"
-      },
-      {
-        "label": "流量",
-        "value": "10-15L/min"
-      },
-      {
-        "label": "淨重",
-        "value": "75kg"
-      },
-      {
-        "label": "包裝尺寸",
-        "value": "116*620*830mm"
-      }
+        {
+            "label": "型號",
+            "value": "汽油版/柴油版/電動版"
+        },
+        {
+            "label": "動力",
+            "value": "7.5P"
+        },
+        {
+            "label": "藥箱容量",
+            "value": "160L"
+        },
+        {
+            "label": "射程",
+            "value": "9-13m"
+        },
+        {
+            "label": "流量",
+            "value": "10-15L/min"
+        },
+        {
+            "label": "淨重",
+            "value": "75kg"
+        },
+        {
+            "label": "包裝尺寸",
+            "value": "116*620*830mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "heatingLampHolder": {
     "id": "heatingLampHolder",
     "name": "保溫燈罩",
@@ -2265,37 +2265,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/temperature/heatingLampHolder.jpg"
+        "assets/img/products/temperature/heatingLampHolder.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "21cm、30cm"
-      },
-      {
-        "label": "電線",
-        "value": "2芯"
-      },
-      {
-        "label": "插頭",
-        "value": "PVC航空插，國際兩插"
-      },
-      {
-        "label": "顏色",
-        "value": "金色"
-      },
-      {
-        "label": "線長",
-        "value": "2.5m"
-      },
-      {
-        "label": "尺寸",
-        "value": "30*φ21.5cm，30*φ30cm"
-      }
+        {
+            "label": "型號",
+            "value": "21cm、30cm"
+        },
+        {
+            "label": "電線",
+            "value": "2芯"
+        },
+        {
+            "label": "插頭",
+            "value": "PVC航空插，國際兩插"
+        },
+        {
+            "label": "顏色",
+            "value": "金色"
+        },
+        {
+            "label": "線長",
+            "value": "2.5m"
+        },
+        {
+            "label": "尺寸",
+            "value": "30*φ21.5cm，30*φ30cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "hemostaticForcepsNeedleForceps": {
     "id": "hemostaticForcepsNeedleForceps",
     "name": "止血鉗 / 持針鉗",
@@ -2304,30 +2304,30 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/hemostaticForceps.jpg",
-      "assets/img/products/equipment/NeedleForceps.jpg"
+        "assets/img/products/equipment/hemostaticForceps.jpg",
+        "assets/img/products/equipment/NeedleForceps.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "直頭，彎頭"
-      },
-      {
-        "label": "材質",
-        "value": "304不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "16cm，18cm"
-      },
-      {
-        "label": "規格",
-        "value": "10把/盒"
-      }
+        {
+            "label": "型號",
+            "value": "直頭，彎頭"
+        },
+        {
+            "label": "材質",
+            "value": "304不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "16cm，18cm"
+        },
+        {
+            "label": "規格",
+            "value": "10把/盒"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "iSperm": {
     "id": "iSperm",
     "name": "自動精子檢測機",
@@ -2336,23 +2336,23 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "精子相位差顯微鏡 精子活力 精子位相差 顯微鏡 公豬精子 精子前向力 配種 自動精子檢測機 iSperm",
     "images": [
-      "assets/img/products/iSperm/iSperm-1.jpg",
-      "assets/img/products/iSperm/iSperm-2.jpg",
-      "assets/img/products/iSperm/iSperm-3.jpg"
+        "assets/img/products/iSperm/iSperm-1.jpg",
+        "assets/img/products/iSperm/iSperm-2.jpg",
+        "assets/img/products/iSperm/iSperm-3.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "連接設備",
-        "value": "IOS 平板"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "連接設備",
+            "value": "IOS 平板"
+        }
     ],
     "downloads": [],
     "videoUrl": "https://youtu.be/EzI90nReRnI"
-  },
+},
   "infraRedThermometer": {
     "id": "infraRedThermometer",
     "name": "遠紅外溫度記錄儀",
@@ -2361,25 +2361,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/wash/wash-1.jpg"
+        "assets/img/products/wash/wash-1.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "精度",
-        "value": "±0.2°C"
-      },
-      {
-        "label": "測量範圍",
-        "value": "32°C-42.9°C"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "精度",
+            "value": "±0.2°C"
+        },
+        {
+            "label": "測量範圍",
+            "value": "32°C-42.9°C"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "intelligentAtomizingDisinfector": {
     "id": "intelligentAtomizingDisinfector",
     "name": "智能霧化消毒機",
@@ -2388,38 +2388,38 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/intelligentAtomizingDisinfector.jpg",
-      "assets/img/products/disinfection/intelligentAtomizingDisinfector2.jpg"
+        "assets/img/products/disinfection/intelligentAtomizingDisinfector.jpg",
+        "assets/img/products/disinfection/intelligentAtomizingDisinfector2.jpg"
     ],
     "specs": [
-      {
-        "label": "款式",
-        "value": "壁掛式，移動式"
-      },
-      {
-        "label": "型號",
-        "value": "15L，20L"
-      },
-      {
-        "label": "材質",
-        "value": "201不鏽鋼"
-      },
-      {
-        "label": "功率",
-        "value": "780W，1000W"
-      },
-      {
-        "label": "出霧量",
-        "value": "15L/h，20L/h"
-      },
-      {
-        "label": "感應器",
-        "value": "紅外感應"
-      }
+        {
+            "label": "款式",
+            "value": "壁掛式，移動式"
+        },
+        {
+            "label": "型號",
+            "value": "15L，20L"
+        },
+        {
+            "label": "材質",
+            "value": "201不鏽鋼"
+        },
+        {
+            "label": "功率",
+            "value": "780W，1000W"
+        },
+        {
+            "label": "出霧量",
+            "value": "15L/h，20L/h"
+        },
+        {
+            "label": "感應器",
+            "value": "紅外感應"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "lightTester": {
     "id": "lightTester",
     "name": "光照測定儀",
@@ -2428,33 +2428,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/lightTester.jpg"
+        "assets/img/products/smartDetection/lightTester.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "測量範圍",
-        "value": "光照強度：0-40000Lux"
-      },
-      {
-        "label": "精度",
-        "value": "±100Lux"
-      },
-      {
-        "label": "儲存空間",
-        "value": "4G TF卡可保存500萬組數據"
-      },
-      {
-        "label": "記錄間隔",
-        "value": "1 秒 - 24 小時"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "測量範圍",
+            "value": "光照強度：0-40000Lux"
+        },
+        {
+            "label": "精度",
+            "value": "±100Lux"
+        },
+        {
+            "label": "儲存空間",
+            "value": "4G TF卡可保存500萬組數據"
+        },
+        {
+            "label": "記錄間隔",
+            "value": "1 秒 - 24 小時"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "longPigHolder": {
     "id": "longPigHolder",
     "name": "長柄保定器",
@@ -2463,21 +2463,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/longPigHolder.jpg"
+        "assets/img/products/equipment/longPigHolder.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "不鏽鋼周長≈120cm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "不鏽鋼周長≈120cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "longSortingPaddle": {
     "id": "longSortingPaddle",
     "name": "長柄趕豬拍",
@@ -2486,29 +2486,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/longSortingPaddle.jpg"
+        "assets/img/products/equipment/longSortingPaddle.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "塑膠"
-      },
-      {
-        "label": "顏色",
-        "value": "紅，藍，綠，黃"
-      },
-      {
-        "label": "重量",
-        "value": "600g"
-      },
-      {
-        "label": "尺寸",
-        "value": "107cm"
-      }
+        {
+            "label": "材質",
+            "value": "塑膠"
+        },
+        {
+            "label": "顏色",
+            "value": "紅，藍，綠，黃"
+        },
+        {
+            "label": "重量",
+            "value": "600g"
+        },
+        {
+            "label": "尺寸",
+            "value": "107cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "markingCrayon": {
     "id": "markingCrayon",
     "name": "Sipert 記號蠟筆",
@@ -2517,25 +2517,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/markingCrayon.jpg"
+        "assets/img/products/animalLabels/markingCrayon.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "顏色",
-        "value": "紅、綠、藍"
-      },
-      {
-        "label": "重量",
-        "value": "60g、85g"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "顏色",
+            "value": "紅、綠、藍"
+        },
+        {
+            "label": "重量",
+            "value": "60g、85g"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "maxMinThermometer": {
     "id": "maxMinThermometer",
     "name": "高低溫度計",
@@ -2544,25 +2544,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/maxMinThermometer.jpg"
+        "assets/img/products/smartDetection/maxMinThermometer.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "溫度範圍",
-        "value": "-40°C ~ +50°C"
-      },
-      {
-        "label": "產品尺寸",
-        "value": "230*85*20mm"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "溫度範圍",
+            "value": "-40°C ~ +50°C"
+        },
+        {
+            "label": "產品尺寸",
+            "value": "230*85*20mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "medicalGauze": {
     "id": "medicalGauze",
     "name": "醫用紗布",
@@ -2571,22 +2571,22 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/medicalGauze1.jpg",
-      "assets/img/products/equipment/medicalGauze2.jpg"
+        "assets/img/products/equipment/medicalGauze1.jpg",
+        "assets/img/products/equipment/medicalGauze2.jpg"
     ],
     "specs": [
-      {
-        "label": "尺寸",
-        "value": "10*600cm"
-      },
-      {
-        "label": "規格",
-        "value": "10卷/包"
-      }
+        {
+            "label": "尺寸",
+            "value": "10*600cm"
+        },
+        {
+            "label": "規格",
+            "value": "10卷/包"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "medicalTray": {
     "id": "medicalTray",
     "name": "醫用托盤",
@@ -2595,21 +2595,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/medicalTray.jpg"
+        "assets/img/products/equipment/medicalTray.jpg"
     ],
     "specs": [
-      {
-        "label": "尺寸",
-        "value": "30*20.5*5.5cm"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      }
+        {
+            "label": "尺寸",
+            "value": "30*20.5*5.5cm"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "miniCastrationScalpel": {
     "id": "miniCastrationScalpel",
     "name": "迷你去勢刀",
@@ -2618,25 +2618,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/miniCastrationScalpel.jpg"
+        "assets/img/products/equipment/miniCastrationScalpel.jpg"
     ],
     "specs": [
-      {
-        "label": "尺寸",
-        "value": "8.5cm"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼刀片"
-      },
-      {
-        "label": "規格",
-        "value": "3把/包"
-      }
+        {
+            "label": "尺寸",
+            "value": "8.5cm"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼刀片"
+        },
+        {
+            "label": "規格",
+            "value": "3把/包"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "mistDisinfectionMachine": {
     "id": "mistDisinfectionMachine",
     "name": "霧化消毒機",
@@ -2645,33 +2645,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/mistDisinfectionMachine.jpg"
+        "assets/img/products/disinfection/mistDisinfectionMachine.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "ABS塑膠/不鏽鋼框架"
-      },
-      {
-        "label": "功率",
-        "value": "1800W可調"
-      },
-      {
-        "label": "噴射高度",
-        "value": "5-8m"
-      },
-      {
-        "label": "噴射距離",
-        "value": "6-10m"
-      },
-      {
-        "label": "水箱容量",
-        "value": "20L"
-      }
+        {
+            "label": "材質",
+            "value": "ABS塑膠/不鏽鋼框架"
+        },
+        {
+            "label": "功率",
+            "value": "1800W可調"
+        },
+        {
+            "label": "噴射高度",
+            "value": "5-8m"
+        },
+        {
+            "label": "噴射距離",
+            "value": "6-10m"
+        },
+        {
+            "label": "水箱容量",
+            "value": "20L"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "mobileOzoneGenerator": {
     "id": "mobileOzoneGenerator",
     "name": "移動式臭氧消毒機",
@@ -2680,29 +2680,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/mobileOzoneGenerator.jpg"
+        "assets/img/products/disinfection/mobileOzoneGenerator.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "移動式"
-      },
-      {
-        "label": "規格",
-        "value": "5g，10g，50g，100g"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "功率",
-        "value": "120W，220W，700W，1300W"
-      }
+        {
+            "label": "型號",
+            "value": "移動式"
+        },
+        {
+            "label": "規格",
+            "value": "5g，10g，50g，100g"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "功率",
+            "value": "120W，220W，700W，1300W"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "mouthOpenerForPig": {
     "id": "mouthOpenerForPig",
     "name": "豬用開口器",
@@ -2711,21 +2711,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/mouthOpenerForPig.jpg"
+        "assets/img/products/equipment/mouthOpenerForPig.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "17.5*19.5*7cm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "17.5*19.5*7cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "needleHolders": {
     "id": "needleHolders",
     "name": "持針器",
@@ -2734,21 +2734,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/needleHolders.jpg"
+        "assets/img/products/injection/needleHolders.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "塑料"
-      },
-      {
-        "label": "產品規格",
-        "value": "100個/包，2000個/箱"
-      }
+        {
+            "label": "材質",
+            "value": "塑料"
+        },
+        {
+            "label": "產品規格",
+            "value": "100個/包，2000個/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "obstetricTools": {
     "id": "obstetricTools",
     "name": "助產工具",
@@ -2757,23 +2757,23 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/obstetricTools1.jpg",
-      "assets/img/products/equipment/obstetricTools2.jpg",
-      "assets/img/products/equipment/obstetricTools3.jpg"
+        "assets/img/products/equipment/obstetricTools1.jpg",
+        "assets/img/products/equipment/obstetricTools2.jpg",
+        "assets/img/products/equipment/obstetricTools3.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "鋼材"
-      },
-      {
-        "label": "尺寸",
-        "value": "鉤37cm，鉗44.5cm，繩78cm"
-      }
+        {
+            "label": "材質",
+            "value": "鋼材"
+        },
+        {
+            "label": "尺寸",
+            "value": "鉤37cm，鉗44.5cm，繩78cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "octagonThermoHygro": {
     "id": "octagonThermoHygro",
     "name": "八角指標溫濕度計",
@@ -2782,33 +2782,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/octagonThermoHygro.jpg"
+        "assets/img/products/smartDetection/octagonThermoHygro.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "溫度範圍",
-        "value": "-20°C ~ +40°C"
-      },
-      {
-        "label": "濕度範圍",
-        "value": "0 ~ -95%"
-      },
-      {
-        "label": "產品規格",
-        "value": "20*20cm"
-      },
-      {
-        "label": "擺放方式",
-        "value": "壁掛式"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "溫度範圍",
+            "value": "-20°C ~ +40°C"
+        },
+        {
+            "label": "濕度範圍",
+            "value": "0 ~ -95%"
+        },
+        {
+            "label": "產品規格",
+            "value": "20*20cm"
+        },
+        {
+            "label": "擺放方式",
+            "value": "壁掛式"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "organizationForceps": {
     "id": "organizationForceps",
     "name": "組織鑷子",
@@ -2817,21 +2817,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/organizationForceps.jpg"
+        "assets/img/products/equipment/organizationForceps.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "18cm、20cm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "18cm、20cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigCatcher": {
     "id": "pigCatcher",
     "name": "抓豬器",
@@ -2840,22 +2840,22 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigCatcher.jpg",
-      "assets/img/products/equipment/pigCatcher1.jpg"
+        "assets/img/products/equipment/pigCatcher.jpg",
+        "assets/img/products/equipment/pigCatcher1.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "鋁合金/橡膠"
-      },
-      {
-        "label": "尺寸",
-        "value": "100cm"
-      }
+        {
+            "label": "材質",
+            "value": "鋁合金/橡膠"
+        },
+        {
+            "label": "尺寸",
+            "value": "100cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigHeatBoard": {
     "id": "pigHeatBoard",
     "name": "仔豬加熱板",
@@ -2864,33 +2864,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/temperature/pigHeatBoard.jpg"
+        "assets/img/products/temperature/pigHeatBoard.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "201不鏽鋼"
-      },
-      {
-        "label": "插頭",
-        "value": "兩插"
-      },
-      {
-        "label": "檔位",
-        "value": "高低兩檔"
-      },
-      {
-        "label": "尺寸",
-        "value": "50*90cm，55*100cm"
-      },
-      {
-        "label": "規格",
-        "value": "5塊/箱"
-      }
+        {
+            "label": "材質",
+            "value": "201不鏽鋼"
+        },
+        {
+            "label": "插頭",
+            "value": "兩插"
+        },
+        {
+            "label": "檔位",
+            "value": "高低兩檔"
+        },
+        {
+            "label": "尺寸",
+            "value": "50*90cm，55*100cm"
+        },
+        {
+            "label": "規格",
+            "value": "5塊/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigProd": {
     "id": "pigProd",
     "name": "電擊趕豬拍",
@@ -2899,25 +2899,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigProd.jpg"
+        "assets/img/products/equipment/pigProd.jpg"
     ],
     "specs": [
-      {
-        "label": "桿長",
-        "value": "40cm，60cm，75cm，90cm"
-      },
-      {
-        "label": "總 長",
-        "value": "61cm，81cm，95cm，120cm"
-      },
-      {
-        "label": "電池",
-        "value": "20000mAh"
-      }
+        {
+            "label": "桿長",
+            "value": "40cm，60cm，75cm，90cm"
+        },
+        {
+            "label": "總 長",
+            "value": "61cm，81cm，95cm，120cm"
+        },
+        {
+            "label": "電池",
+            "value": "20000mAh"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigSoundSimulator": {
     "id": "pigSoundSimulator",
     "name": "豬隻聲音模擬器",
@@ -2926,17 +2926,17 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigSoundSimulator.jpg"
+        "assets/img/products/equipment/pigSoundSimulator.jpg"
     ],
     "specs": [
-      {
-        "label": "模擬聲音",
-        "value": "杜洛克、長白、大約克"
-      }
+        {
+            "label": "模擬聲音",
+            "value": "杜洛克、長白、大約克"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigletCastrationSupports": {
     "id": "pigletCastrationSupports",
     "name": "仔豬閹割架",
@@ -2945,25 +2945,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigletCastrationSupports.jpg"
+        "assets/img/products/equipment/pigletCastrationSupports.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "重量",
-        "value": "1.13kg"
-      },
-      {
-        "label": "尺寸",
-        "value": "35*36*70cm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "重量",
+            "value": "1.13kg"
+        },
+        {
+            "label": "尺寸",
+            "value": "35*36*70cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigletFeedingTrough": {
     "id": "pigletFeedingTrough",
     "name": "仔豬補料槽",
@@ -2972,25 +2972,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigletFeedingTrough.jpg"
+        "assets/img/products/equipment/pigletFeedingTrough.jpg"
     ],
     "specs": [
-      {
-        "label": "孔位",
-        "value": "10孔，12孔，14孔"
-      },
-      {
-        "label": "材質",
-        "value": "塑膠，鐵架表面鍍鋅"
-      },
-      {
-        "label": "尺寸",
-        "value": "60cm，70cm"
-      }
+        {
+            "label": "孔位",
+            "value": "10孔，12孔，14孔"
+        },
+        {
+            "label": "材質",
+            "value": "塑膠，鐵架表面鍍鋅"
+        },
+        {
+            "label": "尺寸",
+            "value": "60cm，70cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigletRubberMat": {
     "id": "pigletRubberMat",
     "name": "仔豬保溫墊",
@@ -2999,29 +2999,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigletRubberMat.jpg"
+        "assets/img/products/equipment/pigletRubberMat.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "6兆帕高強度款"
-      },
-      {
-        "label": "材質",
-        "value": "橡膠"
-      },
-      {
-        "label": "尺寸",
-        "value": "6*500*1000mm（多規格）"
-      },
-      {
-        "label": "厚度",
-        "value": "6mm.8mm.10mm.12mm.20mm"
-      }
+        {
+            "label": "型號",
+            "value": "6兆帕高強度款"
+        },
+        {
+            "label": "材質",
+            "value": "橡膠"
+        },
+        {
+            "label": "尺寸",
+            "value": "6*500*1000mm（多規格）"
+        },
+        {
+            "label": "厚度",
+            "value": "6mm.8mm.10mm.12mm.20mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigletTailDockerModule": {
     "id": "pigletTailDockerModule",
     "name": "台式電加熱斷尾器",
@@ -3030,41 +3030,41 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigletTailDockerModule.jpg"
+        "assets/img/products/equipment/pigletTailDockerModule.jpg"
     ],
     "specs": [
-      {
-        "label": "輸入電壓",
-        "value": "00~240V AC"
-      },
-      {
-        "label": "輸入頻率",
-        "value": "50/60HZ"
-      },
-      {
-        "label": "輸入功率",
-        "value": "60W"
-      },
-      {
-        "label": "發熱溫度",
-        "value": ">600攝氏度"
-      },
-      {
-        "label": "輸出電壓",
-        "value": "0.9~1.2V AC"
-      },
-      {
-        "label": "輸出電流",
-        "value": "60A"
-      },
-      {
-        "label": "使用環境",
-        "value": "-10~+40攝氏度"
-      }
+        {
+            "label": "輸入電壓",
+            "value": "00~240V AC"
+        },
+        {
+            "label": "輸入頻率",
+            "value": "50/60HZ"
+        },
+        {
+            "label": "輸入功率",
+            "value": "60W"
+        },
+        {
+            "label": "發熱溫度",
+            "value": ">600攝氏度"
+        },
+        {
+            "label": "輸出電壓",
+            "value": "0.9~1.2V AC"
+        },
+        {
+            "label": "輸出電流",
+            "value": "60A"
+        },
+        {
+            "label": "使用環境",
+            "value": "-10~+40攝氏度"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigletVentilator": {
     "id": "pigletVentilator",
     "name": "仔豬呼吸器",
@@ -3073,21 +3073,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigletVentilator.jpg"
+        "assets/img/products/equipment/pigletVentilator.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "PVC"
-      },
-      {
-        "label": "尺寸",
-        "value": "25*7cm"
-      }
+        {
+            "label": "材質",
+            "value": "PVC"
+        },
+        {
+            "label": "尺寸",
+            "value": "25*7cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "pigletWeighbridge": {
     "id": "pigletWeighbridge",
     "name": "仔豬地磅",
@@ -3096,45 +3096,45 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/pigletWeighbridge.jpg"
+        "assets/img/products/equipment/pigletWeighbridge.jpg"
     ],
     "specs": [
-      {
-        "label": "分度值",
-        "value": "0.05,0.1,0.2,0.5kg"
-      },
-      {
-        "label": "配置儀錶",
-        "value": "高清不鏽鋼儀錶"
-      },
-      {
-        "label": "標配儀錶",
-        "value": "耀華A12儀錶"
-      },
-      {
-        "label": "承重範圍",
-        "value": "0*10t"
-      },
-      {
-        "label": "電池容量",
-        "value": "6V/4mA"
-      },
-      {
-        "label": "儀器重量",
-        "value": "3t"
-      },
-      {
-        "label": "儀器尺寸",
-        "value": "2*3m"
-      },
-      {
-        "label": "標配",
-        "value": "帶圍欄"
-      }
+        {
+            "label": "分度值",
+            "value": "0.05,0.1,0.2,0.5kg"
+        },
+        {
+            "label": "配置儀錶",
+            "value": "高清不鏽鋼儀錶"
+        },
+        {
+            "label": "標配儀錶",
+            "value": "耀華A12儀錶"
+        },
+        {
+            "label": "承重範圍",
+            "value": "0*10t"
+        },
+        {
+            "label": "電池容量",
+            "value": "6V/4mA"
+        },
+        {
+            "label": "儀器重量",
+            "value": "3t"
+        },
+        {
+            "label": "儀器尺寸",
+            "value": "2*3m"
+        },
+        {
+            "label": "標配",
+            "value": "帶圍欄"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "plasticFeedScoop": {
     "id": "plasticFeedScoop",
     "name": "塑膠飼料鏟",
@@ -3143,25 +3143,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/plasticFeedScoop.jpg"
+        "assets/img/products/equipment/plasticFeedScoop.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "PE塑料"
-      },
-      {
-        "label": "尺寸",
-        "value": "塑料36*13.5cm"
-      },
-      {
-        "label": "重量",
-        "value": "塑料93.2g"
-      }
+        {
+            "label": "材質",
+            "value": "PE塑料"
+        },
+        {
+            "label": "尺寸",
+            "value": "塑料36*13.5cm"
+        },
+        {
+            "label": "重量",
+            "value": "塑料93.2g"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "plasticPigHolder": {
     "id": "plasticPigHolder",
     "name": "塑膠把手保定器",
@@ -3170,21 +3170,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/plasticPigHolder.jpg"
+        "assets/img/products/equipment/plasticPigHolder.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "把手塑膠，繩子鋼材"
-      },
-      {
-        "label": "尺寸",
-        "value": "周長≈80cm"
-      }
+        {
+            "label": "材質",
+            "value": "把手塑膠，繩子鋼材"
+        },
+        {
+            "label": "尺寸",
+            "value": "周長≈80cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "plugInTeethGrindingMachine": {
     "id": "plugInTeethGrindingMachine",
     "name": "有線電動磨牙器",
@@ -3193,29 +3193,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/plugInTeethGrindingMachine.jpg"
+        "assets/img/products/equipment/plugInTeethGrindingMachine.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "鋁合金護套"
-      },
-      {
-        "label": "重量",
-        "value": "1.13kg（有線），0.68kg（無線）"
-      },
-      {
-        "label": "轉速",
-        "value": "8000-32000r/min"
-      },
-      {
-        "label": "功率",
-        "value": "130W"
-      }
+        {
+            "label": "材質",
+            "value": "鋁合金護套"
+        },
+        {
+            "label": "重量",
+            "value": "1.13kg（有線），0.68kg（無線）"
+        },
+        {
+            "label": "轉速",
+            "value": "8000-32000r/min"
+        },
+        {
+            "label": "功率",
+            "value": "130W"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "portableOzoneGenerator": {
     "id": "portableOzoneGenerator",
     "name": "手提式臭氧消毒機",
@@ -3224,37 +3224,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/portableOzoneGenerator.jpg"
+        "assets/img/products/disinfection/portableOzoneGenerator.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "手提式"
-      },
-      {
-        "label": "規格",
-        "value": "5g，10g"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "230*130*150mm，280*250*220mm"
-      },
-      {
-        "label": "功率",
-        "value": "100W，120W"
-      },
-      {
-        "label": "冷卻方式",
-        "value": "風冷"
-      }
+        {
+            "label": "型號",
+            "value": "手提式"
+        },
+        {
+            "label": "規格",
+            "value": "5g，10g"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "230*130*150mm，280*250*220mm"
+        },
+        {
+            "label": "功率",
+            "value": "100W，120W"
+        },
+        {
+            "label": "冷卻方式",
+            "value": "風冷"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "rectangularDrinkingTrough": {
     "id": "rectangularDrinkingTrough",
     "name": "飲水碗方盆",
@@ -3263,22 +3263,22 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/rectangularDrinkingTrough.jpg",
-      "assets/img/products/equipment/drinkingTrough.jpg"
+        "assets/img/products/equipment/rectangularDrinkingTrough.jpg",
+        "assets/img/products/equipment/drinkingTrough.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "小號30*19*8cm，大號34*21*9cm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "小號30*19*8cm，大號34*21*9cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "remoteTemperatureDetector": {
     "id": "remoteTemperatureDetector",
     "name": "遠程溫度檢測儀S20D（彭雲物聯WiFi）",
@@ -3287,29 +3287,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/remoteTemperatureDetector.jpg"
+        "assets/img/products/smartDetection/remoteTemperatureDetector.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "基礎配置",
-        "value": "充電器，擴展線 ，延長線"
-      },
-      {
-        "label": "溫度檢測精度",
-        "value": "±0.2°C"
-      },
-      {
-        "label": "濕度檢測範圍",
-        "value": "±2%RH"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "基礎配置",
+            "value": "充電器，擴展線 ，延長線"
+        },
+        {
+            "label": "溫度檢測精度",
+            "value": "±0.2°C"
+        },
+        {
+            "label": "濕度檢測範圍",
+            "value": "±2%RH"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "roughInfraredHeatLamp": {
     "id": "roughInfraredHeatLamp",
     "name": "保溫燈麻面",
@@ -3318,29 +3318,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/temperature/roughInfraredHeatLamp.jpg"
+        "assets/img/products/temperature/roughInfraredHeatLamp.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "硬質石英玻璃"
-      },
-      {
-        "label": "顏色",
-        "value": "紅色/白色"
-      },
-      {
-        "label": "燈頭",
-        "value": "E27純銅"
-      },
-      {
-        "label": "凃層",
-        "value": "加厚鍍鋁"
-      }
+        {
+            "label": "材質",
+            "value": "硬質石英玻璃"
+        },
+        {
+            "label": "顏色",
+            "value": "紅色/白色"
+        },
+        {
+            "label": "燈頭",
+            "value": "E27純銅"
+        },
+        {
+            "label": "凃層",
+            "value": "加厚鍍鋁"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "roundDrinkingBowl": {
     "id": "roundDrinkingBowl",
     "name": "圓形飲水碗",
@@ -3349,22 +3349,22 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/roundDrinkingBowl.jpg",
-      "assets/img/products/equipment/drinkingTrough.jpg"
+        "assets/img/products/equipment/roundDrinkingBowl.jpg",
+        "assets/img/products/equipment/drinkingTrough.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "小號、中號、大號、特大號"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      }
+        {
+            "label": "型號",
+            "value": "小號、中號、大號、特大號"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "scalpelHandleAndBlade": {
     "id": "scalpelHandleAndBlade",
     "name": "手術刀柄 / 刀片",
@@ -3373,25 +3373,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/scalpelHandleAndBlade.jpg"
+        "assets/img/products/equipment/scalpelHandleAndBlade.jpg"
     ],
     "specs": [
-      {
-        "label": "名稱",
-        "value": "刀柄，刀片"
-      },
-      {
-        "label": "尺寸",
-        "value": "刀柄12.5cm"
-      },
-      {
-        "label": "規格",
-        "value": "（刀片）3#，4#（刀柄）11#，23#"
-      }
+        {
+            "label": "名稱",
+            "value": "刀柄，刀片"
+        },
+        {
+            "label": "尺寸",
+            "value": "刀柄12.5cm"
+        },
+        {
+            "label": "規格",
+            "value": "（刀片）3#，4#（刀柄）11#，23#"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "sectorEarTag": {
     "id": "sectorEarTag",
     "name": "梯形耳標",
@@ -3400,29 +3400,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/sectorEarTag.jpg"
+        "assets/img/products/animalLabels/sectorEarTag.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "顏色",
-        "value": "紅、黃、藍、綠、橘、白、粉"
-      },
-      {
-        "label": "材質",
-        "value": "TPU"
-      },
-      {
-        "label": "規格",
-        "value": "100個/包、15包/箱"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "顏色",
+            "value": "紅、黃、藍、綠、橘、白、粉"
+        },
+        {
+            "label": "材質",
+            "value": "TPU"
+        },
+        {
+            "label": "規格",
+            "value": "100個/包、15包/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "semenCollectionBagWithFilter": {
     "id": "semenCollectionBagWithFilter",
     "name": "三合一過濾紙",
@@ -3431,17 +3431,17 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/semenCollectionBagWithFilter.jpg"
+        "assets/img/products/equipment/semenCollectionBagWithFilter.jpg"
     ],
     "specs": [
-      {
-        "label": "容積",
-        "value": "2L，5L，6L"
-      }
+        {
+            "label": "容積",
+            "value": "2L，5L，6L"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "semenCollectionCup": {
     "id": "semenCollectionCup",
     "name": "採精杯",
@@ -3450,25 +3450,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/semenCollectionCup.jpg"
+        "assets/img/products/equipment/semenCollectionCup.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "PVC"
-      },
-      {
-        "label": "重量",
-        "value": "450ml，1000ml，2000ml"
-      },
-      {
-        "label": "規格",
-        "value": "20個/箱"
-      }
+        {
+            "label": "材質",
+            "value": "PVC"
+        },
+        {
+            "label": "重量",
+            "value": "450ml，1000ml，2000ml"
+        },
+        {
+            "label": "規格",
+            "value": "20個/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "semenFilterGauze": {
     "id": "semenFilterGauze",
     "name": "精液過濾紙",
@@ -3477,17 +3477,17 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/semenFilterGauze.jpg"
+        "assets/img/products/equipment/semenFilterGauze.jpg"
     ],
     "specs": [
-      {
-        "label": "規格",
-        "value": "100張/包， 200張/包"
-      }
+        {
+            "label": "規格",
+            "value": "100張/包， 200張/包"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "sheepEarTag": {
     "id": "sheepEarTag",
     "name": "羊用耳標",
@@ -3496,33 +3496,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/sheepEarTag.jpg"
+        "assets/img/products/animalLabels/sheepEarTag.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "顏色",
-        "value": "紅、黃、藍、綠、橘"
-      },
-      {
-        "label": "材質",
-        "value": "TPU"
-      },
-      {
-        "label": "規格",
-        "value": "100個/包、20包/箱"
-      },
-      {
-        "label": "尺寸",
-        "value": "120*18*2.2mm"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "顏色",
+            "value": "紅、黃、藍、綠、橘"
+        },
+        {
+            "label": "材質",
+            "value": "TPU"
+        },
+        {
+            "label": "規格",
+            "value": "100個/包、20包/箱"
+        },
+        {
+            "label": "尺寸",
+            "value": "120*18*2.2mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "shortSortingPaddle": {
     "id": "shortSortingPaddle",
     "name": "四葉趕豬拍",
@@ -3531,26 +3531,26 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/shortSortingPaddle.jpg",
-      "assets/img/products/equipment/shortSortingPaddle2.jpg"
+        "assets/img/products/equipment/shortSortingPaddle.jpg",
+        "assets/img/products/equipment/shortSortingPaddle2.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "塑膠"
-      },
-      {
-        "label": "顏色",
-        "value": "綠色，紅色"
-      },
-      {
-        "label": "尺寸",
-        "value": "總長50.5cm ，拍面20cm"
-      }
+        {
+            "label": "材質",
+            "value": "塑膠"
+        },
+        {
+            "label": "顏色",
+            "value": "綠色，紅色"
+        },
+        {
+            "label": "尺寸",
+            "value": "總長50.5cm ，拍面20cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "singleSowMeasuringScale": {
     "id": "singleSowMeasuringScale",
     "name": "單體母豬測定秤",
@@ -3559,29 +3559,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/singleSowMeasuringScale.jpg"
+        "assets/img/products/equipment/singleSowMeasuringScale.jpg"
     ],
     "specs": [
-      {
-        "label": "設備精度",
-        "value": "精度±0.5kg"
-      },
-      {
-        "label": "尺寸",
-        "value": "內200*70*100cm，外220*80*108cm"
-      },
-      {
-        "label": "設備自重",
-        "value": "70kg"
-      },
-      {
-        "label": "最大承重",
-        "value": "500kg"
-      }
+        {
+            "label": "設備精度",
+            "value": "精度±0.5kg"
+        },
+        {
+            "label": "尺寸",
+            "value": "內200*70*100cm，外220*80*108cm"
+        },
+        {
+            "label": "設備自重",
+            "value": "70kg"
+        },
+        {
+            "label": "最大承重",
+            "value": "500kg"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "smartFeeder": {
     "id": "smartFeeder",
     "name": "智慧餵料機",
@@ -3590,25 +3590,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/smartFeeder.jpg"
+        "assets/img/products/equipment/smartFeeder.jpg"
     ],
     "specs": [
-      {
-        "label": "特點",
-        "value": "自動清洗，智慧恆溫，語音播報"
-      },
-      {
-        "label": "材質",
-        "value": "料桶塑膠，底盤不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "78*110*178cm"
-      }
+        {
+            "label": "特點",
+            "value": "自動清洗，智慧恆溫，語音播報"
+        },
+        {
+            "label": "材質",
+            "value": "料桶塑膠，底盤不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "78*110*178cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "smartVehicleDisinfectionTunnel": {
     "id": "smartVehicleDisinfectionTunnel",
     "name": "智慧車輛消毒通道",
@@ -3617,29 +3617,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/smartVehicleDisinfectionTunnel.jpg"
+        "assets/img/products/disinfection/smartVehicleDisinfectionTunnel.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "304不鏽鋼"
-      },
-      {
-        "label": "電機功率",
-        "value": "380V，4-5.5KW"
-      },
-      {
-        "label": "最大壓力",
-        "value": "100kg/㎡"
-      },
-      {
-        "label": "尺寸",
-        "value": "700*1200*1200mm"
-      }
+        {
+            "label": "材質",
+            "value": "304不鏽鋼"
+        },
+        {
+            "label": "電機功率",
+            "value": "380V，4-5.5KW"
+        },
+        {
+            "label": "最大壓力",
+            "value": "100kg/㎡"
+        },
+        {
+            "label": "尺寸",
+            "value": "700*1200*1200mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "smoothInfraredHeatLamp": {
     "id": "smoothInfraredHeatLamp",
     "name": "保溫燈光面",
@@ -3648,29 +3648,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/temperature/smoothInfraredHeatLamp.jpg"
+        "assets/img/products/temperature/smoothInfraredHeatLamp.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "硬質石英玻璃"
-      },
-      {
-        "label": "顏色",
-        "value": "紅色/白色"
-      },
-      {
-        "label": "燈頭",
-        "value": "E27純銅"
-      },
-      {
-        "label": "凃層",
-        "value": "加厚鍍鋁"
-      }
+        {
+            "label": "材質",
+            "value": "硬質石英玻璃"
+        },
+        {
+            "label": "顏色",
+            "value": "紅色/白色"
+        },
+        {
+            "label": "燈頭",
+            "value": "E27純銅"
+        },
+        {
+            "label": "凃層",
+            "value": "加厚鍍鋁"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "squareEarTag": {
     "id": "squareEarTag",
     "name": "方形耳標",
@@ -3679,33 +3679,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/animalLabels/squareEarTag.jpg"
+        "assets/img/products/animalLabels/squareEarTag.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "動物標示"
-      },
-      {
-        "label": "顏色",
-        "value": "紅、黃、藍、綠、橘、白、粉"
-      },
-      {
-        "label": "材質",
-        "value": "TPU"
-      },
-      {
-        "label": "規格",
-        "value": "100個/包、30包/箱"
-      },
-      {
-        "label": "尺寸",
-        "value": "31*31*1.3mm"
-      }
+        {
+            "label": "產品類別",
+            "value": "動物標示"
+        },
+        {
+            "label": "顏色",
+            "value": "紅、黃、藍、綠、橘、白、粉"
+        },
+        {
+            "label": "材質",
+            "value": "TPU"
+        },
+        {
+            "label": "規格",
+            "value": "100個/包、30包/箱"
+        },
+        {
+            "label": "尺寸",
+            "value": "31*31*1.3mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "staightBloodNeedle": {
     "id": "staightBloodNeedle",
     "name": "一次性靜脈采血針 （直式）",
@@ -3714,21 +3714,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/injection/staightBloodNeedle.jpg"
+        "assets/img/products/injection/staightBloodNeedle.jpg"
     ],
     "specs": [
-      {
-        "label": "針頭外徑",
-        "value": "18G*1.5,20G*1.5,21G*1.5"
-      },
-      {
-        "label": "產品規格",
-        "value": "100支/盒，50盒/箱"
-      }
+        {
+            "label": "針頭外徑",
+            "value": "18G*1.5,20G*1.5,21G*1.5"
+        },
+        {
+            "label": "產品規格",
+            "value": "100支/盒，50盒/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "stainlessSteelFeedScoop": {
     "id": "stainlessSteelFeedScoop",
     "name": "不鏽鋼飼料鏟",
@@ -3737,25 +3737,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/stainlessSteelFeedScoop.jpg"
+        "assets/img/products/equipment/stainlessSteelFeedScoop.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "不鏽鋼23.5*9.8*6cm"
-      },
-      {
-        "label": "重量",
-        "value": "不鏽鋼148.8g"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "不鏽鋼23.5*9.8*6cm"
+        },
+        {
+            "label": "重量",
+            "value": "不鏽鋼148.8g"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "stainlessSteelPigletBowl": {
     "id": "stainlessSteelPigletBowl",
     "name": "不鏽鋼料槽",
@@ -3764,25 +3764,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/stainlessSteelPigletBowl.jpg"
+        "assets/img/products/equipment/stainlessSteelPigletBowl.jpg"
     ],
     "specs": [
-      {
-        "label": "孔位",
-        "value": "4孔，5孔"
-      },
-      {
-        "label": "規格",
-        "value": "18個/箱"
-      },
-      {
-        "label": "尺寸",
-        "value": "60*250mm，70*280mm"
-      }
+        {
+            "label": "孔位",
+            "value": "4孔，5孔"
+        },
+        {
+            "label": "規格",
+            "value": "18個/箱"
+        },
+        {
+            "label": "尺寸",
+            "value": "60*250mm，70*280mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "surgicalScissors": {
     "id": "surgicalScissors",
     "name": "手術剪刀",
@@ -3791,29 +3791,29 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/surgicalScissors.jpg"
+        "assets/img/products/equipment/surgicalScissors.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "直頭，彎頭"
-      },
-      {
-        "label": "材質",
-        "value": "304不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "16cm，18cm"
-      },
-      {
-        "label": "規格",
-        "value": "10把/盒"
-      }
+        {
+            "label": "型號",
+            "value": "直頭，彎頭"
+        },
+        {
+            "label": "材質",
+            "value": "304不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "16cm，18cm"
+        },
+        {
+            "label": "規格",
+            "value": "10把/盒"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "sutureLineForAnimals": {
     "id": "sutureLineForAnimals",
     "name": "動物用縫合線",
@@ -3822,21 +3822,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/sutureLineForAnimals.jpg"
+        "assets/img/products/equipment/sutureLineForAnimals.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "真絲線團"
-      },
-      {
-        "label": "尺寸",
-        "value": "10#，12#，18#"
-      }
+        {
+            "label": "材質",
+            "value": "真絲線團"
+        },
+        {
+            "label": "尺寸",
+            "value": "10#，12#，18#"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "sutureNeedleForAnimals": {
     "id": "sutureNeedleForAnimals",
     "name": "動物用縫合針",
@@ -3845,25 +3845,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/sutureNeedleForAnimals.jpg"
+        "assets/img/products/equipment/sutureNeedleForAnimals.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "工藝",
-        "value": "表面塗層熱處理"
-      },
-      {
-        "label": "尺寸",
-        "value": "12*48mm，12*65mm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "工藝",
+            "value": "表面塗層熱處理"
+        },
+        {
+            "label": "尺寸",
+            "value": "12*48mm，12*65mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "tailDockingForceps": {
     "id": "tailDockingForceps",
     "name": "擴張前",
@@ -3872,21 +3872,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/tailDockingForceps.jpg"
+        "assets/img/products/equipment/tailDockingForceps.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "約220mm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "約220mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "teethCuttingForceps": {
     "id": "teethCuttingForceps",
     "name": "剪牙鉗",
@@ -3895,25 +3895,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/teethCuttingForceps.jpg"
+        "assets/img/products/equipment/teethCuttingForceps.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "彎頭"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "長度",
-        "value": "10.5cm，14cm"
-      }
+        {
+            "label": "型號",
+            "value": "彎頭"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "長度",
+            "value": "10.5cm，14cm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "tempRecorder": {
     "id": "tempRecorder",
     "name": "溫度記錄儀",
@@ -3922,37 +3922,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/tempRecorder.jpg"
+        "assets/img/products/smartDetection/tempRecorder.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "型 號",
-        "value": "RC-5"
-      },
-      {
-        "label": "測溫範圍",
-        "value": "-30°C～70°C"
-      },
-      {
-        "label": "精 度",
-        "value": "±0.5 ±0.5"
-      },
-      {
-        "label": "分辨率",
-        "value": "0.1°C"
-      },
-      {
-        "label": "防水等級",
-        "value": "IP67"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "型 號",
+            "value": "RC-5"
+        },
+        {
+            "label": "測溫範圍",
+            "value": "-30°C～70°C"
+        },
+        {
+            "label": "精 度",
+            "value": "±0.5 ±0.5"
+        },
+        {
+            "label": "分辨率",
+            "value": "0.1°C"
+        },
+        {
+            "label": "防水等級",
+            "value": "IP67"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "temperatureHumidityMonitor": {
     "id": "temperatureHumidityMonitor",
     "name": "乾濕溫度記錄儀",
@@ -3961,33 +3961,33 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/temperatureHumidityMonitor.jpg"
+        "assets/img/products/smartDetection/temperatureHumidityMonitor.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "內置探頭",
-        "value": "儲存8萬組數據"
-      },
-      {
-        "label": "記錄間隔",
-        "value": "5秒~18小時可設置"
-      },
-      {
-        "label": "產品尺寸",
-        "value": "120*113*33mm"
-      },
-      {
-        "label": "溫濕度誤差",
-        "value": "正負0.3度，正負2%"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "內置探頭",
+            "value": "儲存8萬組數據"
+        },
+        {
+            "label": "記錄間隔",
+            "value": "5秒~18小時可設置"
+        },
+        {
+            "label": "產品尺寸",
+            "value": "120*113*33mm"
+        },
+        {
+            "label": "溫濕度誤差",
+            "value": "正負0.3度，正負2%"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "temperatureHumidityProbe": {
     "id": "temperatureHumidityProbe",
     "name": "溫濕度記錄儀",
@@ -3996,49 +3996,49 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/temperatureHumidityProbe.jpg"
+        "assets/img/products/smartDetection/temperatureHumidityProbe.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "產品型號",
-        "value": "RC-4HC"
-      },
-      {
-        "label": "測溫範圍",
-        "value": "-40°C-85°C"
-      },
-      {
-        "label": "精度",
-        "value": "±0.5"
-      },
-      {
-        "label": "重約",
-        "value": "35g"
-      },
-      {
-        "label": "濕度範圍",
-        "value": "0%-99%"
-      },
-      {
-        "label": "機身尺寸",
-        "value": "84*44*20mm"
-      },
-      {
-        "label": "產品規格",
-        "value": "1台/盒，吸塑包裝"
-      },
-      {
-        "label": "溫度分辨率",
-        "value": "0.1°C"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "產品型號",
+            "value": "RC-4HC"
+        },
+        {
+            "label": "測溫範圍",
+            "value": "-40°C-85°C"
+        },
+        {
+            "label": "精度",
+            "value": "±0.5"
+        },
+        {
+            "label": "重約",
+            "value": "35g"
+        },
+        {
+            "label": "濕度範圍",
+            "value": "0%-99%"
+        },
+        {
+            "label": "機身尺寸",
+            "value": "84*44*20mm"
+        },
+        {
+            "label": "產品規格",
+            "value": "1台/盒，吸塑包裝"
+        },
+        {
+            "label": "溫度分辨率",
+            "value": "0.1°C"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "thermoHygroMeter": {
     "id": "thermoHygroMeter",
     "name": "乾濕溫度計",
@@ -4047,25 +4047,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/smartDetection/thermoHygroMeter.jpg"
+        "assets/img/products/smartDetection/thermoHygroMeter.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "智能檢測儀器"
-      },
-      {
-        "label": "溫度範圍",
-        "value": "-30°C ~ +50°C"
-      },
-      {
-        "label": "濕度範圍",
-        "value": "0~100%RH"
-      }
+        {
+            "label": "產品類別",
+            "value": "智能檢測儀器"
+        },
+        {
+            "label": "溫度範圍",
+            "value": "-30°C ~ +50°C"
+        },
+        {
+            "label": "濕度範圍",
+            "value": "0~100%RH"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "toolBoxMedicineBox": {
     "id": "toolBoxMedicineBox",
     "name": "工具箱 / 醫藥箱",
@@ -4074,25 +4074,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/toolBoxMedicineBox.jpg"
+        "assets/img/products/equipment/toolBoxMedicineBox.jpg"
     ],
     "specs": [
-      {
-        "label": "尺寸",
-        "value": "39*25.5*12cm"
-      },
-      {
-        "label": "窄口",
-        "value": "3cm"
-      },
-      {
-        "label": "規格",
-        "value": "10個/箱"
-      }
+        {
+            "label": "尺寸",
+            "value": "39*25.5*12cm"
+        },
+        {
+            "label": "窄口",
+            "value": "3cm"
+        },
+        {
+            "label": "規格",
+            "value": "10個/箱"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "tooth": {
     "id": "tooth",
     "name": "電動磨牙機",
@@ -4101,31 +4101,31 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "電動磨牙機 小豬磨牙 防止感染",
     "images": [
-      "assets/img/products/tooth/tooth-1.jpg",
-      "assets/img/products/tooth/tooth-2.jpg",
-      "assets/img/products/tooth/tooth-3.jpg"
+        "assets/img/products/tooth/tooth-1.jpg",
+        "assets/img/products/tooth/tooth-2.jpg",
+        "assets/img/products/tooth/tooth-3.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "其他相關設備"
-      },
-      {
-        "label": "主機產地",
-        "value": "德國 Bosche"
-      },
-      {
-        "label": "帽頭產地",
-        "value": "台灣"
-      },
-      {
-        "label": "帽頭材質",
-        "value": "鋁合金"
-      }
+        {
+            "label": "產品類別",
+            "value": "其他相關設備"
+        },
+        {
+            "label": "主機產地",
+            "value": "德國 Bosche"
+        },
+        {
+            "label": "帽頭產地",
+            "value": "台灣"
+        },
+        {
+            "label": "帽頭材質",
+            "value": "鋁合金"
+        }
     ],
     "downloads": [],
     "videoUrl": "https://youtu.be/iD7EG6XOGbg"
-  },
+},
   "troughAndBowlNipple": {
     "id": "troughAndBowlNipple",
     "name": "乳頭式飲水嘴",
@@ -4134,25 +4134,25 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/troughAndBowlNipple.jpg"
+        "assets/img/products/equipment/troughAndBowlNipple.jpg"
     ],
     "specs": [
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "飲水嘴頭",
-        "value": "塑帽，鋼帽，銅帽"
-      },
-      {
-        "label": "尺寸",
-        "value": "66mm，72mm"
-      }
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "飲水嘴頭",
+            "value": "塑帽，鋼帽，銅帽"
+        },
+        {
+            "label": "尺寸",
+            "value": "66mm，72mm"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "vehicleChassisCleaner": {
     "id": "vehicleChassisCleaner",
     "name": "車輛底盤清洗機",
@@ -4161,38 +4161,38 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/vehicleChassisCleaner.jpg",
-      "assets/img/products/disinfection/vehicleChassisCleaner2.jpg",
-      "assets/img/products/disinfection/vehicleChassisCleaner3.jpg",
-      "assets/img/products/disinfection/vehicleChassisCleaner4.jpg",
-      "assets/img/products/disinfection/vehicleChassisCleaner5.jpg",
-      "assets/img/products/disinfection/vehicleChassisCleaner6.jpg"
+        "assets/img/products/disinfection/vehicleChassisCleaner.jpg",
+        "assets/img/products/disinfection/vehicleChassisCleaner2.jpg",
+        "assets/img/products/disinfection/vehicleChassisCleaner3.jpg",
+        "assets/img/products/disinfection/vehicleChassisCleaner4.jpg",
+        "assets/img/products/disinfection/vehicleChassisCleaner5.jpg",
+        "assets/img/products/disinfection/vehicleChassisCleaner6.jpg"
     ],
     "specs": [
-      {
-        "label": "接口尺寸",
-        "value": "1/4快插"
-      },
-      {
-        "label": "產品重量",
-        "value": "55kg"
-      },
-      {
-        "label": "產品材質",
-        "value": "304不鏽鋼"
-      },
-      {
-        "label": "旋轉角度",
-        "value": "360°"
-      },
-      {
-        "label": "噴嘴規格",
-        "value": "雙噴"
-      }
+        {
+            "label": "接口尺寸",
+            "value": "1/4快插"
+        },
+        {
+            "label": "產品重量",
+            "value": "55kg"
+        },
+        {
+            "label": "產品材質",
+            "value": "304不鏽鋼"
+        },
+        {
+            "label": "旋轉角度",
+            "value": "360°"
+        },
+        {
+            "label": "噴嘴規格",
+            "value": "雙噴"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "ventilationPipe": {
     "id": "ventilationPipe",
     "name": "通風管",
@@ -4201,21 +4201,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/equipment/ventilationPipe.jpg"
+        "assets/img/products/equipment/ventilationPipe.jpg"
     ],
     "specs": [
-      {
-        "label": "直徑",
-        "value": "500*0.38mm，400*0.38mm"
-      },
-      {
-        "label": "材質",
-        "value": "PVC三層塑膠帆布"
-      }
+        {
+            "label": "直徑",
+            "value": "500*0.38mm，400*0.38mm"
+        },
+        {
+            "label": "材質",
+            "value": "PVC三層塑膠帆布"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "wallMountedOzoneGenerator": {
     "id": "wallMountedOzoneGenerator",
     "name": "壁掛式臭氧消毒機",
@@ -4224,37 +4224,37 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/disinfection/wallMountedOzoneGenerator.jpg"
+        "assets/img/products/disinfection/wallMountedOzoneGenerator.jpg"
     ],
     "specs": [
-      {
-        "label": "型號",
-        "value": "壁掛式"
-      },
-      {
-        "label": "規格",
-        "value": "10g，20g"
-      },
-      {
-        "label": "材質",
-        "value": "不鏽鋼"
-      },
-      {
-        "label": "尺寸",
-        "value": "240*150*610mm，320*200*780mm"
-      },
-      {
-        "label": "功率",
-        "value": "100W，180W"
-      },
-      {
-        "label": "冷卻方式",
-        "value": "風冷"
-      }
+        {
+            "label": "型號",
+            "value": "壁掛式"
+        },
+        {
+            "label": "規格",
+            "value": "10g，20g"
+        },
+        {
+            "label": "材質",
+            "value": "不鏽鋼"
+        },
+        {
+            "label": "尺寸",
+            "value": "240*150*610mm，320*200*780mm"
+        },
+        {
+            "label": "功率",
+            "value": "100W，180W"
+        },
+        {
+            "label": "冷卻方式",
+            "value": "風冷"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "wash": {
     "id": "wash",
     "name": "高壓清洗機",
@@ -4263,21 +4263,21 @@ const productDetails = {
     "metaDescription": "威特嘉科技開發致力於生產適合台灣養豬產業使用之省工設備，公豬試情車、斃死豬搬運車、仔豬處理工作臺車、超音波背脂機、超音波測孕器，配合政府導入自動化省工設備之補助案，優惠熱烈進行中！",
     "keywords": "高壓清洗機 生物安全 消毒 清洗機 高壓清洗 快速消毒",
     "images": [
-      "assets/img/products/wash/wash-1.jpg"
+        "assets/img/products/wash/wash-1.jpg"
     ],
     "specs": [
-      {
-        "label": "產品類別",
-        "value": "生物安全防治"
-      },
-      {
-        "label": "陶瓷噴頭",
-        "value": "採用陶瓷噴嘴，耐磨耗"
-      }
+        {
+            "label": "產品類別",
+            "value": "生物安全防治"
+        },
+        {
+            "label": "陶瓷噴頭",
+            "value": "採用陶瓷噴嘴，耐磨耗"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  },
+},
   "Disposable Needle": {
     "id": "Disposable Needle",
     "name": "背帶式快速易換針頭",
@@ -4286,14 +4286,14 @@ const productDetails = {
     "metaDescription": "適用各式注射器，採用鎖扣技術牢牢鎖住針頭不脫落，提高工作效率。\n針頭有序排列，全程免接觸快速換針防止交叉感染，使用便利又安全。",
     "keywords": "",
     "images": [
-      "assets/img/products/Disposable Needle/Disposable Needle-1.png",
-      "assets/img/products/Disposable Needle/Disposable Needle-2.png",
-      "assets/img/products/Disposable Needle/Disposable Needle-3.png"
+        "assets/img/products/Disposable Needle/Disposable Needle-1.png",
+        "assets/img/products/Disposable Needle/Disposable Needle-2.png",
+        "assets/img/products/Disposable Needle/Disposable Needle-3.png"
     ],
     "specs": [],
     "downloads": [],
     "videoUrl": "https://www.youtube.com/watch?v=jOjchi2xu_U"
-  },
+},
   "PREMIUM INJECTOR": {
     "id": "PREMIUM INJECTOR",
     "name": "連續注射器",
@@ -4302,21 +4302,35 @@ const productDetails = {
     "metaDescription": "符合人體工學設計，針筒採用安全衛生材質且可水煮消毒，大部分產品劑量可調，透過視覺視窗調整刻度，減少誤差的同時也大幅提升工作效率，所有產品使用過程中皆不會又漏液現象。",
     "keywords": "",
     "images": [
-      "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-1.jpg",
-      "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-2.jpg",
-      "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-3.jpg"
+        "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-1.jpg",
+        "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-2.jpg",
+        "assets/img/products/PREMIUM INJECTOR/PREMIUM INJECTOR-3.jpg"
     ],
     "specs": [
-      {
-        "label": "premium(可調)",
-        "value": "0.5ml、2ml、5ml"
-      },
-      {
-        "label": "vs標記式注射器(不可調)",
-        "value": "0.5ml、1ml、2ml"
-      }
+        {
+            "label": "premium(可調)",
+            "value": "0.5ml、2ml、5ml"
+        },
+        {
+            "label": "vs標記式注射器(不可調)",
+            "value": "0.5ml、1ml、2ml"
+        }
     ],
     "downloads": [],
     "videoUrl": null
-  }
+},
+  "witegafoam": {
+    "id": "witegafoam",
+    "name": "畜舍專用泡沫洗劑",
+    "category": "disinfection",
+    "description": "有效分解殘留飼料、吸附的糞便和髒污頑垢專門清理彎管表面、地板背面、牆壁死角。\n低濃度使用(2-5%)、省工、省水，省時。",
+    "metaDescription": "有效分解殘留飼料、吸附的糞便和髒污頑垢專門清理彎管表面、地板背面、牆壁死角。\n低濃度使用(2-5%)、省工、省水，省時。",
+    "keywords": "",
+    "images": [
+        "assets/img/products/witegafoam/witegafoam-1.jpg"
+    ],
+    "specs": [],
+    "downloads": [],
+    "videoUrl": null
+}
 };
