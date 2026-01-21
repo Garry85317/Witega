@@ -4388,5 +4388,29 @@ const productDetails = {
     "specs": [],
     "downloads": [],
     "videoUrl": null
+},
+  "I-LPB300-A": {
+    "id": "I-LPB300-A",
+    "name": "智能控溫節能保溫燈",
+    "category": "temperature",
+    "description": "智能控溫、全自動控制，為不同階段的小豬提供最適的溫度，有效提供豬隻持久且均勻的溫度，節能最高可達70%、IPX4防水波濺等級",
+    "metaDescription": "智能控溫、全自動控制，為不同階段的小豬提供最適的溫度，有效提供豬隻持久且均勻的溫度，節能最高可達70%、IPX4防水波濺等級",
+    "keywords": "",
+    "images": [
+        "assets/img/products/I-LPB300-A/I-LPB300-A-1.jpg",
+        "assets/img/products/I-LPB300-A/I-LPB300-A-2.jpg"
+    ],
+    "specs": [
+        {
+            "label": "分娩舍",
+            "value": "一般燈泡"
+        },
+        {
+            "label": "保育舍",
+            "value": "專用燈泡"
+        }
+    ],
+    "downloads": [],
+    "videoUrl": null
 }
 };

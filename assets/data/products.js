@@ -399,6 +399,12 @@ const productsData = {
           "name": "保溫燈罩",
           "img": "assets/img/products/temperature/heatingLampHolder.jpg",
           "url": "product.html?id=heatingLampHolder"
+        },
+        {
+          "id": "I-LPB300-A",
+          "name": "智能控溫節能保溫燈",
+          "img": "assets/img/products/I-LPB300-A/I-LPB300-A-1.jpg",
+          "url": "product.html?id=I-LPB300-A"
         }
       ]
     },
