@@ -4332,5 +4332,19 @@ const productDetails = {
     "specs": [],
     "downloads": [],
     "videoUrl": null
+},
+  "RM1": {
+    "id": "RM1",
+    "name": "無線智能超音波",
+    "category": "smart-detection",
+    "description": "無線款易操作，經濟實用輕鬆，畫質清晰明瞭。",
+    "metaDescription": "無線款易操作，經濟實用輕鬆，畫質清晰明瞭。",
+    "keywords": "",
+    "images": [
+        "assets/img/products/RM1/RM1-1.png"
+    ],
+    "specs": [],
+    "downloads": [],
+    "videoUrl": null
 }
 };

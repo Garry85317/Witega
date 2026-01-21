@@ -159,6 +159,12 @@ const productsData = {
           "name": "乾濕溫度計",
           "img": "assets/img/products/smartDetection/thermoHygroMeter.jpg",
           "url": "product.html?id=thermoHygroMeter"
+        },
+        {
+          "id": "RM1",
+          "name": "無線智能超音波",
+          "img": "assets/img/products/RM1/RM1-1.png",
+          "url": "product.html?id=RM1"
         }
       ]
     },
