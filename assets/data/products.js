@@ -165,6 +165,12 @@ const productsData = {
           "name": "無線智能超音波",
           "img": "assets/img/products/RM1/RM1-1.png",
           "url": "product.html?id=RM1"
+        },
+        {
+          "id": "RS1",
+          "name": "智能超音波",
+          "img": "assets/img/products/RS1/RS1-1.png",
+          "url": "product.html?id=RS1"
         }
       ]
     },

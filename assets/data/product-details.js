@@ -4346,5 +4346,19 @@ const productDetails = {
     "specs": [],
     "downloads": [],
     "videoUrl": null
+},
+  "RS1": {
+    "id": "RS1",
+    "name": "智能超音波",
+    "category": "smart-detection",
+    "description": "專業級超音波，子宮疾病判斷，超清影像呈現。",
+    "metaDescription": "專業級超音波，子宮疾病判斷，超清影像呈現。",
+    "keywords": "",
+    "images": [
+        "assets/img/products/RS1/RS1-1.png"
+    ],
+    "specs": [],
+    "downloads": [],
+    "videoUrl": null
 }
 };
