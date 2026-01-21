@@ -4374,5 +4374,19 @@ const productDetails = {
     "specs": [],
     "downloads": [],
     "videoUrl": null
+},
+  "NX2": {
+    "id": "NX2",
+    "name": "動物用超音波儀",
+    "category": "smart-detection",
+    "description": "電子式凸陣探頭/線陣探頭，防水介面5.6吋大螢幕，適用豬羊貓狗牛馬小動物，更可以測定背脂、腰眼面積等",
+    "metaDescription": "電子式凸陣探頭/線陣探頭，防水介面5.6吋大螢幕，適用豬羊貓狗牛馬小動物，更可以測定背脂、腰眼面積等",
+    "keywords": "",
+    "images": [
+        "assets/img/products/NX2/NX2-1.jpg"
+    ],
+    "specs": [],
+    "downloads": [],
+    "videoUrl": null
 }
 };
