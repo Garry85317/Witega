@@ -90,11 +90,11 @@
         <div class="card-body">
           <form id="loginFormElement" onsubmit="handleLogin(event)">
             <div class="mb-3">
-              <label for="username" class="form-label">帳號</label>
+              <label for="email" class="form-label">Email</label>
               <input
-                type="text"
+                type="email"
                 class="form-control"
-                id="username"
+                id="email"
                 required
                 autocomplete="username"
               />
@@ -445,24 +445,19 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/data/supabase-config.js"></script>
+    <script src="../assets/data/supabase-client.js"></script>
     <script>
-      // 登入驗證
-      const ADMIN_CREDENTIALS = {
-        username: 'witega',
-        password: '83405528'
-      };
-
-      // 檢查登入狀態
+      // 依登入狀態切換畫面
       async function checkAuth() {
-        const isAuthenticated =
-          sessionStorage.getItem('admin_authenticated') === 'true';
-        if (isAuthenticated) {
+        const user = await window.witega.getUser();
+        if (user) {
           document.getElementById('loginForm').style.display = 'none';
           document.getElementById('adminContent').style.display = 'block';
-          // 載入產品列表
           if (typeof loadProductsTable === 'function') {
             await loadProductsTable();
+            await loadProductDetails();
           }
         } else {
           document.getElementById('loginForm').style.display = 'block';
@@ -470,36 +465,30 @@
         }
       }
 
-      // 處理登入
-      function handleLogin(event) {
+      // 處理登入（Supabase Auth）
+      async function handleLogin(event) {
         event.preventDefault();
-        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
         const errorDiv = document.getElementById('loginError');
-
-        if (
-          username === ADMIN_CREDENTIALS.username &&
-          password === ADMIN_CREDENTIALS.password
-        ) {
-          // 登入成功
-          sessionStorage.setItem('admin_authenticated', 'true');
+        try {
+          await window.witega.signIn(email, password);
           errorDiv.style.display = 'none';
-          checkAuth();
-        } else {
-          // 登入失敗
-          errorDiv.textContent = '帳號或密碼錯誤';
+          await checkAuth();
+        } catch (err) {
+          errorDiv.textContent = '登入失敗：' + (err.message || '帳號或密碼錯誤');
           errorDiv.style.display = 'block';
           document.getElementById('password').value = '';
         }
       }
 
       // 處理登出
-      function handleLogout() {
+      async function handleLogout() {
         if (confirm('確定要登出嗎？')) {
-          sessionStorage.removeItem('admin_authenticated');
-          checkAuth();
-          document.getElementById('username').value = '';
+          await window.witega.signOut();
+          document.getElementById('email').value = '';
           document.getElementById('password').value = '';
+          await checkAuth();
         }
       }
 
@@ -508,8 +497,6 @@
         checkAuth();
       });
     </script>
-    <script src="config.js"></script>
-    <script src="github-deploy-direct.js"></script>
     <script src="admin.js"></script>
   </body>
 </html>

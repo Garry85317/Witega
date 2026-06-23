@@ -150,7 +150,7 @@
   };
 
   // 初始化
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', async function () {
     const productId = getProductId();
 
     if (!productId) {
@@ -161,16 +161,18 @@
     // 處理 ID 映射
     const actualId = idMapping[productId] || productId;
 
-    // 查找產品資料
-    const product = productDetails[actualId];
-
-    if (!product) {
-      renderError('找不到產品 ID: ' + productId);
-      return;
+    // 從 Supabase 查找產品資料
+    try {
+      const product = await window.witega.getProductDetail(actualId);
+      if (!product) {
+        renderError('找不到產品 ID: ' + productId);
+        return;
+      }
+      renderProduct(product);
+    } catch (error) {
+      console.error('載入產品資料失敗:', error);
+      renderError('載入產品資料失敗');
     }
-
-    // 渲染產品
-    renderProduct(product);
   });
 })();
 

@@ -24,3 +24,12 @@ Thumbs.db
 # 日誌檔案
 *.log
 
+# Node / 遷移腳本
+node_modules/
+scripts/node_modules/
+.env
+*.env
+
+# 本機 MCP 設定（不上線）
+.mcp.json
+

@@ -101,6 +101,13 @@
         transition: all 0.3s ease;
       }
 
+      .category-link .cat-count {
+        float: right;
+        color: #999;
+        font-size: 0.85em;
+        font-weight: 400;
+      }
+
       .category-link:hover {
         color: #5846f9;
         background: #fff;
@@ -371,8 +378,10 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
-    <!-- 引入产品数据 -->
-    <script src="assets/data/products.js"></script>
+    <!-- 引入产品数据（Supabase） -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/data/supabase-config.js"></script>
+    <script src="assets/data/supabase-client.js"></script>
 
     <!-- 产品数据处理脚本 -->
     <script type="text/javascript">
@@ -397,13 +406,26 @@
         const categoryList = document.getElementById('categoryList');
         const fragment = document.createDocumentFragment();
         
+        // 在連結內加上名稱 + 數量
+        const appendLabel = (link, name, count) => {
+          link.appendChild(document.createTextNode(name + ' '));
+          const badge = document.createElement('span');
+          badge.className = 'cat-count';
+          badge.textContent = `(${count})`;
+          link.appendChild(badge);
+        };
+
         // 全部產品選項
+        const totalCount = categories.reduce(
+          (sum, c) => sum + (c.products ? c.products.length : 0),
+          0
+        );
         const allItem = document.createElement('li');
         const allLink = document.createElement('a');
         allLink.href = '#';
         allLink.className = 'category-link' + (currentCategoryId === '' ? ' active' : '');
         allLink.dataset.category = '';
-        allLink.textContent = '全部產品';
+        appendLabel(allLink, '全部產品', totalCount);
         allItem.appendChild(allLink);
         fragment.appendChild(allItem);
 
@@ -414,7 +436,7 @@
           link.href = '#';
           link.className = 'category-link' + (currentCategoryId === category.id ? ' active' : '');
           link.dataset.category = category.id;
-          link.textContent = category.name;
+          appendLabel(link, category.name, category.products ? category.products.length : 0);
           li.appendChild(link);
           fragment.appendChild(li);
         });
@@ -422,17 +444,18 @@
         categoryList.innerHTML = '';
         categoryList.appendChild(fragment);
 
-        // 使用事件委派優化點擊事件
+        // 使用事件委派優化點擊事件（點到 count span 也用 closest 抓到連結）
         categoryList.addEventListener('click', function(e) {
-          if (e.target.classList.contains('category-link')) {
+          const link = e.target.closest('.category-link');
+          if (link) {
             e.preventDefault();
-            currentCategoryId = e.target.dataset.category;
+            currentCategoryId = link.dataset.category;
 
             // 更新激活状态
             document.querySelectorAll('.category-link').forEach((l) => {
               l.classList.remove('active');
             });
-            e.target.classList.add('active');
+            link.classList.add('active');
 
             // 更新标题和产品列表
             updateCategoryTitle(categories);
@@ -545,7 +568,7 @@
       }
 
       // 初始化（合併所有 DOMContentLoaded 事件）
-      document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('DOMContentLoaded', async function () {
         // 修正资源路径
         const logo = document.querySelector('.logo img');
         if (logo) {
@@ -564,8 +587,9 @@
           currentCategoryId = categoryFromUrl;
         }
 
-        // 渲染分類與產品
-        if (typeof productsData !== 'undefined' && productsData.categories) {
+        // 從 Supabase 載入產品資料
+        try {
+          const productsData = await window.witega.getProductsData();
           renderCategories(productsData.categories);
           updateCategoryTitle(productsData.categories);
           updateProducts(productsData.categories);
@@ -578,12 +602,13 @@
               updateProducts(productsData.categories);
             });
           }
-          
+
           // 渲染完成後隱藏載入指示器
           setTimeout(() => {
             hideLoading();
           }, 100);
-        } else {
+        } catch (error) {
+          console.error('載入產品數據失敗:', error);
           document.getElementById('productList').innerHTML = `
             <div class="col-12 text-center">
               <p>無法載入產品數據</p>

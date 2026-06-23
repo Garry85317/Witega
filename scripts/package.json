@@ -1,0 +1,8 @@
+{
+  "name": "witega-migrate",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2"
+  }
+}

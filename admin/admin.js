@@ -1,26 +1,27 @@
 /**
- * 產品管理後台 JavaScript
+ * 產品管理後台 JavaScript（Supabase 版）
+ * 資料與圖片皆走 Supabase（見 ../assets/data/supabase-client.js）。
  */
 
-// 儲存上傳的圖片（暴露到全局以便 GitHub 部署使用）
+// 儲存上傳的圖片
 let uploadedImages = [];
 window.uploadedImages = uploadedImages;
 
-// 儲存所有產品資料（用於篩選）
+// 儲存所有產品資料（用於篩選列表）
 let allProductsData = [];
 
-// 儲存產品詳細資料（用於編輯）
+// 儲存產品詳細資料（用於編輯，key = id）
 let allProductDetails = {};
 
 // 當前編輯模式（true = 編輯，false = 新增）
 let isEditMode = false;
 let editingProductId = null;
 
-// 編輯模式下，記錄原始圖片路徑（用於檢測刪除的圖片）
-let originalImagePaths = [];
-
-// 記錄被刪除的圖片路徑（用於從 GitHub 刪除）
+// 記錄被刪除的圖片 storage key（用於從 Storage 刪除）
 let deletedImagePaths = [];
+
+// 目前選為「列表縮圖」的圖片（uploadedImages 的 id）
+let selectedThumbnailId = null;
 
 // 分類名稱映射
 const categoryNames = {
@@ -89,35 +90,16 @@ function addDownload() {
   downloadItem.innerHTML = `
     <div class="row">
       <div class="col-md-3">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="標籤（如：DM）"
-          data-download-label
-        />
+        <input type="text" class="form-control form-control-sm" placeholder="標籤（如：DM）" data-download-label />
       </div>
       <div class="col-md-4">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="檔案路徑"
-          data-download-url
-        />
+        <input type="text" class="form-control form-control-sm" placeholder="檔案路徑" data-download-url />
       </div>
       <div class="col-md-4">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="檔案名稱"
-          data-download-filename
-        />
+        <input type="text" class="form-control form-control-sm" placeholder="檔案名稱" data-download-filename />
       </div>
       <div class="col-md-1">
-        <button
-          type="button"
-          class="btn btn-sm btn-remove"
-          onclick="removeDownload('${downloadId}')"
-        >
+        <button type="button" class="btn btn-sm btn-remove" onclick="removeDownload('${downloadId}')">
           <i class="bi bi-x-circle"></i>
         </button>
       </div>
@@ -135,11 +117,6 @@ function removeDownload(id) {
 function handleImageUpload(event) {
   const files = event.target.files;
   const preview = document.getElementById('imagePreview');
-  
-  // 不清空現有圖片，只添加新圖片
-  // preview.innerHTML = '';
-  // uploadedImages = [];
-  // window.uploadedImages = uploadedImages;
 
   Array.from(files).forEach((file, index) => {
     if (file.type.startsWith('image/')) {
@@ -157,69 +134,90 @@ function handleImageUpload(event) {
                 <small><strong>${file.name}</strong></small>
                 <br>
                 <small class="text-muted">新上傳的圖片</small>
+                <div class="thumb-controls mt-1">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="setThumbnail('${imageId}')">設為列表縮圖</button>
+                  <span class="badge bg-success thumb-label ms-1" style="display:none">列表縮圖</span>
+                </div>
               </div>
             </div>
-            <button
-              type="button"
-              class="btn btn-sm btn-outline-danger ms-3"
-              onclick="removeImage('${imageId}')"
-              title="刪除圖片"
-            >
+            <button type="button" class="btn btn-sm btn-outline-danger ms-3" onclick="removeImage('${imageId}')" title="刪除圖片">
               <i class="bi bi-trash"></i>
             </button>
           </div>
         `;
         preview.appendChild(img);
 
-        // 儲存圖片資料
-        const imageData = {
+        // 儲存圖片資料（保留原始 File 供上傳 Storage 用）
+        uploadedImages.push({
           id: imageId,
           name: file.name,
           data: e.target.result,
+          file: file,
           type: file.type,
-          existing: false
-        };
-        uploadedImages.push(imageData);
-        window.uploadedImages = uploadedImages; // 同步到全局
+          existing: false,
+        });
+        window.uploadedImages = uploadedImages;
+
+        // 沒選縮圖時，預設第一張新圖
+        if (!selectedThumbnailId) selectedThumbnailId = imageId;
+        refreshThumbButtons();
       };
       reader.readAsDataURL(file);
     }
   });
-  
+
   // 清空文件輸入，允許重新選擇相同文件
   event.target.value = '';
 }
 
-// 刪除圖片
+// 刪除圖片（編輯模式下若刪的是現有圖片，記錄 storage key）
 function removeImage(imageId) {
   const imageElement = document.getElementById(imageId);
-  if (imageElement) {
-    // 找到要刪除的圖片對象
-    const imageToRemove = uploadedImages.find(img => img && img.id === imageId);
-    
-    // 如果是編輯模式且刪除的是現有圖片，記錄到刪除列表
-    if (isEditMode && imageToRemove && imageToRemove.existing === true && imageToRemove.path) {
-      deletedImagePaths.push(imageToRemove.path);
-      console.log('記錄要刪除的圖片:', imageToRemove.path);
-    }
-    
-    // 從 uploadedImages 中移除，確保過濾掉 null/undefined 值
-    uploadedImages = uploadedImages.filter(img => {
-      return img && img.id && img.id !== imageId;
-    });
-    window.uploadedImages = uploadedImages;
-    
-    // 從 DOM 中移除
-    imageElement.remove();
+  if (!imageElement) return;
+
+  const imageToRemove = uploadedImages.find((img) => img && img.id === imageId);
+  if (isEditMode && imageToRemove && imageToRemove.existing === true && imageToRemove.path) {
+    deletedImagePaths.push(imageToRemove.path);
   }
+
+  uploadedImages = uploadedImages.filter((img) => img && img.id && img.id !== imageId);
+  window.uploadedImages = uploadedImages;
+  imageElement.remove();
+
+  // 刪到的是縮圖 → 改選剩下第一張
+  if (selectedThumbnailId === imageId) {
+    selectedThumbnailId = uploadedImages[0] ? uploadedImages[0].id : null;
+  }
+  refreshThumbButtons();
 }
 
-// 收集表單資料
+// 設定某張圖為列表縮圖
+function setThumbnail(imageId) {
+  selectedThumbnailId = imageId;
+  refreshThumbButtons();
+}
+
+// 依 selectedThumbnailId 更新所有縮圖按鈕 / 標籤
+function refreshThumbButtons() {
+  document.querySelectorAll('#imagePreview .image-preview').forEach((el) => {
+    const isThumb = el.id === selectedThumbnailId;
+    const label = el.querySelector('.thumb-label');
+    const btn = el.querySelector('.thumb-controls button');
+    if (label) label.style.display = isThumb ? '' : 'none';
+    if (btn) {
+      btn.classList.toggle('btn-success', isThumb);
+      btn.classList.toggle('btn-outline-secondary', !isThumb);
+      btn.textContent = isThumb ? '✓ 列表縮圖' : '設為列表縮圖';
+    }
+  });
+}
+
+// 收集表單資料（images 為 Supabase Storage key 陣列）
 function collectFormData() {
-  // 如果是編輯模式，使用編輯中的產品 ID（因為欄位被禁用）
-  const productId = isEditMode && editingProductId 
-    ? editingProductId 
-    : document.getElementById('productId').value.trim();
+  const productId =
+    isEditMode && editingProductId
+      ? editingProductId
+      : document.getElementById('productId').value.trim();
   const productName = document.getElementById('productName').value.trim();
   const category = document.getElementById('productCategory').value;
   const description = document.getElementById('productDescription').value.trim();
@@ -228,134 +226,71 @@ function collectFormData() {
   const keywords = document.getElementById('keywords').value.trim();
   const videoUrl = document.getElementById('videoUrl').value.trim();
 
-  // 收集規格
+  // 規格
   const specs = [];
   document.querySelectorAll('[data-spec-label]').forEach((input) => {
     const label = input.value.trim();
-    const valueInput = input.parentElement.parentElement.querySelector(
-      '[data-spec-value]'
-    );
+    const valueInput = input.parentElement.parentElement.querySelector('[data-spec-value]');
     const value = valueInput ? valueInput.value.trim() : '';
-    if (label && value) {
-      specs.push({ label, value });
-    }
+    if (label && value) specs.push({ label, value });
   });
 
-  // 收集下載
+  // 下載
   const downloads = [];
   document.querySelectorAll('[data-download-label]').forEach((input) => {
     const label = input.value.trim();
-    const urlInput = input.parentElement.parentElement.querySelector(
-      '[data-download-url]'
-    );
-    const filenameInput = input.parentElement.parentElement.querySelector(
-      '[data-download-filename]'
-    );
+    const urlInput = input.parentElement.parentElement.querySelector('[data-download-url]');
+    const filenameInput = input.parentElement.parentElement.querySelector('[data-download-filename]');
     const url = urlInput ? urlInput.value.trim() : '';
     const filename = filenameInput ? filenameInput.value.trim() : '';
-    if (label && url && filename) {
-      downloads.push({ label, url, filename });
+    if (label && url && filename) downloads.push({ label, url, filename });
+  });
+
+  // 生成圖片 key（沿用原編號重用邏輯）
+  const images = [];
+  const cleanedImages = (uploadedImages || []).filter((img) => img != null);
+
+  const usedNumbers = new Set();
+  let maxImageNumber = 0;
+
+  cleanedImages.forEach((img) => {
+    if (img && img.existing === true && img.path && typeof img.path === 'string') {
+      images.push(img.path);
+      const match = img.path.match(/-(\d+)\./);
+      if (match && match[1]) {
+        const num = parseInt(match[1], 10);
+        if (!isNaN(num)) {
+          usedNumbers.add(num);
+          if (num > maxImageNumber) maxImageNumber = num;
+        }
+      }
     }
   });
 
-  // 生成圖片路徑
-  const categoryName = categoryNames[category] || category;
-  const images = [];
-  
-  // 先清理 uploadedImages 數組，移除所有 null/undefined 值
-  const cleanedImages = (uploadedImages || []).filter(img => img != null);
-  
-  // 先處理所有現有圖片，記錄所有使用的編號
-  const usedNumbers = new Set();
-  let maxImageNumber = 0;
-  
-  cleanedImages.forEach((img) => {
-    try {
-      if (img && img.existing === true && img.path && typeof img.path === 'string') {
-        // 保留現有圖片路徑
-        images.push(img.path);
-        // 從路徑中提取圖片編號（例如：assets/img/products/P1/P1-2.jpg -> 2）
-        const match = img.path.match(/-(\d+)\./);
-        if (match && match[1]) {
-          const num = parseInt(match[1], 10);
-          if (!isNaN(num)) {
-            usedNumbers.add(num);
-            if (num > maxImageNumber) {
-              maxImageNumber = num;
-            }
-          }
-        }
-      }
-    } catch (error) {
-      console.error('處理現有圖片時發生錯誤:', error, img);
-    }
-  });
-  
-  // 找出缺失的編號（用於重用被刪除的圖片編號）
   const missingNumbers = [];
   for (let i = 1; i <= maxImageNumber; i++) {
-    if (!usedNumbers.has(i)) {
-      missingNumbers.push(i);
-    }
+    if (!usedNumbers.has(i)) missingNumbers.push(i);
   }
-  missingNumbers.sort((a, b) => a - b); // 從小到大排序
-  
-  // 然後處理新上傳的圖片，優先使用缺失的編號
+  missingNumbers.sort((a, b) => a - b);
+
   let missingIndex = 0;
-  
   cleanedImages.forEach((img) => {
-    try {
-      // 確保是新上傳的圖片，且有有效的名稱和數據（分步檢查）
-      if (!img) {
-        return; // 跳過無效對象
-      }
-      
-      if (img.existing === true) {
-        return; // 跳過現有圖片
-      }
-      
-      if (!img.name || typeof img.name !== 'string') {
-        return; // 跳過無名稱或名稱類型錯誤的圖片
-      }
-      
-      if (img.data == null) {
-        return; // 跳過無數據的圖片
-      }
-      
-      if (typeof img.data !== 'string') {
-        return; // 跳過數據類型錯誤的圖片
-      }
-      
-      if (img.data.length === 0) {
-        return; // 跳過空數據
-      }
-      
-      // 現在可以安全地調用 trim()
-      const dataStr = img.data.trim();
-      if (dataStr.length === 0) {
-        return; // 跳過只有空白字符的數據
-      }
-      
-      // 新上傳的圖片，優先使用缺失的編號，如果沒有缺失的編號，使用最大編號+1
-      let imageNumber;
-      if (missingIndex < missingNumbers.length) {
-        // 使用缺失的編號（重用被刪除的圖片編號）
-        imageNumber = missingNumbers[missingIndex];
-        missingIndex++;
-        console.log(`重用缺失的圖片編號: ${imageNumber}`);
-      } else {
-        // 沒有缺失的編號，使用最大編號+1
-        maxImageNumber++;
-        imageNumber = maxImageNumber;
-        console.log(`使用新的圖片編號: ${imageNumber}`);
-      }
-      
-      const ext = getFileExtension(img.name);
-      const imagePath = `assets/img/products/${productId}/${productId}-${imageNumber}.${ext}`;
-      images.push(imagePath);
-    } catch (error) {
-      console.error('處理新上傳圖片時發生錯誤:', error, img);
+    if (!img || img.existing === true) return;
+    if (!img.name || typeof img.name !== 'string') return;
+    if (!img.file && (typeof img.data !== 'string' || img.data.trim().length === 0)) return;
+
+    let imageNumber;
+    if (missingIndex < missingNumbers.length) {
+      imageNumber = missingNumbers[missingIndex];
+      missingIndex++;
+    } else {
+      maxImageNumber++;
+      imageNumber = maxImageNumber;
     }
+
+    const ext = getFileExtension(img.name);
+    // Supabase Storage key（bucket 內路徑）
+    images.push(`${productId}/${productId}-${imageNumber}.${ext}`);
   });
 
   return {
@@ -374,41 +309,89 @@ function collectFormData() {
 
 // 獲取檔案副檔名
 function getFileExtension(filename) {
-  if (!filename || typeof filename !== 'string') {
-    return 'jpg'; // 預設為 jpg
-  }
+  if (!filename || typeof filename !== 'string') return 'jpg';
   const parts = filename.split('.');
   return parts.length > 1 ? parts.pop().toLowerCase() : 'jpg';
 }
 
-// 預覽資料
+// 預覽資料（渲染成可讀預覽，非原始 JSON）
 function previewData() {
   const data = collectFormData();
-  const previewContent = document.getElementById('previewContent');
-  previewContent.textContent = JSON.stringify(data, null, 2);
-  const modal = new bootstrap.Modal(document.getElementById('previewModal'));
-  modal.show();
+  const esc = (s) =>
+    String(s == null ? '' : s).replace(/[&<>"]/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])
+    );
+  const catName = categoryNames[data.category] || data.category || '—';
+
+  const imgsHtml =
+    (uploadedImages || [])
+      .filter((i) => i)
+      .map((img) => {
+        const src = img.existing ? window.witega.publicUrl(img.path) : img.data;
+        const isThumb = img.id === selectedThumbnailId;
+        return `<div style="display:inline-block;text-align:center;margin:6px;vertical-align:top">
+          <img src="${src}" style="width:120px;height:120px;object-fit:contain;border:1px solid #ddd;border-radius:4px${isThumb ? ';outline:3px solid #198754' : ''}">
+          ${isThumb ? '<div><span class="badge bg-success mt-1">列表縮圖</span></div>' : ''}
+        </div>`;
+      })
+      .join('') || '<span class="text-muted">（無圖片）</span>';
+
+  const specsHtml = data.specs.length
+    ? '<ul class="mb-0">' +
+      data.specs.map((s) => `<li><strong>${esc(s.label)}：</strong>${esc(s.value)}</li>`).join('') +
+      '</ul>'
+    : '<span class="text-muted">（無）</span>';
+
+  const dlHtml =
+    data.downloads && data.downloads.length
+      ? data.downloads.map((d) => `${esc(d.label)}（${esc(d.filename)}）`).join('、')
+      : '<span class="text-muted">（無）</span>';
+
+  const html = `
+    <div style="white-space:normal">
+      <h5>${esc(data.name) || '(未填名稱)'} <small class="text-muted">${esc(data.id)}</small></h5>
+      <p class="mb-1"><strong>類別：</strong>${esc(catName)}</p>
+      <p class="mb-1"><strong>描述：</strong>${esc(data.description) || '—'}</p>
+      <p class="mb-1"><strong>SEO 描述：</strong>${esc(data.metaDescription) || '—'}</p>
+      <p class="mb-1"><strong>關鍵字：</strong>${esc(data.keywords) || '—'}</p>
+      <p class="mb-1"><strong>影片：</strong>${data.videoUrl ? `<a href="${esc(data.videoUrl)}" target="_blank">${esc(data.videoUrl)}</a>` : '—'}</p>
+      <p class="mb-1 mt-2"><strong>規格：</strong></p>${specsHtml}
+      <p class="mb-1 mt-2"><strong>下載：</strong>${dlHtml}</p>
+      <p class="mb-1 mt-2"><strong>圖片（綠框為列表縮圖）：</strong></p>
+      <div>${imgsHtml}</div>
+    </div>`;
+
+  const el = document.getElementById('previewContent');
+  el.style.whiteSpace = 'normal';
+  el.style.background = 'transparent';
+  el.innerHTML = html;
+  new bootstrap.Modal(document.getElementById('previewModal')).show();
 }
 
-// 生成產品資料 JSON
-function generateProductData(productData) {
-  return `  "${productData.id}": ${JSON.stringify(productData, null, 4)}`;
+// base64 dataURL → Blob（File 缺失時的後備）
+function dataUrlToBlob(dataUrl, fallbackType) {
+  const [meta, b64] = dataUrl.split(',');
+  const mime = (meta.match(/data:(.*?);/) || [])[1] || fallbackType || 'image/jpeg';
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new Blob([bytes], { type: mime });
 }
 
-// 生成 products.js 項目
-function generateProductsJsItem(productData) {
-  const firstImage = productData.images[0] || '';
-  return `        {
-          "id": "${productData.id}",
-          "name": "${productData.name}",
-          "img": "${firstImage}",
-          "url": "product.html?id=${productData.id}"
-        }`;
+// 在 modal 內顯示提示
+function showFormAlert(cls, html) {
+  const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
+  const productForm = document.getElementById('productForm');
+  const a = document.createElement('div');
+  a.className = `alert ${cls} alert-dismissible fade show`;
+  a.innerHTML = html + '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+  if (productForm && modalBody) modalBody.insertBefore(a, productForm);
+  else if (modalBody) modalBody.insertBefore(a, modalBody.firstChild);
+  return a;
 }
 
-// 儲存產品
+// 儲存產品（新增 / 編輯）
 async function saveProduct() {
-  // 驗證表單
   const form = document.getElementById('productForm');
   if (!form.checkValidity()) {
     form.reportValidity();
@@ -416,490 +399,131 @@ async function saveProduct() {
   }
 
   const productData = collectFormData();
-  
-  // 如果是編輯模式，確保 ID 正確
-  if (isEditMode && editingProductId) {
-    productData.id = editingProductId;
-  }
+  if (isEditMode && editingProductId) productData.id = editingProductId;
 
-  // 驗證必填欄位
   if (!productData.id || !productData.name || !productData.category) {
     alert('請填寫所有必填欄位');
     return;
   }
-
   if (productData.images.length === 0) {
     alert('請至少上傳一張產品圖片');
     return;
   }
 
-  // 檢查產品 ID 是否重複（僅在新增模式時檢查）
+  // 新增模式檢查 ID 是否重複
   if (!isEditMode) {
-    // 確保產品詳細資料已載入
-    if (Object.keys(allProductDetails).length === 0) {
-      await loadProductDetails();
-    }
-    
-    // 檢查 ID 是否已存在
+    if (Object.keys(allProductDetails).length === 0) await loadProductDetails();
     if (allProductDetails[productData.id]) {
       alert(`產品 ID "${productData.id}" 已存在，請使用其他 ID`);
-      // 聚焦到產品 ID 欄位
       document.getElementById('productId').focus();
       return;
     }
   }
 
-    // 生成檔案
-    const files = [];
+  const saveBtn = document.getElementById('saveProductBtn');
+  const cancelBtn = document.getElementById('cancelBtn');
+  const previewBtn = document.getElementById('previewBtn');
+  const originalSaveBtnHTML = saveBtn.innerHTML;
 
-    // 1. 產品詳細資料（product-details.js 格式）
-    const productDetailsItem = generateProductData(productData);
-    files.push({
-      name: 'product-details-item.js',
-      content: productDetailsItem,
-      description: '產品詳細資料（需要手動添加到 product-details.js）',
-    });
+  saveBtn.disabled = true;
+  if (cancelBtn) cancelBtn.disabled = true;
+  if (previewBtn) previewBtn.disabled = true;
+  saveBtn.innerHTML =
+    '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>正在儲存...';
 
-    // 2. 產品列表項目（products.js 格式）
-    const productsJsItem = generateProductsJsItem(productData);
-    files.push({
-      name: 'products-js-item.js',
-      content: productsJsItem,
-      description: '產品列表項目（需要手動添加到 products.js）',
-    });
+  const loadingAlert = showFormAlert('alert-info', '<strong>正在儲存到 Supabase...</strong>');
 
-    // 3. 完整的產品資料 JSON
-    files.push({
-      name: `${productData.id}-data.json`,
-      content: JSON.stringify(productData, null, 2),
-      description: '完整的產品資料 JSON',
-    });
+  const restoreButtons = () => {
+    saveBtn.disabled = false;
+    saveBtn.innerHTML = originalSaveBtnHTML;
+    if (cancelBtn) cancelBtn.disabled = false;
+    if (previewBtn) previewBtn.disabled = false;
+  };
 
-    // 4. 圖片檔案（ZIP）- 只打包新上傳的圖片
-    // 先清理 uploadedImages 數組，移除所有 null/undefined 值
-    const cleanedImages = (uploadedImages || []).filter(img => img != null);
-    
-    const newImages = cleanedImages.filter(img => {
-      try {
-        // 確保圖片對象存在
-        if (!img) {
-          return false;
-        }
-        
-        // 確保不是現有圖片
-        if (img.existing === true) {
-          return false;
-        }
-        
-        // 確保有名稱
-        if (!img.name) {
-          return false;
-        }
-        
-        // 確保 data 存在
-        if (img.data == null) {
-          return false;
-        }
-        
-        // 確保 data 是字符串類型
-        if (typeof img.data !== 'string') {
-          return false;
-        }
-        
-        // 確保 data 不為空
-        if (img.data.length === 0) {
-          return false;
-        }
-        
-        // 現在可以安全地調用 trim()
-        let dataStr;
-        try {
-          dataStr = String(img.data).trim();
-        } catch (e) {
-          console.error('轉換 data 為字符串時出錯:', e, img);
-          return false;
-        }
-        
-        // 確保 trim() 後是有效的字符串
-        if (typeof dataStr !== 'string' || dataStr.length === 0) {
-          return false;
-        }
-        
-        // 檢查是否包含逗號（base64 格式要求）- 再次確認類型
-        if (typeof dataStr === 'string' && dataStr.includes && !dataStr.includes(',')) {
-          return false;
-        }
-        
-        // 如果沒有 includes 方法，說明不是字符串
-        if (typeof dataStr !== 'string' || typeof dataStr.includes !== 'function') {
-          return false;
-        }
-        
-        return true;
-      } catch (error) {
-        console.error('過濾圖片時發生錯誤:', error, img);
-        return false;
-      }
-    });
-    
-    if (newImages.length > 0) {
-      // 使用 JSZip 來打包圖片
-      if (typeof JSZip !== 'undefined') {
-        const zip = new JSZip();
-        newImages.forEach((img, index) => {
-          try {
-            // 再次檢查，確保數據有效（分步檢查，避免對 null 調用方法）
-            if (!img) {
-              console.warn('跳過 null 圖片對象');
-              return;
-            }
-            
-            if (!img.name) {
-              console.warn('跳過無名稱的圖片:', img);
-              return;
-            }
-            
-            if (!img.data) {
-              console.warn('跳過無數據的圖片:', img);
-              return;
-            }
-            
-            // 確保 data 是字符串類型
-            if (typeof img.data !== 'string') {
-              console.warn('跳過數據類型錯誤的圖片:', img, typeof img.data);
-              return;
-            }
-            
-            // 再次確認 data 是字符串類型（防禦性編程）
-            if (typeof img.data !== 'string') {
-              console.warn('跳過數據類型錯誤的圖片（非字符串）:', img, typeof img.data);
-              return;
-            }
-            
-            // 使用 String() 強制轉換為字符串，然後 trim()
-            let dataStr;
-            try {
-              // 強制轉換為字符串，即使 img.data 是 null/undefined
-              dataStr = String(img.data || '').trim();
-            } catch (e) {
-              console.error('轉換 data 為字符串時出錯:', e, img);
-              return;
-            }
-            
-            // 確保是有效的字符串且不為空
-            if (typeof dataStr !== 'string' || dataStr.length === 0) {
-              console.warn('跳過空數據的圖片:', img);
-              return;
-            }
-            
-            // 檢查是否包含逗號（base64 格式要求）- 使用最安全的方式
-            try {
-              // 再次確認 includes 方法存在
-              if (typeof dataStr.includes === 'function') {
-                if (!dataStr.includes(',')) {
-                  console.warn('跳過格式錯誤的圖片數據（缺少逗號）:', img);
-                  return;
-                }
-              } else {
-                console.warn('dataStr 沒有 includes 方法:', typeof dataStr, img);
-                return;
-              }
-            } catch (e) {
-              console.error('調用 includes() 時出錯:', e, img, 'dataStr:', dataStr);
-              return;
-            }
-            
-            const ext = getFileExtension(img.name);
-            const filename = `${productData.id}-${index + 1}.${ext}`;
-            // 將 base64 轉換為 binary
-            const parts = dataStr.split(',');
-            if (parts.length >= 2 && parts[1]) {
-              zip.file(filename, parts[1], { base64: true });
-            } else {
-              console.warn('無法解析 base64 數據:', img);
-            }
-          } catch (error) {
-            console.error('處理圖片時發生錯誤:', error, img);
-          }
-        });
-        
-        // 只有當 zip 中有文件時才生成
-        if (Object.keys(zip.files).length > 0) {
-          const zipBlob = await zip.generateAsync({ type: 'blob' });
-          files.push({
-            name: `${productData.id}-images.zip`,
-            blob: zipBlob,
-            description: '產品圖片壓縮檔',
-          });
-        }
-      }
+  try {
+    // 找出新上傳圖片對應的 Storage key
+    const existingKeys = new Set(
+      (uploadedImages || [])
+        .filter((img) => img && img.existing === true && img.path)
+        .map((img) => img.path)
+    );
+    const newKeys = productData.images.filter((k) => !existingKeys.has(k));
+    const newImages = (uploadedImages || []).filter(
+      (img) => img && !img.existing && (img.file || (typeof img.data === 'string' && img.data))
+    );
+
+    // 逐張上傳新圖片
+    for (let i = 0; i < newImages.length; i++) {
+      const img = newImages[i];
+      const key = newKeys[i];
+      if (!key) continue;
+      const body = img.file || dataUrlToBlob(img.data, img.type);
+      await window.witega.uploadImage(key, body, img.type);
     }
 
-    // 5. 部署說明
-    const deployInstructions = generateDeployInstructions(productData, files);
-    files.push({
-      name: 'DEPLOY_INSTRUCTIONS.md',
-      content: deployInstructions,
-      description: '部署說明文件',
-    });
-
-    // 從 config.js 讀取 GitHub 配置
-    let githubRepo = '';
-    let gasUrl = '';
-    
-    if (typeof GITHUB_CONFIG !== 'undefined') {
-      githubRepo = GITHUB_CONFIG.repo || '';
-      gasUrl = GITHUB_CONFIG.gasUrl || '';
-    } else {
-      alert('GitHub 配置未載入，請檢查 config.js');
-      return;
-    }
-
-    // 驗證配置
-    if (!gasUrl) {
-      alert('請在 config.js 中配置 gasUrl');
-      return;
-    }
-
-    if (!githubRepo) {
-      alert('請在 config.js 中配置 repo');
-      return;
-    }
-
-    // 使用 GAS 代理或直接調用 GitHub API
-      // 禁用按鈕並顯示載入狀態
-      const saveBtn = document.getElementById('saveProductBtn');
-      const cancelBtn = document.getElementById('cancelBtn');
-      const previewBtn = document.getElementById('previewBtn');
-      
-      const originalSaveBtnHTML = saveBtn.innerHTML;
-      const originalSaveBtnDisabled = saveBtn.disabled;
-      
-      // 禁用所有按鈕
-      saveBtn.disabled = true;
-      if (cancelBtn) cancelBtn.disabled = true;
-      if (previewBtn) previewBtn.disabled = true;
-      
-      // 更新保存按鈕顯示載入狀態
-      saveBtn.innerHTML = `
-        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-        正在儲存...
-      `;
-      
-      // 顯示載入提示
-      const loadingAlert = document.createElement('div');
-      loadingAlert.className = 'alert alert-info alert-dismissible fade show';
-      loadingAlert.innerHTML = `
-        <strong>正在自動提交到 GitHub...</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      `;
-      const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
-      const productForm = document.getElementById('productForm');
-      if (productForm && modalBody) {
-        modalBody.insertBefore(loadingAlert, productForm);
-      } else if (modalBody) {
-        modalBody.insertBefore(loadingAlert, modalBody.firstChild);
+    // 解析所選列表縮圖 → storage key
+    let thumbKey = null;
+    if (selectedThumbnailId) {
+      const sel = (uploadedImages || []).find((i) => i && i.id === selectedThumbnailId);
+      if (sel) {
+        thumbKey = sel.existing ? sel.path : newKeys[newImages.indexOf(sel)];
       }
+    }
+    productData.thumbnail = thumbKey || productData.images[0] || null;
 
-      try {
-        // 確保 uploadedImages 在全局可用
-        window.uploadedImages = uploadedImages;
-        
-        // 確保 deletedImagePaths 在全局可用（編輯模式下）
-        window.deletedImagePaths = deletedImagePaths || [];
-        
-        // 通過 GAS 獲取 Token，前端直接調用 GitHub API
-        if (typeof window.deployToGitHubDirect === 'undefined') {
-          throw new Error('github-deploy-direct.js 未載入');
-        }
-        
-        // 傳遞編輯模式信息
-        const result = await window.deployToGitHubDirect(productData, gasUrl, githubRepo, isEditMode);
-        
-        // 移除載入提示
-        loadingAlert.remove();
-        
-        // 恢復按鈕狀態
-        saveBtn.disabled = false;
-        saveBtn.innerHTML = originalSaveBtnHTML;
-        if (cancelBtn) cancelBtn.disabled = false;
-        if (previewBtn) previewBtn.disabled = false;
-        
-        // 顯示成功訊息
-        const successAlert = document.createElement('div');
-        successAlert.className = 'alert alert-success alert-dismissible fade show';
-        const commitShaShort = result.commitSha ? result.commitSha.substring(0, 7) : 'N/A';
-        const actionText = isEditMode ? '更新' : '新增';
-        successAlert.innerHTML = `
-          <strong><i class="bi bi-check-circle"></i> 產品已成功${actionText}並提交到 GitHub！</strong>
-          <br>
-          <small>Commit: <code>${commitShaShort}</code> | 等待 GitHub Pages 自動部署（約 1-2 分鐘）</small>
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        `;
-        const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
-        const productForm = document.getElementById('productForm');
-        if (productForm && modalBody) {
-          modalBody.insertBefore(successAlert, productForm);
-        } else if (modalBody) {
-          modalBody.insertBefore(successAlert, modalBody.firstChild);
-        }
-        
-        // 重新載入產品列表和詳細資料
-        await loadProductsTable();
-        await loadProductDetails();
-        
-        // 3 秒後關閉 modal 並清除表單
-        setTimeout(() => {
-          hideProductForm();
-          if (successAlert.parentNode) {
-            successAlert.remove();
-          }
-        }, 3000);
-      } catch (error) {
-        // 移除載入提示
-        loadingAlert.remove();
-        
-        // 恢復按鈕狀態
-        saveBtn.disabled = false;
-        saveBtn.innerHTML = originalSaveBtnHTML;
-        if (cancelBtn) cancelBtn.disabled = false;
-        if (previewBtn) previewBtn.disabled = false;
-        
-        // 顯示錯誤訊息
-        const errorAlert = document.createElement('div');
-        errorAlert.className = 'alert alert-danger alert-dismissible fade show';
-        errorAlert.innerHTML = `
-          <strong><i class="bi bi-exclamation-triangle"></i> GitHub 提交失敗</strong>
-          <br>
-          <small>${error.message || '未知錯誤'}</small>
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        `;
-        const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
-        const productForm = document.getElementById('productForm');
-        if (productForm && modalBody) {
-          modalBody.insertBefore(errorAlert, productForm);
-        } else if (modalBody) {
-          modalBody.insertBefore(errorAlert, modalBody.firstChild);
-        }
-      }
+    // 寫入 / 更新資料列
+    await window.witega.upsertProduct(productData);
+
+    // 移除已刪除的圖片（編輯模式）
+    if (isEditMode && deletedImagePaths && deletedImagePaths.length) {
+      await window.witega.removeImages(deletedImagePaths);
+    }
+
+    loadingAlert.remove();
+    restoreButtons();
+
+    const actionText = isEditMode ? '更新' : '新增';
+    const ok = showFormAlert(
+      'alert-success',
+      `<strong><i class="bi bi-check-circle"></i> 產品已成功${actionText}！</strong>`
+    );
+
+    await loadProductsTable();
+    await loadProductDetails();
+
+    setTimeout(() => {
+      hideProductForm();
+      if (ok.parentNode) ok.remove();
+    }, 1500);
+  } catch (error) {
+    loadingAlert.remove();
+    restoreButtons();
+    showFormAlert(
+      'alert-danger',
+      `<strong><i class="bi bi-exclamation-triangle"></i> 儲存失敗</strong><br><small>${error.message || '未知錯誤'}</small>`
+    );
+  }
 }
 
-// 生成部署說明
-function generateDeployInstructions(productData, files) {
-  const categoryName = categoryNames[productData.category] || productData.category;
-  
-  return `# 產品部署說明
-
-## 產品資訊
-- **產品 ID**: ${productData.id}
-- **產品名稱**: ${productData.name}
-- **產品類別**: ${categoryName}
-
-## 部署步驟
-
-### 1. 解壓縮圖片檔案
-解壓縮 \`${productData.id}-images.zip\` 到以下路徑：
-\`\`\`
-assets/img/products/${productData.id}/
-\`\`\`
-
-**注意**：如果資料夾不存在，請先創建：
-\`\`\`bash
-mkdir -p assets/img/products/${productData.id}
-\`\`\`
-
-### 2. 更新 product-details.js
-打開 \`assets/data/product-details.js\`，找到 \`const productDetails = {\`，在物件中添加：
-
-\`\`\`javascript
-${generateProductData(productData)},
-\`\`\`
-
-**位置**：可以添加到物件的任何位置，建議按字母順序或分類順序排列。
-
-### 3. 更新 products.js
-打開 \`assets/data/products.js\`，找到分類 \`"id": "${productData.category}"\`，在該分類的 \`products\` 陣列中添加：
-
-\`\`\`javascript
-${generateProductsJsItem(productData)},
-\`\`\`
-
-**位置**：添加到該分類的 \`products\` 陣列中，可以放在陣列的任何位置。
-
-### 4. 提交到 Git 並推送到 GitHub
-\`\`\`bash
-git add .
-git commit -m "新增產品: ${productData.name}"
-git push origin main
-\`\`\`
-
-**注意**：如果你的主分支是 \`master\`，請使用 \`git push origin master\`
-
-### 5. 等待 GitHub Pages 自動部署
-推送後，GitHub Pages 會自動部署，通常需要 1-2 分鐘。
-
-## 驗證
-完成後，訪問以下網址確認產品是否正常顯示：
-- 產品列表: \`products.html?category=${productData.category}\`
-- 產品詳情: \`product.html?id=${productData.id}\`
-
-## 常見問題
-
-### 圖片顯示不出來
-- 檢查圖片路徑是否正確
-- 確認圖片檔案已正確解壓縮到對應資料夾
-- 檢查檔案名稱是否與 JSON 中的路徑一致
-
-### 產品未出現在列表中
-- 檢查 \`products.js\` 中的分類 ID 是否正確
-- 確認產品資料已正確添加到對應分類的陣列中
-- 檢查 JSON 語法是否正確（注意逗號和括號）
-
-### 產品詳情頁面無法載入
-- 檢查 \`product-details.js\` 中的產品 ID 是否正確
-- 確認產品資料格式是否正確
-- 檢查瀏覽器控制台是否有錯誤訊息
-`;
-}
-
-
-// 載入產品列表
+// 載入產品列表（從 Supabase）
 async function loadProductsTable() {
   const container = document.getElementById('productsTableContainer');
-  
   try {
-    // 載入 products.js
-    const response = await fetch('../assets/data/products.js');
-    if (!response.ok) {
-      throw new Error('無法載入產品資料');
-    }
-    
-    const text = await response.text();
-    
-    // 解析 JavaScript 文件（提取 productsData 物件）
-    // 使用 eval 或 Function 來執行 JavaScript 代碼
-    const func = new Function(text + '; return productsData;');
-    const productsData = func();
-    
-    // 儲存所有產品資料（扁平化結構，方便篩選）
-    allProductsData = [];
-    if (productsData && productsData.categories) {
-      productsData.categories.forEach(category => {
-        if (category.products && category.products.length > 0) {
-          category.products.forEach(product => {
-            allProductsData.push({
-              ...product,
-              categoryId: category.id,
-              categoryName: categoryNames[category.id] || category.name || category.id
-            });
-          });
-        }
-      });
-    }
-    
-    // 渲染表格（使用篩選後的資料）
+    const details = await window.witega.listProducts();
+    allProductDetails = {};
+    allProductsData = details.map((d) => {
+      allProductDetails[d.id] = d;
+      // 與前台一致：優先顯示策展縮圖
+      const img = d.thumbnail ? window.witega.publicUrl(d.thumbnail) : d.images[0] || '';
+      return {
+        id: d.id,
+        name: d.name,
+        img: img,
+        categoryId: d.category,
+        categoryName: categoryNames[d.category] || d.category,
+      };
+    });
     renderProductsTable();
-    
   } catch (error) {
     console.error('載入產品列表失敗:', error);
     container.innerHTML = `
@@ -918,8 +542,7 @@ async function loadProductsTable() {
 function renderProductsTable(filteredProducts = null) {
   const container = document.getElementById('productsTableContainer');
   const productsToShow = filteredProducts !== null ? filteredProducts : allProductsData;
-  
-  // 建立表格
+
   let tableHTML = `
     <div class="table-responsive">
       <table class="table table-hover align-middle">
@@ -928,23 +551,23 @@ function renderProductsTable(filteredProducts = null) {
             <th style="width: 100px;">縮圖</th>
             <th>產品名稱</th>
             <th>類別</th>
-            <th style="width: 100px;">操作</th>
+            <th style="width: 140px;">操作</th>
           </tr>
         </thead>
         <tbody>
   `;
-  
-  // 如果有產品，顯示產品列表
+
   if (productsToShow && productsToShow.length > 0) {
-    productsToShow.forEach(product => {
+    productsToShow.forEach((product) => {
       const thumbnail = product.img || '';
       const productName = product.name || product.id;
       const categoryName = product.categoryName || '';
-      
+      const safeName = String(productName).replace(/'/g, "\\'");
+
       tableHTML += `
         <tr>
           <td>
-            ${thumbnail ? `<img src="../${thumbnail}" alt="${productName}" class="product-thumbnail" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'%3E%3Crect fill=\'%23ddd\' width=\'80\' height=\'80\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\' font-size=\'12\'%3E無圖片%3C/text%3E%3C/svg%3E'">` : '<span class="text-muted">無圖片</span>'}
+            ${thumbnail ? `<img src="${thumbnail}" alt="${productName}" class="product-thumbnail" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'%3E%3Crect fill=\'%23ddd\' width=\'80\' height=\'80\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\' font-size=\'12\'%3E無圖片%3C/text%3E%3C/svg%3E'">` : '<span class="text-muted">無圖片</span>'}
           </td>
           <td><strong>${productName}</strong></td>
           <td><span class="badge bg-secondary">${categoryName}</span></td>
@@ -952,25 +575,25 @@ function renderProductsTable(filteredProducts = null) {
             <button class="btn btn-sm btn-outline-primary" onclick="editProduct('${product.id}')" title="編輯">
               <i class="bi bi-pencil"></i>
             </button>
+            <button class="btn btn-sm btn-outline-danger ms-1" onclick="confirmDeleteProduct('${product.id}', '${safeName}')" title="刪除">
+              <i class="bi bi-trash"></i>
+            </button>
           </td>
         </tr>
       `;
     });
   } else {
-    // 如果沒有產品，顯示提示
     tableHTML = `
       <tr>
         <td colspan="4" class="text-center py-5">
           <i class="bi bi-inbox" style="font-size: 3rem; color: #ccc;"></i>
           <p class="mt-3 text-muted">${filteredProducts !== null ? '沒有符合篩選條件的產品' : '目前沒有任何產品'}</p>
-          ${filteredProducts === null ? `<button class="btn btn-primary" onclick="showProductForm()">
-            <i class="bi bi-plus-circle"></i> 新增第一個產品
-          </button>` : ''}
+          ${filteredProducts === null ? `<button class="btn btn-primary" onclick="showProductForm()"><i class="bi bi-plus-circle"></i> 新增第一個產品</button>` : ''}
         </td>
       </tr>
     `;
   }
-  
+
   tableHTML += `
         </tbody>
       </table>
@@ -979,31 +602,39 @@ function renderProductsTable(filteredProducts = null) {
       <small>顯示 ${productsToShow.length} / ${allProductsData.length} 個產品</small>
     </div>
   `;
-  
+
   container.innerHTML = tableHTML;
+}
+
+// 刪除產品（含 Storage 圖片）
+async function confirmDeleteProduct(id, name) {
+  if (!confirm(`確定要刪除產品「${name || id}」嗎？此動作無法復原，圖片也會一併刪除。`)) {
+    return;
+  }
+  try {
+    await window.witega.deleteProduct(id);
+    await loadProductsTable();
+    await loadProductDetails();
+  } catch (error) {
+    console.error('刪除產品失敗:', error);
+    alert('刪除失敗：' + (error.message || '未知錯誤'));
+  }
 }
 
 // 篩選產品
 function filterProducts() {
   const searchName = document.getElementById('searchProductName')?.value.trim().toLowerCase() || '';
   const filterCategory = document.getElementById('filterCategory')?.value || '';
-  
+
   let filtered = allProductsData;
-  
-  // 按名稱篩選
   if (searchName) {
-    filtered = filtered.filter(product => {
-      const productName = (product.name || product.id || '').toLowerCase();
-      return productName.includes(searchName);
-    });
+    filtered = filtered.filter((product) =>
+      (product.name || product.id || '').toLowerCase().includes(searchName)
+    );
   }
-  
-  // 按類別篩選
   if (filterCategory) {
-    filtered = filtered.filter(product => product.categoryId === filterCategory);
+    filtered = filtered.filter((product) => product.categoryId === filterCategory);
   }
-  
-  // 渲染篩選後的結果
   renderProductsTable(filtered);
 }
 
@@ -1016,104 +647,48 @@ function clearFilters() {
 
 // 顯示產品表單 Modal
 function showProductForm() {
-  // 如果不是編輯模式，重置表單
   if (!isEditMode) {
     document.getElementById('productForm').reset();
     document.getElementById('imagePreview').innerHTML = '';
     uploadedImages = [];
     window.uploadedImages = [];
+    selectedThumbnailId = null;
     document.getElementById('specsContainer').innerHTML = '';
     document.getElementById('productId').disabled = false;
-  }
-  
-  // 重置 modal 標題（如果不是編輯模式）
-  if (!isEditMode) {
-    document.getElementById('productFormModalLabel').innerHTML = 
+    document.getElementById('productFormModalLabel').innerHTML =
       '<i class="bi bi-file-earmark-plus"></i> 新增產品';
   }
-  
-  const modal = new bootstrap.Modal(document.getElementById('productFormModal'));
-  modal.show();
-  
-  // 顯示配置提示（如果有的話）
-  const modalBody = document.getElementById('productFormModal')?.querySelector('.modal-body');
-  if (modalBody) {
-    // 移除舊的配置提示
-    const oldConfigAlert = modalBody.querySelector('#githubConfigAlert');
-    if (oldConfigAlert) {
-      oldConfigAlert.remove();
-    }
-    
-    // 檢查並顯示配置狀態
-    if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.gasUrl && GITHUB_CONFIG.repo) {
-      const configAlert = document.createElement('div');
-      configAlert.className = 'alert alert-success alert-dismissible fade show';
-      configAlert.id = 'githubConfigAlert';
-      configAlert.innerHTML = `
-        <strong><i class="bi bi-check-circle"></i> 已從 config.js 載入 GitHub 配置（使用 GAS 代理）</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      `;
-      const productForm = document.getElementById('productForm');
-      if (productForm) {
-        modalBody.insertBefore(configAlert, productForm);
-      } else {
-        modalBody.insertBefore(configAlert, modalBody.firstChild);
-      }
-    } else {
-      const warningAlert = document.createElement('div');
-      warningAlert.className = 'alert alert-warning alert-dismissible fade show';
-      warningAlert.innerHTML = `
-        <strong><i class="bi bi-exclamation-triangle"></i> 未配置 GitHub</strong>
-        <p class="mb-0">請在 <code>config.js</code> 中配置 gasUrl 和 repo 以使用自動提交功能。</p>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      `;
-      const productForm = document.getElementById('productForm');
-      if (productForm) {
-        modalBody.insertBefore(warningAlert, productForm);
-      } else {
-        modalBody.insertBefore(warningAlert, modalBody.firstChild);
-      }
-    }
-  }
+  new bootstrap.Modal(document.getElementById('productFormModal')).show();
 }
 
 // 隱藏產品表單 Modal
 function hideProductForm() {
   const modalElement = document.getElementById('productFormModal');
   const modal = bootstrap.Modal.getInstance(modalElement);
-  if (modal) {
-    modal.hide();
-  }
-  // 重置表單
+  if (modal) modal.hide();
+
   document.getElementById('productForm').reset();
   document.getElementById('imagePreview').innerHTML = '';
   uploadedImages = [];
   window.uploadedImages = [];
-  // 清除規格容器
   document.getElementById('specsContainer').innerHTML = '';
-  // 清除文件輸入
   const fileInput = document.getElementById('productImages');
-  if (fileInput) {
-    fileInput.value = '';
-  }
-  // 恢復產品 ID 欄位（編輯時被禁用）
+  if (fileInput) fileInput.value = '';
   document.getElementById('productId').disabled = false;
-  // 重置編輯模式
   isEditMode = false;
   editingProductId = null;
+  deletedImagePaths = [];
+  selectedThumbnailId = null;
 }
 
-// 載入產品詳細資料
+// 載入產品詳細資料（從 Supabase，建立 id → detail 映射）
 async function loadProductDetails() {
   try {
-    const response = await fetch('../assets/data/product-details.js');
-    if (!response.ok) {
-      throw new Error('無法載入產品詳細資料');
-    }
-    
-    const text = await response.text();
-    const func = new Function(text + '; return productDetails;');
-    allProductDetails = func();
+    const details = await window.witega.listProducts();
+    allProductDetails = {};
+    details.forEach((d) => {
+      allProductDetails[d.id] = d;
+    });
     return allProductDetails;
   } catch (error) {
     console.error('載入產品詳細資料失敗:', error);
@@ -1125,30 +700,23 @@ async function loadProductDetails() {
 async function editProduct(productId) {
   isEditMode = true;
   editingProductId = productId;
-  
-  // 載入產品詳細資料（如果還沒載入）
-  if (Object.keys(allProductDetails).length === 0) {
-    await loadProductDetails();
-  }
-  
-  // 獲取產品資料
+  deletedImagePaths = [];
+
+  if (Object.keys(allProductDetails).length === 0) await loadProductDetails();
+
   const productData = allProductDetails[productId];
-  
   if (!productData) {
     alert('找不到產品資料，產品 ID: ' + productId);
     isEditMode = false;
     editingProductId = null;
     return;
   }
-  
-  // 顯示表單
+
   showProductForm();
-  
-  // 更新 modal 標題
-  document.getElementById('productFormModalLabel').innerHTML = 
+
+  document.getElementById('productFormModalLabel').innerHTML =
     '<i class="bi bi-pencil"></i> 編輯產品';
-  
-  // 填入表單資料
+
   document.getElementById('productId').value = productData.id || '';
   document.getElementById('productName').value = productData.name || '';
   document.getElementById('productCategory').value = productData.category || '';
@@ -1156,15 +724,15 @@ async function editProduct(productId) {
   document.getElementById('metaDescription').value = productData.metaDescription || '';
   document.getElementById('keywords').value = productData.keywords || '';
   document.getElementById('videoUrl').value = productData.videoUrl || '';
-  
-  // 禁用產品 ID 欄位（編輯時不能修改 ID）
+
+  // 編輯時不可改 ID
   document.getElementById('productId').disabled = true;
-  
-  // 填入規格
+
+  // 規格
   const specsContainer = document.getElementById('specsContainer');
   specsContainer.innerHTML = '';
   if (productData.specs && productData.specs.length > 0) {
-    productData.specs.forEach(spec => {
+    productData.specs.forEach((spec) => {
       addSpec();
       const specItems = specsContainer.querySelectorAll('.spec-item');
       const lastSpec = specItems[specItems.length - 1];
@@ -1174,98 +742,82 @@ async function editProduct(productId) {
       if (valueInput) valueInput.value = spec.value || '';
     });
   }
-  
-  // 顯示現有圖片
+
+  // 現有圖片（imageKeys = storage key，images = 公開 URL）
   const imagePreview = document.getElementById('imagePreview');
   imagePreview.innerHTML = '';
   uploadedImages = [];
   window.uploadedImages = [];
-  
-  if (productData.images && productData.images.length > 0) {
-    productData.images.forEach((imagePath, index) => {
-      const imageId = 'img_existing_' + productId + '_' + index;
-      const imgDiv = document.createElement('div');
-      imgDiv.className = 'image-preview';
-      imgDiv.id = imageId;
-      imgDiv.innerHTML = `
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="d-flex align-items-center">
-            <img src="../${imagePath}" alt="現有圖片 ${index + 1}" style="max-width: 150px; max-height: 150px;" onerror="this.style.display='none'">
-            <div class="ms-3">
-              <small><strong>現有圖片 ${index + 1}</strong></small>
-              <br>
-              <small class="text-muted">${imagePath}</small>
+
+  const keys = productData.imageKeys || [];
+  const urls = productData.images || [];
+  let preselect = null;
+  keys.forEach((key, index) => {
+    const imageId = 'img_existing_' + productId + '_' + index;
+    if (key === productData.thumbnail) preselect = imageId;
+    const imgDiv = document.createElement('div');
+    imgDiv.className = 'image-preview';
+    imgDiv.id = imageId;
+    imgDiv.innerHTML = `
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <img src="${urls[index] || ''}" alt="現有圖片 ${index + 1}" style="max-width: 150px; max-height: 150px;" onerror="this.style.display='none'">
+          <div class="ms-3">
+            <small><strong>現有圖片 ${index + 1}</strong></small>
+            <br>
+            <small class="text-muted">${key}</small>
+            <div class="thumb-controls mt-1">
+              <button type="button" class="btn btn-sm btn-outline-secondary" onclick="setThumbnail('${imageId}')">設為列表縮圖</button>
+              <span class="badge bg-success thumb-label ms-1" style="display:none">列表縮圖</span>
             </div>
           </div>
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-danger ms-3"
-            onclick="removeImage('${imageId}')"
-            title="刪除圖片"
-          >
-            <i class="bi bi-trash"></i>
-          </button>
         </div>
-      `;
-      imagePreview.appendChild(imgDiv);
-      
-      // 儲存現有圖片資訊（用於更新時保留）
-      uploadedImages.push({
-        id: imageId,
-        name: imagePath.split('/').pop(),
-        data: null, // 現有圖片不需要 base64
-        type: 'image/jpeg',
-        existing: true,
-        path: imagePath
-      });
-      window.uploadedImages = uploadedImages;
+        <button type="button" class="btn btn-sm btn-outline-danger ms-3" onclick="removeImage('${imageId}')" title="刪除圖片">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    `;
+    imagePreview.appendChild(imgDiv);
+
+    uploadedImages.push({
+      id: imageId,
+      name: key.split('/').pop(),
+      data: null,
+      type: 'image/jpeg',
+      existing: true,
+      path: key, // storage key
     });
-  }
+    window.uploadedImages = uploadedImages;
+  });
+
+  // 預選：原縮圖在圖片清單中就選它，否則選第一張
+  selectedThumbnailId = preselect || (uploadedImages[0] ? uploadedImages[0].id : null);
+  refreshThumbButtons();
 }
 
-// 頁面載入時初始化
-document.addEventListener('DOMContentLoaded', async function () {
-  // 如果已登入，載入產品列表和詳細資料
-  const isAuthenticated = sessionStorage.getItem('admin_authenticated') === 'true';
-  if (isAuthenticated) {
-    await loadProductsTable();
-    await loadProductDetails();
-  }
-  
-  // 監聽 modal 關閉事件，自動重置表單
+// 頁面載入時：綁定 modal 關閉重置（資料載入由 index.html checkAuth 觸發）
+document.addEventListener('DOMContentLoaded', function () {
   const productFormModal = document.getElementById('productFormModal');
   if (productFormModal) {
     productFormModal.addEventListener('hidden.bs.modal', function () {
-      // 重置表單
       document.getElementById('productForm').reset();
       document.getElementById('imagePreview').innerHTML = '';
       uploadedImages = [];
       window.uploadedImages = [];
-      // 清除規格容器
       document.getElementById('specsContainer').innerHTML = '';
-      // 清除文件輸入
       const fileInput = document.getElementById('productImages');
-      if (fileInput) {
-        fileInput.value = '';
-      }
-      // 恢復產品 ID 欄位（編輯時被禁用）
+      if (fileInput) fileInput.value = '';
       document.getElementById('productId').disabled = false;
-      // 重置編輯模式
       isEditMode = false;
       editingProductId = null;
-      // 移除所有 alert（除了配置提示）
+      deletedImagePaths = [];
+      selectedThumbnailId = null;
       const modalBody = productFormModal.querySelector('.modal-body');
       if (modalBody) {
-        const alerts = modalBody.querySelectorAll('.alert:not(#githubConfigAlert)');
-        alerts.forEach(alert => alert.remove());
+        modalBody.querySelectorAll('.alert').forEach((alert) => alert.remove());
       }
-      // 重置 modal 標題
-      document.getElementById('productFormModalLabel').innerHTML = 
+      document.getElementById('productFormModalLabel').innerHTML =
         '<i class="bi bi-file-earmark-plus"></i> 新增產品';
     });
   }
-  
-  // 檢查 config.js 是否已配置（配置提示會在 modal 打開時顯示）
-  // 這裡不需要顯示，因為 modal 預設是隱藏的
 });
-
