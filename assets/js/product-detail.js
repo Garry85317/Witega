@@ -5,8 +5,12 @@
 (function () {
   'use strict';
 
-  // 分類名稱映射
-  const categoryNames = {
+  // 目前語言
+  const LANG = (window.WITEGA_I18N && window.WITEGA_I18N.lang) || 'zh';
+  const T = (k) => (window.WITEGA_I18N ? window.WITEGA_I18N.t(k) : k);
+
+  // 分類名稱映射（中 / 英）
+  const categoryNamesZh = {
     tools: '省工機具',
     'smart-detection': '智能檢測儀器',
     biosecurity: '生物安全防治設備',
@@ -17,6 +21,18 @@
     epidemicPrevention: '豬場防疫',
     equipment: '養殖器械',
   };
+  const categoryNamesEn = {
+    tools: 'Labor-saving Equipment',
+    'smart-detection': 'Smart Detection Instruments',
+    biosecurity: 'Biosecurity Equipment',
+    'animal-marking': 'Animal Marking',
+    injection: 'Injection & Prevention',
+    temperature: 'Temperature Control',
+    disinfection: 'Cleaning & Disinfection',
+    epidemicPrevention: 'Farm Biosecurity',
+    equipment: 'Farming Equipment',
+  };
+  const categoryNames = LANG === 'en' ? categoryNamesEn : categoryNamesZh;
 
   // 從 URL 獲取產品 ID
   function getProductId() {
@@ -93,7 +109,7 @@
     // 添加影片連結
     if (videoUrl) {
       const li = document.createElement('li');
-      li.innerHTML = `<strong>操作示範：</strong><a href="${videoUrl}" target="_blank">影片連結</a>`;
+      li.innerHTML = `<strong>${T('detail.video')}：</strong><a href="${videoUrl}" target="_blank">${T('detail.videoLink')}</a>`;
       specsList.appendChild(li);
     }
 
@@ -102,7 +118,7 @@
       const li = document.createElement('li');
       const downloadLinks = downloads.map((download, index) => {
         if (index === 0) {
-          return `<strong>檔案下載：</strong><a href="${download.url}" download="${download.filename}">${download.label}</a>`;
+          return `<strong>${T('detail.download')}：</strong><a href="${download.url}" download="${download.filename}">${download.label}</a>`;
         } else {
           return `、<a href="${download.url}" download="${download.filename}">${download.label}</a>`;
         }
@@ -136,10 +152,10 @@
 
   // 渲染錯誤訊息
   function renderError(message) {
-    document.getElementById('product-name').textContent = '錯誤';
+    document.getElementById('product-name').textContent = LANG === 'en' ? 'Error' : '錯誤';
     document.getElementById('product-description').textContent = message;
-    document.getElementById('image-slider').innerHTML = 
-      '<div class="swiper-slide"><p>無法載入產品資訊</p></div>';
+    document.getElementById('image-slider').innerHTML =
+      `<div class="swiper-slide"><p>${T('detail.loadFail')}</p></div>`;
   }
 
   // ID 映射（處理不一致的 ID）
@@ -154,24 +170,24 @@
     const productId = getProductId();
 
     if (!productId) {
-      renderError('請提供產品 ID');
+      renderError(T('detail.needId'));
       return;
     }
 
     // 處理 ID 映射
     const actualId = idMapping[productId] || productId;
 
-    // 從 Supabase 查找產品資料
+    // 從 Supabase 查找產品資料（依語言）
     try {
-      const product = await window.witega.getProductDetail(actualId);
+      const product = await window.witega.getProductDetail(actualId, LANG);
       if (!product) {
-        renderError('找不到產品 ID: ' + productId);
+        renderError(T('detail.notFound') + ': ' + productId);
         return;
       }
       renderProduct(product);
     } catch (error) {
       console.error('載入產品資料失敗:', error);
-      renderError('載入產品資料失敗');
+      renderError(T('detail.loadFail'));
     }
   });
 })();

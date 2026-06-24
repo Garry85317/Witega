@@ -19,15 +19,15 @@
 
   // 分類順序與名稱（前台列表分組用，固定不變）
   const CATEGORIES = [
-    { id: 'tools', name: '省工機具' },
-    { id: 'smart-detection', name: '智能檢測儀器' },
-    { id: 'biosecurity', name: '生物安全防治設備' },
-    { id: 'animal-marking', name: '動物標示' },
-    { id: 'injection', name: '注射防疫' },
-    { id: 'temperature', name: '環溫控制' },
-    { id: 'disinfection', name: '清洗消毒' },
-    { id: 'epidemicPrevention', name: '豬場防疫' },
-    { id: 'equipment', name: '養殖器械' },
+    { id: 'tools', name: '省工機具', nameEn: 'Labor-saving Equipment' },
+    { id: 'smart-detection', name: '智能檢測儀器', nameEn: 'Smart Detection Instruments' },
+    { id: 'biosecurity', name: '生物安全防治設備', nameEn: 'Biosecurity Equipment' },
+    { id: 'animal-marking', name: '動物標示', nameEn: 'Animal Marking' },
+    { id: 'injection', name: '注射防疫', nameEn: 'Injection & Prevention' },
+    { id: 'temperature', name: '環溫控制', nameEn: 'Temperature Control' },
+    { id: 'disinfection', name: '清洗消毒', nameEn: 'Cleaning & Disinfection' },
+    { id: 'epidemicPrevention', name: '豬場防疫', nameEn: 'Farm Biosecurity' },
+    { id: 'equipment', name: '養殖器械', nameEn: 'Farming Equipment' },
   ];
 
   // 圖片 storage key → 公開 URL
@@ -38,64 +38,79 @@
     return client.storage.from(cfg.bucket).getPublicUrl(key).data.publicUrl;
   }
 
-  // DB row（snake_case）→ 前端 productData（camelCase），圖片轉公開 URL
-  function rowToDetail(row) {
+  // DB row（snake_case）→ 前端 productData（camelCase），依語言取欄位、圖片轉公開 URL
+  // lang = 'en' 時優先取 *_en，缺則 fallback 中文
+  function rowToDetail(row, lang) {
+    const en = lang === 'en';
+    const pick = (zh, env) => (en && env ? env : zh);
+    const specsEn = row.specs_en || [];
     return {
       id: row.id,
-      name: row.name,
+      name: pick(row.name, row.name_en),
       category: row.category,
-      description: row.description || '',
-      metaDescription: row.meta_description || row.description || '',
-      keywords: row.keywords || '',
+      description: pick(row.description, row.description_en) || '',
+      metaDescription:
+        pick(row.meta_description, row.meta_description_en) ||
+        pick(row.description, row.description_en) ||
+        '',
+      keywords: pick(row.keywords, row.keywords_en) || '',
       images: (row.images || []).map(publicUrl),
       imageKeys: row.images || [], // 原始 storage key（後台編輯用）
       thumbnail: row.thumbnail || null, // 列表縮圖 storage key
-      specs: row.specs || [],
+      specs: en && specsEn.length ? specsEn : row.specs || [],
       downloads: row.downloads || [],
       videoUrl: row.video_url || null,
+      // 英文原始欄位（後台編輯用，不受語言切換影響）
+      nameEn: row.name_en || null,
+      descriptionEn: row.description_en || null,
+      metaDescriptionEn: row.meta_description_en || null,
+      keywordsEn: row.keywords_en || null,
+      specsEn: specsEn,
     };
   }
 
   // ---- 前台讀取 ----
 
   // 回傳與舊 products.js 相同結構：{ categories: [{id,name,products:[{id,name,img,url}]}] }
-  async function getProductsData() {
+  async function getProductsData(lang) {
+    const en = lang === 'en';
     const { data, error } = await client
       .from('products')
-      .select('id,name,category,thumbnail,images,sort_order')
+      .select('id,name,name_en,category,thumbnail,images,sort_order')
       .order('sort_order', { ascending: true });
     if (error) throw error;
 
+    const langQ = en ? '&lang=en' : '';
     const byCat = {};
     (data || []).forEach((row) => {
       // 列表縮圖優先用 thumbnail（保留原策展縮圖），沒有才用第一張圖
       const thumbKey = row.thumbnail || (row.images || [])[0];
       (byCat[row.category] = byCat[row.category] || []).push({
         id: row.id,
-        name: row.name,
+        name: en && row.name_en ? row.name_en : row.name,
         img: publicUrl(thumbKey),
-        url: `product.html?id=${row.id}`,
+        url: `product.html?id=${row.id}${langQ}`,
       });
     });
 
     return {
       categories: CATEGORIES.map((c) => ({
         id: c.id,
-        name: c.name,
+        name: en ? c.nameEn : c.name,
         products: byCat[c.id] || [],
       })),
     };
   }
 
   // 單一產品詳情（product.html）
-  async function getProductDetail(id) {
+  async function getProductDetail(id, lang) {
     const { data, error } = await client
       .from('products')
       .select('*')
       .eq('id', id)
       .maybeSingle();
     if (error) throw error;
-    return data ? rowToDetail(data) : null;
+    return data ? rowToDetail(data, lang) : null;
   }
 
   // ---- 後台寫入 / 刪除 / 上傳 / 登入 ----
@@ -123,6 +138,11 @@
       thumbnail: p.thumbnail || (p.images || [])[0] || null,
       specs: p.specs || [],
       downloads: p.downloads || [],
+      name_en: p.nameEn || null,
+      description_en: p.descriptionEn || null,
+      meta_description_en: p.metaDescriptionEn || null,
+      keywords_en: p.keywordsEn || null,
+      specs_en: p.specsEn && p.specsEn.length ? p.specsEn : [],
     };
     const { error } = await client.from('products').upsert(row, { onConflict: 'id' });
     if (error) throw error;

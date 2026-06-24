@@ -245,33 +245,27 @@
         <nav id="navbar" class="navbar">
           <ul>
             <li>
-              <a class="nav-link scrollto" href="../index.html#hero">首頁</a>
+              <a class="nav-link scrollto" href="index.html#hero" data-i18n="nav.home">首頁</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="../index.html#services"
-                >產品服務</a
-              >
+              <a class="nav-link scrollto" href="index.html#services" data-i18n="nav.services">產品服務</a>
             </li>
             <li>
-              <a class="nav-link scrollto active" href="products.html"
-                >產品列表</a
-              >
+              <a class="nav-link scrollto active" href="products.html" data-i18n="nav.products">產品列表</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="../index.html#about"
-                >關於威特嘉</a
-              >
+              <a class="nav-link scrollto" href="index.html#about" data-i18n="nav.about">關於威特嘉</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="../index.html#portfolio"
-                >案例分享</a
-              >
+              <a class="nav-link scrollto" href="index.html#portfolio" data-i18n="nav.cases">案例分享</a>
             </li>
             <!-- <li><a class="nav-link scrollto" href="#team">團隊</a></li> -->
             <li>
-              <a class="nav-link scrollto" href="../index.html#contact"
-                >聯絡我們</a
-              >
+              <a class="nav-link scrollto" href="index.html#contact" data-i18n="nav.contact">聯絡我們</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#" data-i18n="nav.lang"
+                onclick="event.preventDefault();window.WITEGA_I18N.setLang(window.WITEGA_I18N.lang==='en'?'zh':'en')">EN</a>
             </li>
           </ul>
           <i
@@ -299,7 +293,7 @@
             <!-- 左侧分类导航 -->
             <div class="col-lg-3">
               <div class="category-nav">
-                <h3>產品分類</h3>
+                <h3 data-i18n="products.categories">產品分類</h3>
                 <ul class="list-unstyled" id="categoryList">
                   <!-- 分类将通过 JavaScript 动态渲染 -->
                 </ul>
@@ -309,13 +303,14 @@
             <!-- 右侧产品展示 -->
             <div class="col-lg-9">
               <div class="section-title">
-                <h2 id="currentCategory">全部產品</h2>
+                <h2 id="currentCategory" data-i18n="products.all">全部產品</h2>
               </div>
               <div class="search-bar-wrapper">
                 <input
                   type="text"
                   id="productSearch"
                   class="form-control"
+                  data-i18n-ph="products.search"
                   placeholder="輸入關鍵字搜尋產品（名稱、編號）"
                 />
               </div>
@@ -332,7 +327,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="container">
-        <h3>威特嘉科技開發股份有限公司</h3>
+        <h3 data-i18n="footer.company">威特嘉科技開發股份有限公司</h3>
         <p>Witega Technology Development CO., Ltd.</p>
         <div class="social-links">
           <a href="https://lin.ee/UNmlNbW" class="line"
@@ -353,8 +348,8 @@
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>-->
         </div>
         <div class="copyright">
-          &copy; Copyright <strong><span>Witega</span></strong
-          >. All Rights Reserved
+          &copy; Copyright <strong><span>Witega</span></strong>.
+          <span data-i18n="footer.rights">All Rights Reserved</span>
         </div>
       </div>
     </footer>
@@ -377,6 +372,9 @@
     <script src="form/contact.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- 雙語 i18n -->
+    <script src="assets/js/i18n.js"></script>
 
     <!-- 引入产品数据（Supabase） -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -425,7 +423,7 @@
         allLink.href = '#';
         allLink.className = 'category-link' + (currentCategoryId === '' ? ' active' : '');
         allLink.dataset.category = '';
-        appendLabel(allLink, '全部產品', totalCount);
+        appendLabel(allLink, window.WITEGA_I18N.t('products.all'), totalCount);
         allItem.appendChild(allLink);
         fragment.appendChild(allItem);
 
@@ -467,11 +465,12 @@
       // 更新分类标题
       function updateCategoryTitle(categories) {
         const titleElement = document.getElementById('currentCategory');
+        const allLabel = window.WITEGA_I18N.t('products.all');
         if (currentCategoryId === '') {
-          titleElement.textContent = '全部產品';
+          titleElement.textContent = allLabel;
         } else {
           const category = categories.find((c) => c.id === currentCategoryId);
-          titleElement.textContent = category ? category.name : '全部產品';
+          titleElement.textContent = category ? category.name : allLabel;
         }
       }
 
@@ -495,7 +494,7 @@
         if (!products || products.length === 0) {
           productList.innerHTML = `
             <div class="col-12 text-center">
-              <p>該分類暫無產品</p>
+              <p>${window.WITEGA_I18N.t('products.emptyCat')}</p>
             </div>
           `;
           productList.classList.add('loaded');
@@ -587,9 +586,9 @@
           currentCategoryId = categoryFromUrl;
         }
 
-        // 從 Supabase 載入產品資料
+        // 從 Supabase 載入產品資料（依語言）
         try {
-          const productsData = await window.witega.getProductsData();
+          const productsData = await window.witega.getProductsData(window.WITEGA_I18N.lang);
           renderCategories(productsData.categories);
           updateCategoryTitle(productsData.categories);
           updateProducts(productsData.categories);
@@ -611,7 +610,7 @@
           console.error('載入產品數據失敗:', error);
           document.getElementById('productList').innerHTML = `
             <div class="col-12 text-center">
-              <p>無法載入產品數據</p>
+              <p>${window.WITEGA_I18N.t('products.loadFail')}</p>
             </div>
           `;
           hideLoading();

@@ -54,31 +54,27 @@
         <nav id="navbar" class="navbar">
           <ul>
             <li>
-              <a class="nav-link scrollto" href="index.html#hero">首頁</a>
+              <a class="nav-link scrollto" href="index.html#hero" data-i18n="nav.home">首頁</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="index.html#services"
-                >產品服務</a
-              >
+              <a class="nav-link scrollto" href="index.html#services" data-i18n="nav.services">產品服務</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="products.html">產品列表</a>
+              <a class="nav-link scrollto" href="products.html" data-i18n="nav.products">產品列表</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="index.html#about"
-                >關於威特嘉</a
-              >
+              <a class="nav-link scrollto" href="index.html#about" data-i18n="nav.about">關於威特嘉</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="index.html#portfolio"
-                >案例分享</a
-              >
+              <a class="nav-link scrollto" href="index.html#portfolio" data-i18n="nav.cases">案例分享</a>
             </li>
             <!-- <li><a class="nav-link scrollto" href="#team">團隊</a></li> -->
             <li>
-              <a class="nav-link scrollto" href="index.html#contact"
-                >聯絡我們</a
-              >
+              <a class="nav-link scrollto" href="index.html#contact" data-i18n="nav.contact">聯絡我們</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#" data-i18n="nav.lang"
+                onclick="event.preventDefault();window.WITEGA_I18N.setLang(window.WITEGA_I18N.lang==='en'?'zh':'en')">EN</a>
             </li>
           </ul>
           <i
@@ -99,9 +95,9 @@
       <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center">
-            <h2>產品介紹</h2>
+            <h2 data-i18n="detail.title">產品介紹</h2>
             <ol id="breadcrumb-list">
-              <li><a href="products.html">產品列表</a></li>
+              <li><a href="products.html" data-i18n="detail.productList">產品列表</a></li>
               <li id="category-breadcrumb"></li>
               <li id="product-breadcrumb"></li>
             </ol>
@@ -128,14 +124,14 @@
 
             <div class="col-lg-4">
               <div class="portfolio-info">
-                <h3 id="product-name">載入中...</h3>
+                <h3 id="product-name" data-i18n="detail.loading">載入中...</h3>
                 <ul id="product-specs">
                   <!-- 規格將由 JS 動態載入 -->
                 </ul>
               </div>
               <div class="portfolio-description">
-                <h2>產品資訊</h2>
-                <p id="product-description">載入中...</p>
+                <h2 data-i18n="detail.info">產品資訊</h2>
+                <p id="product-description" data-i18n="detail.loading">載入中...</p>
               </div>
             </div>
           </div>
@@ -148,7 +144,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="container">
-        <h3>威特嘉科技開發股份有限公司</h3>
+        <h3 data-i18n="footer.company">威特嘉科技開發股份有限公司</h3>
         <p>Witega Technology Development CO., Ltd.</p>
         <div class="social-links">
           <a href="https://lin.ee/UNmlNbW" class="line"
@@ -169,8 +165,8 @@
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>-->
         </div>
         <div class="copyright">
-          &copy; Copyright <strong><span>Witega</span></strong
-          >. All Rights Reserved
+          &copy; Copyright <strong><span>Witega</span></strong>.
+          <span data-i18n="footer.rights">All Rights Reserved</span>
         </div>
       </div>
     </footer>
@@ -190,6 +186,9 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- 雙語 i18n -->
+    <script src="assets/js/i18n.js"></script>
 
     <!-- 產品詳細資料（Supabase） -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

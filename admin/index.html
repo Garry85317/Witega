@@ -321,7 +321,7 @@
 
                 <!-- 產品規格 -->
                 <div class="mb-3">
-                  <label class="form-label">產品規格</label>
+                  <label class="form-label">產品規格（中文）</label>
                   <div id="specsContainer">
                     <!-- 規格項目將動態添加 -->
                   </div>
@@ -333,6 +333,42 @@
                     <i class="bi bi-plus"></i> 新增規格
                   </button>
                 </div>
+
+                <!-- 英文版內容 -->
+                <hr />
+                <p class="fw-bold mb-2" style="color:#0d6efd;">
+                  <i class="bi bi-translate"></i> 英文版（選填）
+                </p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="productNameEn" class="form-label">英文名稱</label>
+                      <input type="text" class="form-control" id="productNameEn" placeholder="English product name" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="productDescriptionEn" class="form-label">英文描述</label>
+                      <textarea class="form-control" id="productDescriptionEn" rows="3" placeholder="English description"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="metaDescriptionEn" class="form-label">英文 SEO 描述</label>
+                  <textarea class="form-control" id="metaDescriptionEn" rows="2" placeholder="English SEO description"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="keywordsEn" class="form-label">英文關鍵字</label>
+                  <input type="text" class="form-control" id="keywordsEn" placeholder="keyword1 keyword2 keyword3" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">英文規格</label>
+                  <div id="specsEnContainer"></div>
+                  <button type="button" class="btn btn-sm btn-outline-primary" onclick="addSpecEn()">
+                    <i class="bi bi-plus"></i> 新增英文規格
+                  </button>
+                </div>
+                <hr />
 
                 <!-- 產品圖片 -->
                 <div class="mb-3">

@@ -80,6 +80,36 @@ function removeSpec(id) {
   document.getElementById(id).remove();
 }
 
+// 新增英文規格項目
+function addSpecEn() {
+  const container = document.getElementById('specsEnContainer');
+  const specId = 'spec_en_' + Date.now();
+  const specItem = document.createElement('div');
+  specItem.className = 'spec-item';
+  specItem.id = specId;
+  specItem.innerHTML = `
+    <div class="row">
+      <div class="col-md-5">
+        <input type="text" class="form-control form-control-sm" placeholder="Label" data-spec-en-label />
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control form-control-sm" placeholder="Value" data-spec-en-value />
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-sm btn-remove" onclick="removeSpecEn('${specId}')">
+          <i class="bi bi-x-circle"></i>
+        </button>
+      </div>
+    </div>
+  `;
+  container.appendChild(specItem);
+}
+
+// 移除英文規格項目
+function removeSpecEn(id) {
+  document.getElementById(id).remove();
+}
+
 // 新增下載項目
 function addDownload() {
   const container = document.getElementById('downloadsContainer');
@@ -293,6 +323,19 @@ function collectFormData() {
     images.push(`${productId}/${productId}-${imageNumber}.${ext}`);
   });
 
+  // 英文欄位
+  const nameEn = (document.getElementById('productNameEn')?.value || '').trim();
+  const descriptionEn = (document.getElementById('productDescriptionEn')?.value || '').trim();
+  const metaDescriptionEn = (document.getElementById('metaDescriptionEn')?.value || '').trim();
+  const keywordsEn = (document.getElementById('keywordsEn')?.value || '').trim();
+  const specsEn = [];
+  document.querySelectorAll('[data-spec-en-label]').forEach((input) => {
+    const label = input.value.trim();
+    const valueInput = input.parentElement.parentElement.querySelector('[data-spec-en-value]');
+    const value = valueInput ? valueInput.value.trim() : '';
+    if (label && value) specsEn.push({ label, value });
+  });
+
   return {
     id: productId,
     name: productName,
@@ -304,6 +347,11 @@ function collectFormData() {
     specs: specs,
     downloads: downloads,
     videoUrl: videoUrl || null,
+    nameEn: nameEn || null,
+    descriptionEn: descriptionEn || null,
+    metaDescriptionEn: metaDescriptionEn || null,
+    keywordsEn: keywordsEn || null,
+    specsEn: specsEn,
   };
 }
 
@@ -672,6 +720,7 @@ function hideProductForm() {
   uploadedImages = [];
   window.uploadedImages = [];
   document.getElementById('specsContainer').innerHTML = '';
+  document.getElementById('specsEnContainer').innerHTML = '';
   const fileInput = document.getElementById('productImages');
   if (fileInput) fileInput.value = '';
   document.getElementById('productId').disabled = false;
@@ -725,6 +774,12 @@ async function editProduct(productId) {
   document.getElementById('keywords').value = productData.keywords || '';
   document.getElementById('videoUrl').value = productData.videoUrl || '';
 
+  // 英文欄位
+  document.getElementById('productNameEn').value = productData.nameEn || '';
+  document.getElementById('productDescriptionEn').value = productData.descriptionEn || '';
+  document.getElementById('metaDescriptionEn').value = productData.metaDescriptionEn || '';
+  document.getElementById('keywordsEn').value = productData.keywordsEn || '';
+
   // 編輯時不可改 ID
   document.getElementById('productId').disabled = true;
 
@@ -738,6 +793,21 @@ async function editProduct(productId) {
       const lastSpec = specItems[specItems.length - 1];
       const labelInput = lastSpec.querySelector('[data-spec-label]');
       const valueInput = lastSpec.querySelector('[data-spec-value]');
+      if (labelInput) labelInput.value = spec.label || '';
+      if (valueInput) valueInput.value = spec.value || '';
+    });
+  }
+
+  // 英文規格
+  const specsEnContainer = document.getElementById('specsEnContainer');
+  specsEnContainer.innerHTML = '';
+  if (productData.specsEn && productData.specsEn.length > 0) {
+    productData.specsEn.forEach((spec) => {
+      addSpecEn();
+      const items = specsEnContainer.querySelectorAll('.spec-item');
+      const last = items[items.length - 1];
+      const labelInput = last.querySelector('[data-spec-en-label]');
+      const valueInput = last.querySelector('[data-spec-en-value]');
       if (labelInput) labelInput.value = spec.label || '';
       if (valueInput) valueInput.value = spec.value || '';
     });
@@ -805,6 +875,7 @@ document.addEventListener('DOMContentLoaded', function () {
       uploadedImages = [];
       window.uploadedImages = [];
       document.getElementById('specsContainer').innerHTML = '';
+      document.getElementById('specsEnContainer').innerHTML = '';
       const fileInput = document.getElementById('productImages');
       if (fileInput) fileInput.value = '';
       document.getElementById('productId').disabled = false;

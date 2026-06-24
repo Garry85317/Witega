@@ -76,16 +76,19 @@
 
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto active" href="#hero">首頁</a></li>
-            <li><a class="nav-link scrollto" href="#services">產品服務</a></li>
+            <li><a class="nav-link scrollto active" href="#hero" data-i18n="nav.home">首頁</a></li>
+            <li><a class="nav-link scrollto" href="#services" data-i18n="nav.services">產品服務</a></li>
             <li>
-              <a class="nav-link scrollto" href="products.html">產品列表</a>
+              <a class="nav-link scrollto" href="products.html" data-i18n="nav.products">產品列表</a>
             </li>
-            <li><a class="nav-link scrollto" href="#about">關於威特嘉</a></li>
-            <li><a class="nav-link scrollto" href="#portfolio">案例分享</a></li>
+            <li><a class="nav-link scrollto" href="#about" data-i18n="nav.about">關於威特嘉</a></li>
+            <li><a class="nav-link scrollto" href="#portfolio" data-i18n="nav.cases">案例分享</a></li>
             <!-- <li><a class="nav-link scrollto" href="#team">團隊</a></li> -->
-            <li><a class="nav-link scrollto" href="#contact">聯絡我們</a></li>
-            <li><a class="nav-link scrollto" href="index_en.html">EN</a></li>
+            <li><a class="nav-link scrollto" href="#contact" data-i18n="nav.contact">聯絡我們</a></li>
+            <li>
+              <a class="nav-link scrollto" href="#" data-i18n="nav.lang"
+                onclick="event.preventDefault();window.WITEGA_I18N.setLang(window.WITEGA_I18N.lang==='en'?'zh':'en')">EN</a>
+            </li>
           </ul>
           <i
             class="bi bi-list mobile-nav-toggle"
@@ -144,10 +147,10 @@
             <div class="carousel-container">
               <!-- <img src="./assets/img/slider/slider1.jpg" class="d-block " alt="威特嘉科技開發" /> -->
               <div class="carousel-text d-md-block">
-                <h2 class="animate__animated animate__fadeInDown">
+                <h2 class="animate__animated animate__fadeInDown" data-i18n="home.hero1.title">
                   威特嘉科技開發
                 </h2>
-                <p class="animate__animated animate__fadeInUp d-sm-block">
+                <p class="animate__animated animate__fadeInUp d-sm-block" data-i18n="home.hero1.desc">
                   提供國內外畜牧產業設備、產品，
                   生產適合台灣養豬產業使用之省工設備，
                   配合政府導入自動化省工設備之補助案， 優惠熱烈進行中！
@@ -156,6 +159,7 @@
                   <a
                     href="products.html"
                     class="btn-get-started animate__animated animate__fadeInUp"
+                    data-i18n="home.hero.viewAll"
                     >查看所有產品</a
                   >
                   <a
@@ -165,6 +169,7 @@
                       background: rgba(255, 255, 255, 0.2);
                       border: 2px solid rgba(255, 255, 255, 0.8);
                     "
+                    data-i18n="home.hero.portfolio"
                     >實例花絮</a
                   >
                 </div>
@@ -181,15 +186,16 @@
             <div class="carousel-container">
               <!-- <img src="./assets/img/slider/slider2.jpg" class="d-block " alt="超音波測孕器" /> -->
               <div class="carousel-text d-md-block">
-                <h2 class="animate__animated animate__fadeInDown">
+                <h2 class="animate__animated animate__fadeInDown" data-i18n="home.hero2.title">
                   無線智能超音波
                 </h2>
-                <p class="animate__animated animate__fadeInUp d-sm-block">
+                <p class="animate__animated animate__fadeInUp d-sm-block" data-i18n="home.hero2.desc">
                   使用WIFI連結手機、平板，高清成像快速判讀子宮情況，畫面可截圖、錄影並傳送到交流群組討論。
                 </p>
                 <a
                   href="product.html?id=RX1"
                   class="btn-get-started animate__animated animate__fadeInUp scrollto"
+                  data-i18n="home.learnMore"
                   >了解更多</a
                 >
               </div>
@@ -204,15 +210,16 @@
           >
             <div class="carousel-container">
               <div class="carousel-text d-md-block">
-                <h2 class="animate__animated animate__fadeInDown">
+                <h2 class="animate__animated animate__fadeInDown" data-i18n="home.hero3.title">
                   仔豬處理工作臺車
                 </h2>
-                <p class="animate__animated animate__fadeInUp d-sm-block">
+                <p class="animate__animated animate__fadeInUp d-sm-block" data-i18n="home.hero3.desc">
                   車身以不鏽鋼製造搭配鋁製注射器、餵食器，及剪尾器、閹割鉗等多樣選配工具，一人操作省時省力，全車在台生產，品質保障。
                 </p>
                 <a
                   href="product.html?id=F1"
                   class="btn-get-started animate__animated animate__fadeInUp scrollto"
+                  data-i18n="home.learnMore"
                   >了解更多</a
                 >
               </div>
@@ -227,15 +234,16 @@
           >
             <div class="carousel-container">
               <div class="carousel-text d-md-block">
-                <h2 class="animate__animated animate__fadeInDown">
+                <h2 class="animate__animated animate__fadeInDown" data-i18n="home.hero4.title">
                   多功能斃死豬搬運車
                 </h2>
-                <p class="animate__animated animate__fadeInUp d-sm-block">
+                <p class="animate__animated animate__fadeInUp d-sm-block" data-i18n="home.hero4.desc">
                   主要用於斃死豬搬運，迅速安全將斃死豬移出，多功能車身能適用於各種場地，多種情境操作，解決您搬運的問題！
                 </p>
                 <a
                   href="product.html?id=T1"
                   class="btn-get-started animate__animated animate__fadeInUp scrollto"
+                  data-i18n="home.learnMore"
                   >了解更多</a
                 >
               </div>
@@ -276,7 +284,7 @@
         <div class="container">
           <div class="section-title" data-aos="zoom-out">
             <h2>Services</h2>
-            <p>產品及服務</p>
+            <p data-i18n="home.services.subtitle">產品及服務</p>
           </div>
           <ul class="nav nav-tabs row d-flex">
             <li class="nav-item col" data-aos="zoom-in">
@@ -305,7 +313,7 @@
                     d="M29.123 2.85a3.072 3.072 0 0 0-4.243 0l-7.48 7.48l1.414 1.414l7.48-7.48a1.024 1.024 0 0 1 1.414 0a1.002 1.002 0 0 1 0 1.414l-7.48 7.48l1.414 1.415l7.48-7.48a3.003 3.003 0 0 0 0-4.243Z"
                   />
                 </svg>
-                <h4 class="d-none d-lg-block" style="padding-left: 15px">
+                <h4 class="d-none d-lg-block" style="padding-left: 15px" data-i18n="home.tab1">
                   電動省工機具
                 </h4>
               </a>
@@ -332,7 +340,7 @@
                     d="M55.486.37H8.701C4.116.37.387 4.101.387 8.686v46.78c0 4.586 3.73 8.317 8.314 8.317h46.785c4.584 0 8.316-3.731 8.316-8.317V8.686c0-4.585-3.731-8.316-8.316-8.316zm-.927 41.707h-4.142l.683 1.887a5.97 5.97 0 0 1-.996 5.845l2.451 7.082l-10.368-.002l-1.239-3.749a5.975 5.975 0 0 1-4.522-3.834l-2.636-7.23H9.628V7.156h44.931v34.92z"
                   />
                 </svg>
-                <h4 class="d-none d-lg-block" style="padding-left: 15px">
+                <h4 class="d-none d-lg-block" style="padding-left: 15px" data-i18n="home.tab2">
                   智能檢測儀器
                 </h4>
               </a>
@@ -351,7 +359,7 @@
                     d="M18.952 17.538c-.749-.749-.908-1.869-.5-2.846l.021-.049c.399-.974 1.309-1.643 2.362-1.643h.08c.638 0 1.085-.447 1.085-1s-.447-1-1-1h-.17c-1.053 0-1.958-.669-2.357-1.644l-.021-.049c-.408-.977-.249-2.097.5-2.846l.119-.119a.999.999 0 1 0-1.414-1.414l-.119.119c-.749.749-1.869.908-2.846.5l-.049-.021C13.669 5.128 13 4.218 13 3.165v-.081C13 2.447 12.553 2 12 2s-1 .447-1 1v.036c0 1.096-.66 2.084-1.673 2.503l-.006.003a2.71 2.71 0 0 1-2.953-.588l-.025-.025l-2.636-2.636l-1.414 1.414l18 18l1.414-1.414l-2.636-2.636l-.119-.119zM12 10a2 2 0 1 1 2 2c-.257 0-.501-.053-.728-.142l-1.131-1.131A1.998 1.998 0 0 1 12 10zm-4 3a1 1 0 0 1-1-1a.99.99 0 0 1 .244-.635L5.431 9.552A2.634 2.634 0 0 1 3.085 11h-.001C2.447 11 2 11.447 2 12s.447 1 1 1h.068a2.66 2.66 0 0 1 2.459 1.644l.021.049a2.69 2.69 0 0 1-.583 2.929l-.036.036a.999.999 0 1 0 1.414 1.414l.036-.036a2.689 2.689 0 0 1 2.929-.583l.143.06A2.505 2.505 0 0 1 11 20.83v.085c0 .638.447 1.085 1 1.085s1-.448 1-1v-.17c0-.976.568-1.853 1.443-2.266l-5.809-5.809A.98.98 0 0 1 8 13z"
                   />
                 </svg>
-                <h4 class="d-none d-lg-block" style="padding-left: 15px">
+                <h4 class="d-none d-lg-block" style="padding-left: 15px" data-i18n="home.tab3">
                   生物安全防治設備
                 </h4>
               </a>
@@ -370,7 +378,7 @@
                     d="M7.964 1.527c-2.977 0-5.571 1.704-6.32 4.125h-.55A1 1 0 0 0 .11 6.824l.254 1.46a1.5 1.5 0 0 0 1.478 1.243h.263c.3.513.688.978 1.145 1.382l-.729 2.477a.5.5 0 0 0 .48.641h2a.5.5 0 0 0 .471-.332l.482-1.351c.635.173 1.31.267 2.011.267c.707 0 1.388-.095 2.028-.272l.543 1.372a.5.5 0 0 0 .465.316h2a.5.5 0 0 0 .478-.645l-.761-2.506C13.81 9.895 14.5 8.559 14.5 7.069c0-.145-.007-.29-.02-.431c.261-.11.508-.266.705-.444c.315.306.815.306.815-.417c0 .223-.5.223-.461-.026a.95.95 0 0 0 .09-.255a.7.7 0 0 0-.202-.645a.58.58 0 0 0-.707-.098a.735.735 0 0 0-.375.562c-.024.243.082.48.32.654a2.112 2.112 0 0 1-.259.153c-.534-2.664-3.284-4.595-6.442-4.595Zm7.173 3.876a.565.565 0 0 1-.098.21a.704.704 0 0 1-.044-.025c-.146-.09-.157-.175-.152-.223a.236.236 0 0 1 .117-.173c.049-.027.08-.021.113.012a.202.202 0 0 1 .064.199Zm-8.999-.65a.5.5 0 1 1-.276-.96A7.613 7.613 0 0 1 7.964 3.5c.763 0 1.497.11 2.18.315a.5.5 0 1 1-.287.958A6.602 6.602 0 0 0 7.964 4.5c-.64 0-1.255.09-1.826.254ZM5 6.25a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0Z"
                   />
                 </svg>
-                <h4 class="d-none d-lg-block" style="padding-left: 15px">
+                <h4 class="d-none d-lg-block" style="padding-left: 15px" data-i18n="home.tab4">
                   其他相關設備
                 </h4>
               </a>
@@ -389,7 +397,7 @@
                     d="M13.003 3h2v2h-2zM16 3h2v2h-2zm0 3h2v2h-2zm3-3h2v2h-2zm0 3h2v2h-2zm0 3h2v2h-2zM4.012 12v9a1 1 0 0 0 1 1H13a1 1 0 0 0 1-1v-9a4 4 0 0 0-4-4H8.012a4 4 0 0 0-4 4zM7.003 2h4v4h-4z"
                   />
                 </svg>
-                <h4 class="d-none d-lg-block" style="padding-left: 15px">
+                <h4 class="d-none d-lg-block" style="padding-left: 15px" data-i18n="home.tab5">
                   消耗性產品
                 </h4>
               </a>
@@ -400,54 +408,57 @@
             <div class="tab-pane active show" id="tab-1">
               <div class="row">
                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                  <h3>
+                  <h3 data-i18n="home.tab1.intro">
                     因應時代變遷畜牧場人力短缺，電動省工機具可減少人力耗費，提升安全性及效率，達到事半功倍的效果！
                   </h3>
                   <ul>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t1p1.name">
                         多功能斃死豬搬運車
                       </h4>
                       <a
                         href="product.html?id=T1"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>
+                    <p data-i18n="home.t1p1.desc">
                       主要用於斃死豬搬運，迅速安全將斃死豬移出，多功能車身能適用於各種場地，多種情境操作，解決您搬運的問題！
                     </p>
 
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t1p2.name">
                         電動公豬試情車
                       </h4>
                       <a
                         href="product.html?id=K1"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格
                       </a>
                     </li>
-                    <p>
+                    <p data-i18n="home.t1p2.desc">
                       主要用於試情配種，乘載公豬進行，可控制行走速率，有效降低公豬緊迫，提升母豬發情及配種率，兼顧操作人員安全,提升試情品質！
                     </p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t1p3.name">
                         電動小豬搬運車
                       </h4>
                       <a
                         href="product.html?id=R1"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格
                       </a>
                     </li>
-                    <p>
+                    <p data-i18n="home.t1p3.desc">
                       主要用於仔豬離乳，減少人力耗費，可記錄離乳窩重及個別重量，進階飼養管理，提升育成效率！
                       <!-- <a href="index.html" target="_blank" rel="noreferrer noopenner">詳細規格</a> -->
                     </p>
@@ -457,13 +468,13 @@
                       href="products.html"
                       class="btn btn-primary"
                       style="padding: 12px 30px; font-size: 16px"
-                      ><i class="bi bi-grid"></i> 查看完整產品列表</a
+                      ><i class="bi bi-grid"></i> <span data-i18n="home.viewFullList">查看完整產品列表</span></a
                     >
                   </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center">
                   <h2 class="d-xl-none d-lg-none">
-                    電動省工機具
+                    <span data-i18n="home.tab1">電動省工機具</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       aria-hidden="true"
@@ -499,77 +510,82 @@
             <div class="tab-pane" id="tab-2">
               <div class="row">
                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                  <h3>
+                  <h3 data-i18n="home.tab2.intro">
                     使用智能檢測設備，時刻能輕鬆檢測場內豬隻情形，即時做出處置，減少損失浪費，能有效提生產及產值！
                   </h3>
                   <ul>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t2p1.name">
                         無線超音波測孕器
                       </h4>
                       <a
                         href="product.html?id=RX1"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>
+                    <p data-i18n="home.t2p1.desc">
                       檢測受孕情形，呈像清晰，方便操作使用，提升效率及產值！
                     </p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t2p2.name">
                         無線超音波背脂機
                       </h4>
                       <a
                         href="product.html?id=RU1"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>檢測背脂情形，控制體態，調整飼料配方，管理飼效！</p>
+                    <p data-i18n="home.t2p2.desc">檢測背脂情形，控制體態，調整飼料配方，管理飼效！</p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t2p3.name">
                         無線超音波腰眼面積測定機
                       </h4>
                       <a
                         href="product.html?id=RL1"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>檢測腰眼面積，選種育種，屠體評級，精準快速測定！</p>
+                    <p data-i18n="home.t2p3.desc">檢測腰眼面積，選種育種，屠體評級，精準快速測定！</p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t2p4.name">
                         精子相位差顯微鏡
                       </h4>
                       <a
                         href="product.html?id=G1"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>檢測精液情形，避免無效配種損失！</p>
+                    <p data-i18n="home.t2p4.desc">檢測精液情形，避免無效配種損失！</p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t2p5.name">
                         自動精子檢測機
                       </h4>
                       <a
                         href="product.html?id=iSperm"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>自動檢測精液情形，可測活力及濃度，並做紀錄管理！</p>
+                    <p data-i18n="home.t2p5.desc">自動檢測精液情形，可測活力及濃度，並做紀錄管理！</p>
                     <!-- <li>
                       <i class="ri-check-double-line"></i>
                       <h4 style="display: inline; font-weight: 700">
@@ -589,13 +605,13 @@
                       href="products.html"
                       class="btn btn-primary"
                       style="padding: 12px 30px; font-size: 16px"
-                      ><i class="bi bi-grid"></i> 查看完整產品列表</a
+                      ><i class="bi bi-grid"></i> <span data-i18n="home.viewFullList">查看完整產品列表</span></a
                     >
                   </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center">
                   <h2 class="d-xl-none d-lg-none">
-                    智能檢測儀器
+                    <span data-i18n="home.tab2">智能檢測儀器</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       aria-hidden="true"
@@ -631,40 +647,41 @@
             <div class="tab-pane" id="tab-3">
               <div class="row">
                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                  <h3>
+                  <h3 data-i18n="home.tab3.intro">
                     為防止非洲豬瘟疫情擴大，威特嘉科技積極研擬防疫配套措施，阻擋豬瘟入侵台灣寶貴的豬場！
                   </h3>
                   <ul>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t3p1.name">
                         生物安全小屋
                       </h4>
                     </li>
-                    <p>
+                    <p data-i18n="home.t3p1.desc">
                       鑒於非洲豬瘟肆虐，提供完整消毒隔絕方案，有效防堵疫情！
                       <!-- <a href="./product" target="_blank" rel="noreferrer noopenner">詳細規格</a> -->
                     </p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t3p2.name">
                         高壓清洗機
                       </h4>
                       <a
                         href="product.html?id=wash"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>用於豬舍清潔消毒，搭配清洗液，省水省力省時！</p>
+                    <p data-i18n="home.t3p2.desc">用於豬舍清潔消毒，搭配清洗液，省水省力省時！</p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t3p3.name">
                         消毒噴霧機
                       </h4>
                     </li>
-                    <p>
+                    <p data-i18n="home.t3p3.desc">
                       做環境定期消毒，並可有效降低環境臭味，提升飼養品質！
                       <!-- <a href="./product" target="_blank" rel="noreferrer noopenner">詳細規格</a> -->
                     </p>
@@ -674,13 +691,13 @@
                       href="products.html"
                       class="btn btn-primary"
                       style="padding: 12px 30px; font-size: 16px"
-                      ><i class="bi bi-grid"></i> 查看完整產品列表</a
+                      ><i class="bi bi-grid"></i> <span data-i18n="home.viewFullList">查看完整產品列表</span></a
                     >
                   </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center">
                   <h2 class="d-xl-none d-lg-none">
-                    生物安全防治設備
+                    <span data-i18n="home.tab3">生物安全防治設備</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       aria-hidden="true"
@@ -708,72 +725,75 @@
             <div class="tab-pane" id="tab-4">
               <div class="row">
                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                  <h3>
+                  <h3 data-i18n="home.tab4.intro">
                     威特嘉科技開發多項省工設備，幫助您節省人力與時間，並達到高效產值與安全防護！
                   </h3>
                   <ul>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t4p1.name">
                         無針注射器
                       </h4>
                       <a
                         href="product.html?id=EPIG"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>
+                    <p data-i18n="home.t4p1.desc">
                       氣動式手持無針注射器，可連續注射1200頭仔豬，並避免交叉感染病毒！
                     </p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t4p2.name">
                         電動磨牙機
                       </h4>
                       <a
                         href="product.html?id=tooth"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>
+                    <p data-i18n="home.t4p2.desc">
                       採用德國大廠BOSCH主機與威特嘉開發鋁帽頭，輕鬆完成仔豬磨牙工作，減少傷口感染！
                     </p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t4p3.name">
                         仔豬電熱剪尾器
                       </h4>
                     </li>
-                    <p>
+                    <p data-i18n="home.t4p3.desc">
                       刀片瞬熱輕鬆完成小豬剪尾工作，減少流血及傷口感染！
                       <!-- <a href="./product" target="_blank" rel="noreferrer noopenner">詳細規格</a> -->
                     </p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t4p4.name">
                         多功能仔豬工作車
                       </h4>
                       <a
                         href="product.html?id=F1"
                         target="_blank"
                         rel="noreferrer noopenner"
+                        data-i18n="home.detailsBtn"
                         >詳細規格</a
                       >
                     </li>
-                    <p>
+                    <p data-i18n="home.t4p4.desc">
                       僅需一人即可完成仔豬首次處理的所有工作事項，節省人力及時間！
                     </p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t4p5.name">
                         不鏽鋼去勢鉗
                       </h4>
                     </li>
-                    <p>
+                    <p data-i18n="home.t4p5.desc">
                       快速完成仔豬閹割，避免流血及傷口感染！
                       <!-- <a href="./product" target="_blank" rel="noreferrer noopenner">詳細規格</a> -->
                     </p>
@@ -783,13 +803,13 @@
                       href="products.html"
                       class="btn btn-primary"
                       style="padding: 12px 30px; font-size: 16px"
-                      ><i class="bi bi-grid"></i> 查看完整產品列表</a
+                      ><i class="bi bi-grid"></i> <span data-i18n="home.viewFullList">查看完整產品列表</span></a
                     >
                   </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center">
                   <h2 class="d-xl-none d-lg-none">
-                    其他相關設備
+                    <span data-i18n="home.tab4">其他相關設備</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       aria-hidden="true"
@@ -817,11 +837,11 @@
             <div class="tab-pane" id="tab-5">
               <div class="row">
                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                  <h3>消耗性產品</h3>
+                  <h3 data-i18n="home.tab5">消耗性產品</h3>
                   <ul>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t5p1.name">
                         傷口隔絕劑
                       </h4>
                       <!--<a
@@ -831,12 +851,12 @@
                         >近期上市</a
                       >-->
                     </li>
-                    <p>
+                    <p data-i18n="home.t5p1.desc">
                       豬舍專用噴劑，有效隔絕傷口，避免感染、蚊蟲咬傷，加強傷口癒合！
                     </p>
                     <li>
                       <i class="ri-check-double-line"></i>
-                      <h4 style="display: inline; font-weight: 700">
+                      <h4 style="display: inline; font-weight: 700" data-i18n="home.t5p2.name">
                         清洗泡沫劑
                       </h4>
                       <!-- <a
@@ -846,7 +866,7 @@
                         >詳細規格</a
                       > -->
                     </li>
-                    <p>
+                    <p data-i18n="home.t5p2.desc">
                       豬舍專用清洗泡沫，有效分解殘料油脂及豬隻糞便，降低細菌生成、不影響廢水排放，
                       省時、省力、省水！
                     </p>
@@ -856,13 +876,13 @@
                       href="products.html"
                       class="btn btn-primary"
                       style="padding: 12px 30px; font-size: 16px"
-                      ><i class="bi bi-grid"></i> 查看完整產品列表</a
+                      ><i class="bi bi-grid"></i> <span data-i18n="home.viewFullList">查看完整產品列表</span></a
                     >
                   </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center">
                   <h2 class="d-xl-none d-lg-none">
-                    消耗性產品
+                    <span data-i18n="home.tab5">消耗性產品</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       aria-hidden="true"
@@ -897,12 +917,12 @@
         <div class="container">
           <div class="section-title" data-aos="zoom-out">
             <h2>About</h2>
-            <p>關於威特嘉</p>
+            <p data-i18n="home.about.subtitle">關於威特嘉</p>
           </div>
 
           <div class="row content" data-aos="fade-up">
             <div class="col-lg-6">
-              <p>
+              <p data-i18n-html="home.about.p1">
                 威特嘉科技開發股份有限公司於2020年在台中成立，
                 旨在提升國內養豬產業工作效率及環境衛生安全，
                 提供國內外畜牧產業設備、產品，
@@ -912,20 +932,20 @@
               <ul>
                 <li>
                   <i class="ri-check-double-line"></i>
-                  提供無線智能超音波設備，並提供測孕相關之教學及服務。
+                  <span data-i18n="home.about.li1">提供無線智能超音波設備，並提供測孕相關之教學及服務。</span>
                 </li>
                 <li>
                   <i class="ri-check-double-line"></i>
-                  客製化生產小豬工作車、斃死豬搬運車及公豬試情車等省工設備。
+                  <span data-i18n="home.about.li2">客製化生產小豬工作車、斃死豬搬運車及公豬試情車等省工設備。</span>
                 </li>
                 <li>
                   <i class="ri-check-double-line"></i>
-                  設計客製化生物安全小屋，以實現台灣畜牧產業生物安全防治之目標。
+                  <span data-i18n="home.about.li3">設計客製化生物安全小屋，以實現台灣畜牧產業生物安全防治之目標。</span>
                 </li>
               </ul>
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0">
-              <p>
+              <p data-i18n-html="home.about.p2">
                 威特嘉致力於在台生產符合台灣養殖環境之相關設備，
                 能做到超越國外大廠品質並實現在台快速保固及維修服務，
                 讓您買得放心用得安心。
@@ -952,8 +972,8 @@
         <div class="container">
           <div class="row" data-aos="zoom-out">
             <div class="col-lg-9 text-center text-lg-start">
-              <h3>立即來電</h3>
-              <p>
+              <h3 data-i18n="home.cta.title">立即來電</h3>
+              <p data-i18n="home.cta.desc">
                 配合行政院農委會「擴大養豬場導入新式整合型設備」補助案第三大類，養豬場導入自動化省工設備之相關補助項目優惠實施中！
               </p>
             </div>
@@ -963,6 +983,7 @@
               <a
                 class="cta-btn align-middle"
                 onclick="location.href='tel:04-83405528'"
+                data-i18n="home.cta.call"
                 >立即來電</a
               >
               <a
@@ -972,6 +993,7 @@
                   background: rgba(255, 255, 255, 0.1);
                   border: 2px solid rgba(255, 255, 255, 0.8);
                 "
+                data-i18n="home.cta.viewProducts"
                 >查看產品</a
               >
             </div>
@@ -985,7 +1007,7 @@
         <div class="container">
           <div class="section-title" data-aos="zoom-out">
             <h2>Portfolio</h2>
-            <p>案例分享</p>
+            <p data-i18n="home.portfolio.subtitle">案例分享</p>
           </div>
 
           <ul
@@ -993,10 +1015,10 @@
             class="d-flex justify-content-end"
             data-aos="fade-up"
           >
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">客戶案例</li>
-            <li data-filter=".filter-card">操作指導</li>
-            <li data-filter=".filter-web">活動花絮</li>
+            <li data-filter="*" class="filter-active" data-i18n="home.filter.all">All</li>
+            <li data-filter=".filter-app" data-i18n="home.filter.customer">客戶案例</li>
+            <li data-filter=".filter-card" data-i18n="home.filter.guide">操作指導</li>
+            <li data-filter=".filter-web" data-i18n="home.filter.event">活動花絮</li>
           </ul>
 
           <div class="row portfolio-container" data-aos="fade-up">
@@ -1009,8 +1031,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>客戶案例 1</h4>
-                <p>客戶案例</p>
+                <h4 data-i18n="home.pf.cust1">客戶案例 1</h4>
+                <p data-i18n="home.filter.customer">客戶案例</p>
                 <a
                   href="assets/img/portfolio/cust1.jpg"
                   data-gallery="portfolioGallery"
@@ -1036,8 +1058,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>活動花絮 3</h4>
-                <p>活動花絮</p>
+                <h4 data-i18n="home.pf.event3">活動花絮 3</h4>
+                <p data-i18n="home.filter.event">活動花絮</p>
                 <a
                   href="assets/img/portfolio/seminar1.jpg"
                   data-gallery="portfolioGallery"
@@ -1063,8 +1085,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>客戶案例 2</h4>
-                <p>客戶案例</p>
+                <h4 data-i18n="home.pf.cust2">客戶案例 2</h4>
+                <p data-i18n="home.filter.customer">客戶案例</p>
                 <a
                   href="assets/img/portfolio/cust2.jpg"
                   data-gallery="portfolioGallery"
@@ -1090,8 +1112,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>操作指導 2</h4>
-                <p>操作指導</p>
+                <h4 data-i18n="home.pf.guide2">操作指導 2</h4>
+                <p data-i18n="home.filter.guide">操作指導</p>
                 <a
                   href="assets/img/portfolio/cust3.jpg"
                   data-gallery="portfolioGallery"
@@ -1117,8 +1139,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>活動花絮 2</h4>
-                <p>活動花絮</p>
+                <h4 data-i18n="home.pf.event2">活動花絮 2</h4>
+                <p data-i18n="home.filter.event">活動花絮</p>
                 <a
                   href="assets/img/portfolio/seminar2.jpg"
                   data-gallery="portfolioGallery"
@@ -1144,8 +1166,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>客戶案例 3</h4>
-                <p>客戶案例</p>
+                <h4 data-i18n="home.pf.cust3">客戶案例 3</h4>
+                <p data-i18n="home.filter.customer">客戶案例</p>
                 <a
                   href="assets/img/portfolio/produce1.jpg"
                   data-gallery="portfolioGallery"
@@ -1171,8 +1193,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>操作指導 1</h4>
-                <p>操作指導</p>
+                <h4 data-i18n="home.pf.guide1">操作指導 1</h4>
+                <p data-i18n="home.filter.guide">操作指導</p>
                 <a
                   href="assets/img/portfolio/cust4.jpg"
                   data-gallery="portfolioGallery"
@@ -1198,8 +1220,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>操作指導 3</h4>
-                <p>操作指導</p>
+                <h4 data-i18n="home.pf.guide3">操作指導 3</h4>
+                <p data-i18n="home.filter.guide">操作指導</p>
                 <a
                   href="assets/img/portfolio/seminar3.jpg"
                   data-gallery="portfolioGallery"
@@ -1225,8 +1247,8 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>活動花絮 3</h4>
-                <p>活動花絮</p>
+                <h4 data-i18n="home.pf.event3">活動花絮 3</h4>
+                <p data-i18n="home.filter.event">活動花絮</p>
                 <a
                   href="assets/img/portfolio/seminar4.jpg"
                   data-gallery="portfolioGallery"
@@ -1695,7 +1717,7 @@
         <div class="container">
           <div class="section-title" data-aos="zoom-out">
             <h2>Contact</h2>
-            <p>聯絡我們</p>
+            <p data-i18n="home.contact.subtitle">聯絡我們</p>
           </div>
 
           <div class="row mt-5">
@@ -1703,20 +1725,20 @@
               <div class="info">
                 <div class="address">
                   <i class="bi bi-geo-alt"></i>
-                  <h4>地址：</h4>
-                  <p>台中市西屯區安和一街37號</p>
+                  <h4 data-i18n="home.contact.addr">地址：</h4>
+                  <p data-i18n="home.contact.addrVal">台中市西屯區安和一街37號</p>
                 </div>
 
                 <div class="email">
                   <i class="bi bi-envelope"></i>
-                  <h4>Email：</h4>
+                  <h4 data-i18n="home.contact.email">Email：</h4>
                   <p>service@witega.com.tw</p>
                 </div>
 
                 <div class="phone">
                   <i class="bi bi-phone"></i>
-                  <h4>電話：</h4>
-                  <p>(04)3707-8258</p>
+                  <h4 data-i18n="home.contact.phone">電話：</h4>
+                  <p data-i18n="home.contact.phoneVal">(04)3707-8258</p>
                 </div>
               </div>
             </div>
@@ -1761,6 +1783,7 @@
                     <label
                       for="name"
                       class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                      data-i18n="home.form.name"
                       >姓名</label
                     >
                     <input
@@ -1768,11 +1791,13 @@
                       name="name"
                       id="first_name"
                       placeholder="姓名"
+                      data-i18n-ph="home.form.name"
                       required
                       class="form-control"
                     />
                     <div
                       class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+                      data-i18n="home.form.nameErr"
                     >
                       請輸入姓名。
                     </div>
@@ -1781,6 +1806,7 @@
                     <label
                       for="phone"
                       class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                      data-i18n="home.form.phone"
                       >電話</label
                     >
                     <input
@@ -1791,7 +1817,7 @@
                       required
                       class="form-control"
                     />
-                    <div class="invalid-feedback text-red-400 text-sm mt-1">
+                    <div class="invalid-feedback text-red-400 text-sm mt-1" data-i18n="home.form.phoneErr">
                       請輸入正確的電話格式。
                     </div>
                   </div>
@@ -1800,6 +1826,7 @@
                   <label
                     for="subject"
                     class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                    data-i18n="home.form.subject"
                     >主旨</label
                   >
                   <input
@@ -1808,10 +1835,12 @@
                     name="subject"
                     id="subject"
                     placeholder="主旨"
+                    data-i18n-ph="home.form.subject"
                     required
                   />
                   <div
                     class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+                    data-i18n="home.form.subjectErr"
                   >
                     請輸入主旨。
                   </div>
@@ -1821,6 +1850,7 @@
                   <label
                     for="message"
                     class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                    data-i18n="home.form.message"
                     >訊息</label
                   >
 
@@ -1829,18 +1859,20 @@
                     name="message"
                     id="message"
                     placeholder="訊息"
+                    data-i18n-ph="home.form.message"
                     class="form-control"
                     required
                   ></textarea>
                   <div
                     class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+                    data-i18n="home.form.messageErr"
                   >
                     請輸入訊息。
                   </div>
                 </div>
 
                 <div class="text-center">
-                  <button type="submit">送出</button>
+                  <button type="submit" data-i18n="home.form.submit">送出</button>
                 </div>
                 <p class="text-base text-center text-gray-400" id="result"></p>
               </form>
@@ -1855,7 +1887,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="container">
-        <h3>威特嘉科技開發股份有限公司</h3>
+        <h3 data-i18n="footer.company">威特嘉科技開發股份有限公司</h3>
         <p>Witega Technology Development CO., Ltd.</p>
         <div class="social-links">
           <a href="https://lin.ee/UNmlNbW" class="line"
@@ -1884,7 +1916,7 @@
               margin: 0 15px;
             "
           >
-            <i class="bi bi-grid"></i> 產品列表
+            <i class="bi bi-grid"></i> <span data-i18n="nav.products">產品列表</span>
           </a>
           <a
             href="#services"
@@ -1895,7 +1927,7 @@
               margin: 0 15px;
             "
           >
-            <i class="bi bi-box-seam"></i> 產品服務
+            <i class="bi bi-box-seam"></i> <span data-i18n="nav.services">產品服務</span>
           </a>
           <a
             href="#contact"
@@ -1906,12 +1938,12 @@
               margin: 0 15px;
             "
           >
-            <i class="bi bi-envelope"></i> 聯絡我們
+            <i class="bi bi-envelope"></i> <span data-i18n="nav.contact">聯絡我們</span>
           </a>
         </div>
         <div class="copyright">
           &copy; Copyright <strong><span>Witega</span></strong
-          >. All Rights Reserved
+          >. <span data-i18n="footer.rights">All Rights Reserved</span>
         </div>
       </div>
     </footer>
@@ -1933,6 +1965,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="form/contact.js"></script>
+    <!-- 雙語 i18n -->
+    <script src="assets/js/i18n.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
   </body>
